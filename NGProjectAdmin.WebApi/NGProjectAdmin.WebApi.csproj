@@ -11,7 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NGProjectAdmin.Common\NGProjectAdmin.Common.csproj" />
     <ProjectReference Include="..\NGProjectAdmin.Entity\NGProjectAdmin.Entity.csproj" />
-    <ProjectReference Include="..\Repository\NGProjectAdmin.Repository.csproj" />
+    <ProjectReference Include="..\NGProjectAdmin.Repository\NGProjectAdmin.Repository.csproj" />
   </ItemGroup>
 
 
