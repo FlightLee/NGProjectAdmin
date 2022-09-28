@@ -1,0 +1,15 @@
+C:\Project\NGProject\NGProjectAdmin\Repository\bin\Debug\net6.0\NGProjectAdmin.Repository.deps.json
+C:\Project\NGProject\NGProjectAdmin\Repository\bin\Debug\net6.0\NGProjectAdmin.Repository.dll
+C:\Project\NGProject\NGProjectAdmin\Repository\bin\Debug\net6.0\NGProjectAdmin.Repository.pdb
+C:\Project\NGProject\NGProjectAdmin\Repository\bin\Debug\net6.0\NGProjectAdmin.Entity.dll
+C:\Project\NGProject\NGProjectAdmin\Repository\bin\Debug\net6.0\NGProjectAdmin.Entity.pdb
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\NGProjectAdmin.Repository.csproj.AssemblyReference.cache
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\NGProjectAdmin.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\NGProjectAdmin.Repository.AssemblyInfoInputs.cache
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\NGProjectAdmin.Repository.AssemblyInfo.cs
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\NGProjectAdmin.Repository.csproj.CoreCompileInputs.cache
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\NGProjectAdmin.Repository.csproj.CopyComplete
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\NGProjectAdmin.Repository.dll
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\refint\NGProjectAdmin.Repository.dll
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\NGProjectAdmin.Repository.pdb
+C:\Project\NGProject\NGProjectAdmin\Repository\obj\Debug\net6.0\ref\NGProjectAdmin.Repository.dll
