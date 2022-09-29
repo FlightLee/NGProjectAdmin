@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentFTP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,60 @@ namespace NGProjectAdmin.Common.Global
         /// <summary>
         /// 系统配置
         /// </summary>
-        public static SystemConfig SystemConfig { get; set; } 
+        public static SystemConfig SystemConfig { get; set; }
+
+        /// <summary>
+        /// Redis配置
+        /// </summary>
+        public static RedisConfig RedisConfig { get; set; }
+
+
+        /// <summary>
+        /// Elasticsearch配置    全文检索 暂不启用
+        /// </summary>
+        public static ElasticsearchConfig ElasticsearchConfig { get; set; }
+
+
+        /// <summary>
+        /// Ftp配置 暂不启用
+        /// </summary>
+        public static FtpConfig FtpConfig { get; set; }
+
+        /// <summary>
+        /// Kafka配置  消息订阅推送 暂不启用 高数据量大数据处理
+        /// </summary>
+        public static KafkaConfig KafkaConfig { get; set; }
+
+
+        /// <summary>
+        /// RabbitMQ配置  消息订阅推送 暂不启用 可靠性较高
+        /// </summary>
+        public static RabbitMQConfig RabbitMQConfig { get; set; }
+
+
+        /// <summary>
+        /// SmartThreadPool配置  暂不启用 线程池 多任务批量处理
+        /// </summary>
+        public static SmartThreadPoolConfig SmartThreadPoolConfig { get; set; }
+
+        /// <summary>
+        /// 系统目录配置
+        /// </summary>
+        public static DirectoryConfig DirectoryConfig { get; set; }
+
+        /// <summary>
+        /// 审计日志设置 暂不启用
+        /// </summary>
+        public static LogConfig LogConfig { get; set; }
+
+        /// <summary>
+        /// Meilisearch配置   --全文搜索 对中文支持更友好 暂不启用
+        /// </summary>
+        public static MeilisearchConfig MeilisearchConfig { get; set; }
+
+        /// <summary>
+        /// 代码生成器配置
+        /// </summary>
+        public static CodeGeneratorConfig CodeGeneratorConfig { get; set; }
     }
 }

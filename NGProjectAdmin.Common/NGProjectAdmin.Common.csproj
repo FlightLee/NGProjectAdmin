@@ -7,7 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Confluent.Kafka" Version="1.9.3" />
+    <PackageReference Include="CSRedisCore" Version="3.8.669" />
+    <PackageReference Include="FluentFTP" Version="40.0.0" />
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="Masuit.Tools.Core" Version="2.5.5" />
+    <PackageReference Include="MeiliSearch" Version="0.11.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="NEST" Version="7.17.4" />
+    <PackageReference Include="NPOI" Version="2.5.6" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+    <PackageReference Include="SmartThreadPool.dll" Version="2.3.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.66" />
+    <PackageReference Include="Tesseract" Version="4.1.1" />
+    <PackageReference Include="ZXing.Net.Bindings.ZKWeb.System.Drawing" Version="0.16.6" />
   </ItemGroup>
 
 </Project>

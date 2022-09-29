@@ -1,3 +1,4 @@
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -5,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Primitives;
 using NGProjectAdmin.Common.Global;
+using NGProjectAdmin.WebApi.AppCode.IoCDependencyInjection;
 
 namespace NGProjectAdmin
 {
@@ -16,6 +18,15 @@ namespace NGProjectAdmin
         }
 
         public IConfiguration Configuration { get; }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            #region ×¢²áIoC¿ØÖÆ·´×ª
+
+            builder.RegisterModule<DependencyAutoInjection>();
+
+            #endregion
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -58,7 +69,7 @@ namespace NGProjectAdmin
         private void InitConfiguration()
         {
             NGAdminGlobalContext.DBConfig = Configuration.GetSection("DBConfig").Get<DBConfig>();
-            //NGAdminGlobalContext.SystemConfig = Configuration.GetSection("SystemConfig").Get<SystemConfig>();
+            NGAdminGlobalContext.SystemConfig = Configuration.GetSection("SystemConfig").Get<SystemConfig>();
         }
     }
 }

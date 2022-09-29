@@ -1,4 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
+using NGProjectAdmin.Common.Global;
+using NGProjectAdmin.Common.Utility;
+using NGProjectAdmin.Entity.BusinessDTO.SystemManagement;
+using NGProjectAdmin.Entity.BusinessEnum;
 using NGProjectAdmin.Entity.User;
 using System;
 using System.Collections.Generic;
@@ -15,11 +19,11 @@ namespace NGProjectAdmin.Entity.CoreEntity
         /// </summary>
         /// <param name="context">HttpContext</param>
         /// <returns>用户信息</returns>
-        public static UserBaseInfo GetCurrentUserInfo(IHttpContextAccessor context)
+        public static SysUserDTO GetCurrentUserInfo(IHttpContextAccessor context)
         {
             var token = context.HttpContext.GetToken();
 
-            var user = RuYiRedisContext.Get<SysUserDTO>(token);
+            var user = NGRedisContext.Get<SysUserDTO>(token);
 
             return user;
         }
@@ -33,10 +37,10 @@ namespace NGProjectAdmin.Entity.CoreEntity
         {
             var orgId = Guid.Empty;
 
-            var user = RuYiAdminSessionContext.GetCurrentUserInfo(context);
+            var user =NGAdminSessionContext.GetCurrentUserInfo(context);
             if (user.IsSupperAdmin.Equals((int)YesNo.YES) && user.OrgId.Equals(Guid.Empty))
             {
-                orgId = RuYiAdminGlobalContext.SystemConfig.OrgRoot;
+                orgId = NGAdminGlobalContext.SystemConfig.OrgRoot;
             }
             else
             {

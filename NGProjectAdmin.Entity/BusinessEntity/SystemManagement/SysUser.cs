@@ -1,20 +1,22 @@
-﻿using NGProjectAdmin.Common.Class.Excel;
+﻿//-----------------------------------------------------------------------
+// <Copyright>
+// * Copyright (C) 2022 RuYiAdmin All Rights Reserved
+// </Copyright>
+//-----------------------------------------------------------------------
+
+using NGProjectAdmin.Common.Class.Excel;
 using NGProjectAdmin.Entity.Base;
 using SqlSugar;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NGProjectAdmin.Entity.User
+namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
 {
     /// <summary>
     /// 用户模型
     /// </summary>
-    [SugarTable("t_userBaseInfo")]
-    public class UserBaseInfo: NGAdminBaseEntity
+    [SugarTable("sys_user")]
+    public class SysUser : NGAdminBaseEntity
     {
         /// <summary>
         /// 登录名称

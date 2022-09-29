@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using NGProjectAdmin.Common.Class.Excel;
 using NGProjectAdmin.Entity.CommonEnum;
 using NGProjectAdmin.Entity.CoreEntity;
 using SqlSugar;
@@ -116,7 +117,7 @@ namespace NGProjectAdmin.Entity.Base
         /// <param name="context">HttpContext</param>
         public void Modify(IHttpContextAccessor context)
         {
-            var user = RuYiAdminSessionContext.GetCurrentUserInfo(context);
+            var user = NGAdminSessionContext.GetCurrentUserInfo(context);
 
             this.Modifier = user.Id;
             this.ModifyTime = DateTime.Now;
@@ -132,7 +133,7 @@ namespace NGProjectAdmin.Entity.Base
         {
             this.IsDel = (int)DeletionType.Deleted;
 
-            var user = RuYiAdminSessionContext.GetCurrentUserInfo(context);
+            var user = NGAdminSessionContext.GetCurrentUserInfo(context);
 
             this.Modifier = user.Id;
             this.ModifyTime = DateTime.Now;
