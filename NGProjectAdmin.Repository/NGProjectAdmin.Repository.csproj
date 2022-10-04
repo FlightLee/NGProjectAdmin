@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Base\NGDBClient.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Base\NGDBClient.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\NGProjectAdmin.Entity\NGProjectAdmin.Entity.csproj" />
   </ItemGroup>
 

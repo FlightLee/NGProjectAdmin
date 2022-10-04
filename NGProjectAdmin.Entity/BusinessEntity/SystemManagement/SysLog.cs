@@ -1,9 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// <Copyright>
-// * Copyright (C) 2022 RuYiAdmin All Rights Reserved
-// </Copyright>
-//-----------------------------------------------------------------------
-
+﻿
 using Masuit.Tools.Core.Validator;
 using Microsoft.AspNetCore.JsonPatch.Operations;
 using NGProjectAdmin.Entity.Base;

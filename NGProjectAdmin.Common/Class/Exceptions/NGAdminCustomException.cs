@@ -1,10 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// <Copyright>
-// * Copyright (C) 2022 RuYiAdmin All Rights Reserved
-// </Copyright>
-//-----------------------------------------------------------------------
-
-using System;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace NGProjectAdmin.Common.Class.Exceptions

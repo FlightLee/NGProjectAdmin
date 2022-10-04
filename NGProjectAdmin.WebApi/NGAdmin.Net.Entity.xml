@@ -1,0 +1,2590 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RuYiAdmin.Net.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:RuYiAdmin.Net.Entity.AutoMapperConfig.AutoMapperProfile">
+            <summary>
+            映射描述文件
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.Id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.IsDel">
+            <summary>
+            逻辑标志位
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.Creator">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.Modifier">
+            <summary>
+            编辑人员
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.ModifyTime">
+            <summary>
+            编辑时间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.VersionId">
+            <summary>
+            版本编号
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.ToJson">
+            <summary>
+            转化为json
+            </summary>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.Create(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            创建赋值
+            </summary>
+            <param name="context">HttpContext</param>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.Modify(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            编辑赋值
+            </summary>
+            <param name="context">HttpContext</param>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.Base.RuYiAdminBaseEntity.Delete(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            逻辑删除赋值
+            </summary>
+            <param name="context">HttpContext</param>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessConstant.JobAction">
+            <summary>
+            作业操作常量
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizAccountDTO">
+            <summary>
+            同步账号DTO
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizAccountDTO.Token">
+            <summary>
+            口令
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizModuleDTO">
+            <summary>
+            BizModule DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizModuleDTO.UserModuleLogonName">
+            <summary>
+            用户所在模块登录账号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizModuleDTO.UserModulePassword">
+            <summary>
+            用户所在模块登录密码
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO">
+            <summary>
+            业务用户DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO.ModuleId">
+            <summary>
+            模块编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO.UserLogonName">
+            <summary>
+            用户登录账号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO.UserDisplayName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO.UserPassword">
+            <summary>
+            用户密码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO.Telephone">
+            <summary>
+            座机
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO.MobilePhone">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserDTO.Sex">
+            <summary>
+            性别
+            0：男
+            1：女
+            2：第三性别
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO">
+            <summary>
+            BizUserModuleDTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.ModuleId">
+            <summary>
+            模块编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.UserModuleLogonName">
+            <summary>
+            用户所在模块登录账号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.UserModulePassword">
+            <summary>
+            用户所在模块登录密码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.UserLogonName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.UserDisplayName">
+            <summary>
+            用户展示名
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.UserPassword">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.Telephone">
+            <summary>
+            座机
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.MobilePhone">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.IsEnabled">
+            <summary>
+            是否启用
+            0：禁用；
+            1：启用
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.BusinessModule.BizUserModuleDTO.Sex">
+            <summary>
+            性别
+            0：男
+            1：女
+            2：第三性别
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO">
+            <summary>
+            代码生成器DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO.EntityNamespace">
+            <summary>
+            模型层命名空间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO.DTONamespace">
+            <summary>
+            DTO模型命名空间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO.ControllerNamespace">
+            <summary>
+            控制层命名空间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO.ServiceNamespace">
+            <summary>
+            服务层命名空间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO.RepositoryNamespace">
+            <summary>
+            仓储层命名空间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO.Tables">
+            <summary>
+            表数组
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO.LayoutMode">
+            <summary>
+            布局方式
+            0:上下布局
+            1:左右布局
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.CodeGeneratorDTO.AutoFillFullName">
+            <summary>
+            自动补全路径
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO">
+            <summary>
+            导入配置明细DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.Cells">
+            <summary>
+            所在列
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.Rquired">
+            <summary>
+            是否必填项
+            0：否
+            1：是
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.DecimalLimit">
+            <summary>
+            小数位上限
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.TextEnum">
+            <summary>
+            枚举列表
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.Extend1">
+            <summary>
+            扩展字段
+            正则占用
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.Extend2">
+            <summary>
+            扩展字段
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.Extend3">
+            <summary>
+            扩展字段
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO">
+            <summary>
+            导入配置DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.ExcelPath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.ValidationDetecting">
+            <summary>
+            有效性校验
+            </summary>
+            <returns>错误数量</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.DetectingWorksheet(NPOI.SS.UserModel.ISheet)">
+            <summary>
+            校验工作簿
+            </summary>
+            <param name="worksheet">工作簿</param>
+            <returns>错误数量</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.DecimalValidation(NPOI.SS.UserModel.ISheet,RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO)">
+            <summary>
+            校验小数
+            </summary>
+            <param name="worksheet">工作簿</param>
+            <param name="detailConfig">配置明细</param>
+            <returns>错误数量</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.IntegerValidation(NPOI.SS.UserModel.ISheet,RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO)">
+            <summary>
+            校验整数
+            </summary>
+            <param name="worksheet">工作簿</param>
+            <param name="detailConfig">配置明细</param>
+            <returns>错误数量</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.TextValidation(NPOI.SS.UserModel.ISheet,RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO)">
+            <summary>
+            校验文本
+            </summary>
+            <param name="worksheet">工作簿</param>
+            <param name="detailConfig">配置明细</param>
+            <returns>错误数量</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.DateValidation(NPOI.SS.UserModel.ISheet,RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO)">
+            <summary>
+            校验日期
+            </summary>
+            <param name="worksheet">工作簿</param>
+            <param name="detailConfig">配置明细</param>
+            <returns>错误数量</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDTO.DateTimeValidation(NPOI.SS.UserModel.ISheet,RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.ImportConfigDetailDTO)">
+            <summary>
+            校验时间
+            </summary>
+            <param name="worksheet">工作簿</param>
+            <param name="detailConfig">配置明细</param>
+            <returns>错误数量</returns>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.LoginDTO">
+            <summary>
+            用户登录DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.LoginDTO.UserName">
+            <summary>
+            登录账号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.LoginDTO.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.LoginDTO.CaptchaId">
+            <summary>
+            验证码编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.LoginDTO.Captcha">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.OrgUserTreeDTO">
+            <summary>
+            机构、用户树
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.OrgUserTreeDTO.Id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.OrgUserTreeDTO.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.OrgUserTreeDTO.Type">
+            <summary>
+            类型
+            1，机构
+            2，用户
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.OrgUserTreeDTO.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.OrgUserTreeDTO.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.PasswordDTO">
+            <summary>
+            PasswordDTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.PasswordDTO.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.PasswordDTO.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.PasswordDTO.Salt">
+            <summary>
+            盐
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.QuartzJobDTO.JobId">
+            <summary>
+            任务编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.QuartzJobDTO.GroupId">
+            <summary>
+            集群节点编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.QuartzJobDTO.Action">
+            <summary>
+            预执行动作
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysAnnouncementDTO">
+            <summary>
+            通知公告DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysAnnouncementDTO.Addressee">
+            <summary>
+            收件人列表
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysAnnouncementDTO.AttachmentIds">
+            <summary>
+            附件编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysAnnouncementDTO.SendMail">
+            <summary>
+            是否发送邮件
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysAreaDTO">
+            <summary>
+            行政区域DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysAreaDTO.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysCodeTableDTO">
+            <summary>
+            数据字典DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysCodeTableDTO.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysMenuDTO">
+            <summary>
+            菜单DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysMenuDTO.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysMenuDTO.MenuNameEn">
+            <summary>
+            英文菜单名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysMenuDTO.MenuNameRu">
+            <summary>
+            俄文菜单名称
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysNotificationDTO">
+            <summary>
+            系统通知DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysNotificationDTO.Readed">
+            <summary>
+            阅读状态，0：未读，1：已读
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysOrganizationDTO">
+            <summary>
+            机构DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysOrganizationDTO.LeaderName">
+            <summary>
+            主管人姓名
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysOrganizationDTO.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysRoleDTO">
+            <summary>
+            系统角色DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysRoleDTO.OrgId">
+            <summary>
+            机构编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysRoleDTO.OrgName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysUserDTO">
+            <summary>
+            用户DTO
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysUserDTO.OrgId">
+            <summary>
+            机构编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysUserDTO.OrgName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysUserDTO.Token">
+            <summary>
+            token
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessDTO.SystemManagement.SysUserDTO.TokenExpiration">
+            <summary>
+            token有效时间
+            单位：秒
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizAccount">
+            <summary>
+            模块API访问账号表
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizAccount.ModuleId">
+            <summary>
+            模块编号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule">
+            <summary>
+            BizModule Entity Model
+            </summary>   
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModuleName">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModuleShortName">
+            <summary>
+            模块简称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModuleShortNameEN">
+            <summary>
+            模块英文简称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModuleProtocol">
+            <summary>
+            采用HTTP协议，HTTP或者HTTPS
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModuleAddress">
+            <summary>
+            模块地址：ip或者域名
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModulePort">
+            <summary>
+            模块端口
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModuleLogoAddress">
+            <summary>
+            模块logo图片位置
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModuleSsoAddress">
+            <summary>
+            模块单点登录地址
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.ModuleTodoAddress">
+            <summary>
+            模块待办地址
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizModule.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser">
+            <summary>
+            BizUser Entity Model
+            </summary>   
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.UserLogonName">
+            <summary>
+            用户登录账号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.UserDisplayName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.UserPassword">
+            <summary>
+            用户密码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Telephone">
+            <summary>
+            座机
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.MobilePhone">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.IsEnabled">
+            <summary>
+            是否启用
+            0：禁用；
+            1：启用
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Sex">
+            <summary>
+            性别
+            0：男
+            1：女
+            2：第三性别
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Salt">
+            <summary>
+            盐
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Extend1">
+            <summary>
+            预留字段1
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Extend2">
+            <summary>
+            预留字段2
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Extend3">
+            <summary>
+            预留字段3
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Extend4">
+            <summary>
+            预留字段4
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUser.Extend5">
+            <summary>
+            预留字段5
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUserModule">
+            <summary>
+            BizUserModule Entity Model
+            </summary>   
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUserModule.ModuleId">
+            <summary>
+            模块编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUserModule.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUserModule.UserModuleLogonName">
+            <summary>
+            用户所在模块登录账号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.BusinessModule.BizUserModule.UserModulePassword">
+            <summary>
+            用户所在模块登录密码
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAddressee">
+            <summary>
+            收件人模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAddressee.BusinessId">
+            <summary>
+            业务编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAddressee.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAddressee.Status">
+            <summary>
+            状态，0：未读，1：已读
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAnnouncement">
+            <summary>
+            通知公告模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAnnouncement.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAnnouncement.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAnnouncement.Type">
+            <summary>
+            类型，0：公告，1：通知
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAnnouncement.Status">
+            <summary>
+            状态，0：开放，1：关闭
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysArea">
+            <summary>
+            行政区域模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysArea.AreaCode">
+            <summary>
+            地区编码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysArea.ParentAreaCode">
+            <summary>
+            父地区编码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysArea.AreaName">
+            <summary>
+            地区名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysArea.ZipCode">
+            <summary>
+            邮政编码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysArea.AreaLevel">
+            <summary>
+            地区层级(1省份 2城市 3区县)
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAttachment">
+            <summary>
+            系统附件模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAttachment.FileName">
+            <summary>
+            附件名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAttachment.FileSize">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAttachment.FilePath">
+            <summary>
+            存储路径
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysAttachment.BusinessId">
+            <summary>
+            业务编号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable">
+            <summary>
+            数据字典模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.CodeName">
+            <summary>
+            编码名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.ParentId">
+            <summary>
+            父键
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.Extend1">
+            <summary>
+            预留字段1
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.Extend2">
+            <summary>
+            预留字段2
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.Extend3">
+            <summary>
+            预留字段3
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.Extend4">
+            <summary>
+            预留字段4
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysCodeTable.Extend5">
+            <summary>
+            预留字段5
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfig">
+            <summary>
+            导入主配置模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfig.ConfigName">
+            <summary>
+            配置名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfig.StartRow">
+            <summary>
+            起始行
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfig.StartColumn">
+            <summary>
+            起始列
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfig.WorkSheetIndexes">
+            <summary>
+            工作簿索引列表
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfig.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail">
+            <summary>
+            导入详细配置模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.ParentId">
+            <summary>
+            父键
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.Cells">
+            <summary>
+            所在列
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.Required">
+            <summary>
+            是否必填项
+            0：否
+            1：是
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.DecimalLimit">
+            <summary>
+            小数位上限
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.TextEnum">
+            <summary>
+            枚举列表
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.Extend1">
+            <summary>
+            扩展字段
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.Extend2">
+            <summary>
+            扩展字段
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.Extend3">
+            <summary>
+            扩展字段
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysImportConfigDetail.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLanguage">
+            <summary>
+            多语模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLanguage.LanguageName">
+            <summary>
+            语言名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLanguage.OrderNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLanguage.Extend1">
+            <summary>
+            预留字段1
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLanguage.Extend2">
+            <summary>
+            预留字段2
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLanguage.Extend3">
+            <summary>
+            预留字段3
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLanguage.Extend4">
+            <summary>
+            预留字段4
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLanguage.Extend5">
+            <summary>
+            预留字段5
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog">
+            <summary>
+            审计日志模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.UserName">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.OrgId">
+            <summary>
+            机构编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.OrgName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.System">
+            <summary>
+            使用系统
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.Browser">
+            <summary>
+            使用浏览器
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.IP">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.OperationType">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.RequestMethod">
+            <summary>
+            请求路径
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.RequestUrl">
+            <summary>
+            请求路径
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.Params">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.Result">
+            <summary>
+            返回值
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.OldValue">
+            <summary>
+            记录旧值
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysLog.NewValue">
+            <summary>
+            记录新值
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu">
+            <summary>
+            菜单模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.Path">
+            <summary>
+            父路径
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.MenuName">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.MenuUrl">
+            <summary>
+            菜单路径
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.ParentId">
+            <summary>
+            父键
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.MenuType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.Extend1">
+            <summary>
+            预留字段1
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.Extend2">
+            <summary>
+            预留字段2
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.Extend3">
+            <summary>
+            预留字段3
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.Extend4">
+            <summary>
+            预留字段4
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenu.Extend5">
+            <summary>
+            预留字段5
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenuLanguage">
+            <summary>
+            多语菜单关系模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenuLanguage.MenuId">
+            <summary>
+            菜单编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenuLanguage.LanguageId">
+            <summary>
+            语言编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysMenuLanguage.MenuName">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization">
+            <summary>
+            机构模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.OrgName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.ParentId">
+            <summary>
+            父键
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.Leader">
+            <summary>
+            主管人
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.Extend1">
+            <summary>
+            预留字段1
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.Extend2">
+            <summary>
+            预留字段2
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.Extend3">
+            <summary>
+            预留字段3
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.Extend4">
+            <summary>
+            预留字段4
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrganization.Extend5">
+            <summary>
+            预留字段5
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrgUser">
+            <summary>
+            机构用户关系模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrgUser.OrgId">
+            <summary>
+            机构编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysOrgUser.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRecord">
+            <summary>
+            SysRecord 实体模型
+            </summary>   
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRole">
+            <summary>
+            角色模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRole.RoleName">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRole.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRole.Extend1">
+            <summary>
+            预留字段1
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRole.Extend2">
+            <summary>
+            预留字段2
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRole.Extend3">
+            <summary>
+            预留字段3
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRole.Extend4">
+            <summary>
+            预留字段4
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRole.Extend5">
+            <summary>
+            预留字段5
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleMenu">
+            <summary>
+            角色菜单关系模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleMenu.RoleId">
+            <summary>
+            角色编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleMenu.MenuId">
+            <summary>
+            菜单编号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleOrg">
+            <summary>
+            角色机构关系模型
+            </summary>   
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleOrg.RoleId">
+            <summary>
+            角色编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleOrg.OrgId">
+            <summary>
+            机构编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleOrg.OwnerType">
+            <summary>
+            类型：0，自有；1，继承
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleUser">
+            <summary>
+            角色用户关系模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleUser.RoleId">
+            <summary>
+            角色编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysRoleUser.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob">
+            <summary>
+            计划任务实体模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.JobName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.JobDescription">
+            <summary>
+            任务描述
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.NameSpace">
+            <summary>
+            命名空间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.JobImplement">
+            <summary>
+            实现类
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.CronExpression">
+            <summary>
+            Cron表达式
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.StartTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.JobStatus">
+            <summary>
+            任务状态
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.GroupId">
+            <summary>
+            集群编号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysScheduleJob.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser">
+            <summary>
+            用户模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.LogonName">
+            <summary>
+            登录名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.DisplayName">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Telephone">
+            <summary>
+            座机号码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.MobilePhone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Email">
+            <summary>
+            邮箱地址
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.IsSupperAdmin">
+            <summary>
+            是否超级管理员
+            0：否
+            1：是
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.SerialNumber">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.IsEnabled">
+            <summary>
+            是否启用
+            0：禁用；
+            1：启用
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Sex">
+            <summary>
+            性别
+            0：男
+            1：女
+            2：第三性别
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Salt">
+            <summary>
+            盐
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Extend1">
+            <summary>
+            预留字段1
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Extend2">
+            <summary>
+            预留字段2
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Extend3">
+            <summary>
+            预留字段3
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Extend4">
+            <summary>
+            预留字段4
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.SystemManagement.SysUser.Extend5">
+            <summary>
+            预留字段5
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.System.BroadcastMessage">
+            <summary>
+            广播消息
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.System.BroadcastMessage.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.System.BroadcastMessage.Message">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.System.BroadcastMessage.MessageLevel">
+            <summary>
+            消息级别
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEntity.System.SystemMessage">
+            <summary>
+            系统消息
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.System.SystemMessage.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.System.SystemMessage.MessageType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.BusinessEntity.System.SystemMessage.Object">
+            <summary>
+            信息载体
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.DeletionType">
+            <summary>
+            删除类型枚举
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.DeletionType.Undeleted">
+            <summary>
+            未删除的
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.DeletionType.Deleted">
+            <summary>
+            删除的
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.JobStatus">
+            <summary>
+            任务状态
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.MenuType">
+            <summary>
+            菜单类型
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MenuType.Menu">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MenuType.Button">
+            <summary>
+            按钮
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MenuType.View">
+            <summary>
+            视图
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.MessageLevel">
+            <summary>
+            消息级别
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageLevel.Information">
+            <summary>
+            消息级别
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageLevel.Notification">
+            <summary>
+            通知级别
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageLevel.Warning">
+            <summary>
+            警告级别
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageLevel.Error">
+            <summary>
+            错误级别
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageLevel.Severity">
+            <summary>
+            严重级别
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageLevel.Emergency">
+            <summary>
+            紧急级别
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.MessageType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageType.ForceLogout">
+            <summary>
+            强制下线
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageType.Notification">
+            <summary>
+            通知
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageType.Announcement">
+            <summary>
+            公告
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.MessageType.Broadcast">
+            <summary>
+            广播
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.OperationType">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.QueryList">
+            <summary>
+            查询列表
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.QueryEntity">
+            <summary>
+            查询实体
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.AddEntity">
+            <summary>
+            新增实体
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.EditEntity">
+            <summary>
+            编辑实体
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.DeleteEntity">
+            <summary>
+            逻辑删除实体
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.RemoveEntity">
+            <summary>
+            物理删除实体
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.UploadFile">
+            <summary>
+            上传文件
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.DownloadFile">
+            <summary>
+            下载文件
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.ImportData">
+            <summary>
+            导入数据
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.ExportData">
+            <summary>
+            导出数据
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.MenuAuthorization">
+            <summary>
+            菜单授权
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.PermissionAuthorization">
+            <summary>
+            用户授权
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.Logon">
+            <summary>
+            登录
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.Logout">
+            <summary>
+            登出
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.ForceLogout">
+            <summary>
+            强制登出
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.UpdatePassword">
+            <summary>
+            更新密码
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.StartScheduleJob">
+            <summary>
+            启动计划任务
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.PauseScheduleJob">
+            <summary>
+            暂停计划任务
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.ResumeScheduleJob">
+            <summary>
+            恢复计划任务
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.DelegatePermission">
+            <summary>
+            权限下放
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.GenerateCode">
+            <summary>
+            生成代码
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.SqlInjectionAttack">
+            <summary>
+            Sql注入攻击
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.TokenHijacked">
+            <summary>
+            Token劫持
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.UnifiedAuthentication">
+            <summary>
+            统一认证
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.UnifiedAuthorization">
+            <summary>
+            统一认证授权
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.RemoveUnifiedAuthorization">
+            <summary>
+            解除统一授权
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.GetSyncToken">
+            <summary>
+            获取同步口令
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.SyncAddUser">
+            <summary>
+            同步新增用户
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.SyncEditUser">
+            <summary>
+            同步编辑用户
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.OperationType.SyncDeleteUser">
+            <summary>
+            同步删除用户
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.ReadingStatus">
+            <summary>
+            阅读状态
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.ReadingStatus.Unread">
+            <summary>
+            未读
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.ReadingStatus.Read">
+            <summary>
+            已读
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.RoleType">
+            <summary>
+            角色类型枚举
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.RoleType.Own">
+            <summary>
+            自有的
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.RoleType.Inherited">
+            <summary>
+            继承的
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.UserStatus">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.UserStatus.Disenabled">
+            <summary>
+            禁用
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.UserStatus.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.BusinessEnum.YesNo">
+            <summary>
+            YesNo枚举
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.YesNo.NO">
+            <summary>
+            NO
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.BusinessEnum.YesNo.YES">
+            <summary>
+            YES
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreDTO.DbSchemaInfoDTO">
+            <summary>
+            数据库模型信息
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreDTO.DbSchemaInfoDTO.SchemaName">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreDTO.DbSchemaInfoDTO.TableName">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreDTO.DbSchemaInfoDTO.TableComment">
+            <summary>
+            表注释
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreDTO.DbSchemaInfoDTO.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEntity.ActionResult">
+            <summary>
+            动作执行结果
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.HttpStatusCode">
+            <summary>
+            HttpStatusCode
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.Message">
+            <summary>
+            执行消息
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.Object">
+            <summary>
+            执行对象
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.#ctor">
+            <summary>
+            无参构造函数
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.#ctor(System.Net.HttpStatusCode,System.String,System.Object)">
+            <summary>
+            带参构造函数
+            </summary>
+            <param name="httpStatusCode">Http状态码</param>
+            <param name="message">消息内容</param>
+            <param name="obj">返回对象</param>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.ToJson">
+            <summary>
+            序列化对象
+            </summary>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.Success(System.Object)">
+            <summary>
+            Success标志
+            </summary>
+            <param name="obj">返回对象</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.OK">
+            <summary>
+            OK标志
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.BadRequest">
+            <summary>
+            BadRequest标志
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.Unauthorized">
+            <summary>
+            Unauthorized标志
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.Forbidden">
+            <summary>
+            Forbidden标志
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.NotFound">
+            <summary>
+            NotFound标志
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.ActionResult.NoContent">
+            <summary>
+            NoContent标志
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaEntity">
+            <summary>
+            实体模型
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaEntity.#ctor">
+            <summary>
+            无参构造函数
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaEntity.#ctor(System.String)">
+            <summary>
+            有参构造函数
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaEntity.EntityName">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaEntity.Fields">
+            <summary>
+            字段集
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaEntity.ToTitleCase(System.String)">
+            <summary>
+            首字母转大写
+            </summary>
+            <param name="input">输入</param>
+            <returns>输出</returns>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaField">
+            <summary>
+            字段模型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaField.FieldName">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaField.FieldDataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaField.FieldComment">
+            <summary>
+            字段注释
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaField.IsNullable">
+            <summary>
+            是否为空
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaField.FieldMaxLength">
+            <summary>
+            最大长度
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaField.IsFieldIgnoreCase">
+            <summary>
+            判断是否忽略
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.DbSchemaField.GetDataType">
+            <summary>
+            获取数据类型
+            </summary>
+            <returns>转译类型</returns>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition">
+            <summary>
+            查询条件
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.PageIndex">
+            <summary>
+            起始页
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.PageSize">
+            <summary>
+            分页数量
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.Sort">
+            <summary>
+            排序字段
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.QueryItems">
+            <summary>
+            查询项
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.#ctor">
+            <summary>
+            无参构造函数
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.#ctor(System.Int32,System.Int32,System.String,System.Collections.Generic.List{RuYiAdmin.Net.Entity.CoreEntity.QueryItem})">
+            <summary>
+            有参构造函数
+            </summary>
+            <param name="pageIndex">起始页</param>
+            <param name="pageSize">分页数量</param>
+            <param name="sort">排序字段</param>
+            <param name="queryItems">查询条件</param>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.ConvertToSQL(System.Collections.Generic.List{RuYiAdmin.Net.Entity.CoreEntity.QueryItem})">
+            <summary>
+            转化为SQL语句
+            </summary>
+            <param name="queryItems">查询条件</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.ReplaceWarnningItems(System.String)">
+            <summary>
+            过滤非关键字
+            </summary>
+            <param name="value">sql</param>
+            <returns>过滤后的sql</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.AddDefaultQueryItem(RuYiAdmin.Net.Entity.CoreEntity.QueryCondition)">
+            <summary>
+            追加缺省查询条件
+            </summary>
+            <param name="queryCondition">QueryCondition对象</param>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.BuildExpression``1(System.Collections.Generic.List{RuYiAdmin.Net.Entity.CoreEntity.QueryItem})">
+            <summary>
+            查询条件转Lamda表达式
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="queryItems">查询条件</param>
+            <returns>表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.DeserializeObject(System.String)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="value"></param>
+            <returns>QueryCondition</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.ToSearchDescriptor``1">
+            <summary>
+            转化为SearchDescriptor
+            </summary>
+            <typeparam name="TDocument">class</typeparam>
+            <returns>SearchDescriptor</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryCondition.ConvertQueryItem(RuYiAdmin.Net.Entity.CoreEntity.QueryItem)">
+            <summary>
+            条件转化
+            </summary>
+            <param name="queryItem">查询条件</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEntity.QueryItem">
+            <summary>
+            查询项
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryItem.Field">
+            <summary>
+            查询项字段
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryItem.DataType">
+            <summary>
+            查询项类型
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryItem.QueryMethod">
+            <summary>
+            查询项方法
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryItem.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryItem.#ctor">
+            <summary>
+            无参构造函数
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryItem.#ctor(System.String,RuYiAdmin.Net.Entity.CoreEnum.DataType,RuYiAdmin.Net.Entity.CoreEnum.QueryMethod,System.Object)">
+            <summary>
+            有参构造函数
+            </summary>
+            <param name="field">字段</param>
+            <param name="dataType">数据类型</param>
+            <param name="queryMethod">查询方法</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryItem.GetDefault">
+            <summary>
+            获取缺省QueryItem
+            </summary>
+            <returns>QueryItem</returns>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1">
+            <summary>
+            查询结果
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.HttpStatusCode">
+            <summary>
+            HttpStatusCode
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.Message">
+            <summary>
+            查询消息
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.TotalCount">
+            <summary>
+            查询总记录数
+            </summary>
+        </member>
+        <member name="P:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.List">
+            <summary>
+            查询记录
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.#ctor">
+            <summary>
+            无参构造函数
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.#ctor(System.Net.HttpStatusCode,System.String,System.Int32,System.Collections.Generic.List{`0})">
+            <summary>
+            带参构造函数
+            </summary>
+            <param name="httpStatusCode">Http状态码</param>
+            <param name="message">消息内容</param>
+            <param name="totalCount">总条数</param>
+            <param name="list">记录列表</param>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.ToJson">
+            <summary>
+            序列化
+            </summary>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.Success(System.Int32,System.Collections.Generic.List{`0})">
+            <summary>
+            Success标志
+            </summary>
+            <param name="totalCount">查询总记录数</param>
+            <param name="list">查询记录</param>
+            <returns>QueryResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.BadRequest">
+            <summary>
+            BadRequest标志
+            </summary>
+            <returns>QueryResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.Unauthorized">
+            <summary>
+            Unauthorized标志
+            </summary>
+            <returns>QueryResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.Forbidden">
+            <summary>
+            Forbidden标志
+            </summary>
+            <returns>QueryResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.NotFound">
+            <summary>
+            NotFound标志
+            </summary>
+            <returns>QueryResult</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.QueryResult`1.NoContent">
+            <summary>
+            NoContent标志
+            </summary>
+            <returns>QueryResult</returns>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEntity.RuYiAdminSessionContext">
+            <summary>
+            Session上下文
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.RuYiAdminSessionContext.GetCurrentUserInfo(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            当前用户
+            </summary>
+            <param name="context">HttpContext</param>
+            <returns>用户信息</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreEntity.RuYiAdminSessionContext.GetUserOrgId(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            获取用户机构编号
+            </summary>
+            <param name="context">HttpContext</param>
+            <returns>用户机构编号</returns>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEnum.CellDataType">
+            <summary>
+            单元格数据类型
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.CellDataType.Decimal">
+            <summary>
+            小数
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.CellDataType.Integer">
+            <summary>
+            整数
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.CellDataType.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.CellDataType.Date">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.CellDataType.DateTime">
+            <summary>
+            时间
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEnum.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.DataType.String">
+            <summary>
+            字符串类型
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.DataType.Date">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.DataType.DateTime">
+            <summary>
+            时间类型
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.DataType.Guid">
+            <summary>
+            GUID
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.DataType.Int">
+            <summary>
+            整型
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.DataType.Double">
+            <summary>
+            浮点型
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod">
+            <summary>
+            查询方法
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.Equal">
+            <summary>
+            等于
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.Like">
+            <summary>
+            模糊查询
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.LessThan">
+            <summary>
+            小于
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.LessThanOrEqual">
+            <summary>
+            小于等于
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.GreaterThan">
+            <summary>
+            大于
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.GreaterThanOrEqual">
+            <summary>
+            大于等于
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.BetweenAnd">
+            <summary>
+            BetweenAnd
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.Include">
+            <summary>
+            Include
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.OrLike">
+            <summary>
+            模糊查询
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreEnum.QueryMethod.NotEqual">
+            <summary>
+            不等于
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension">
+            <summary>
+            构建lambda表达式范例
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.True``1">
+            <summary>
+            lambda表达式：p=>true
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <returns>表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.False``1">
+            <summary>
+            lambda表达式：p=>false
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <returns>表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.GetOrderExpression``2(System.String)">
+            <summary>
+            lambda表达式：p=>p.propertyName
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <typeparam name="TKey">数据类型</typeparam>
+            <param name="propertyName">字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.CreateEqual``1(System.String,System.String)">
+            <summary>
+            lambda表达式：p=>p.propertyName == propertyValue
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="propertyName">字段</param>
+            <param name="propertyValue">值</param>
+            <returns>表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.CreateNotEqual``1(System.String,System.String)">
+            <summary>
+            lambda表达式：p=>p.propertyName != propertyValue
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="propertyName">字段</param>
+            <param name="propertyValue">值</param>
+            <returns>表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.CreateGreaterThan``1(System.String,System.String)">
+            <summary>
+            lambda表达式：p=>p.propertyName > propertyValue
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="propertyName">字段</param>
+            <param name="propertyValue">值</param>
+            <returns>表达式</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.CreateLessThan``1(System.String,System.String)" -->
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.CreateGreaterThanOrEqual``1(System.String,System.String)">
+            <summary>
+            lambda表达式：p=>p.propertyName >= propertyValue
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="propertyName">字段</param>
+            <param name="propertyValue">值</param>
+            <returns>表达式</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.CreateLessThanOrEqual``1(System.String,System.String)" -->
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.GetContains``1(System.String,System.String)">
+            <summary>
+            lambda表达式：p=>p.propertyName.Contains(propertyValue)
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="propertyName">字段</param>
+            <param name="propertyValue">值</param>
+            <returns>表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.GetNotContains``1(System.String,System.String)">
+            <summary>
+            lambda表达式：(p=>!p.propertyName.Contains(propertyValue))
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="propertyName">字段</param>
+            <param name="propertyValue">值</param>
+            <returns>表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            组合And
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="first">第一个表达式</param>
+            <param name="second">第二个表达式</param>
+            <returns>组合表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            组合Or
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="first">第一个表达式</param>
+            <param name="second">第二个表达式</param>
+            <returns>组合表达式</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Combines the first expression with the second using the specified merge function.
+            </summary>
+        </member>
+        <member name="T:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.ParameterRebinder">
+            <summary>
+            ParameterRebinder
+            </summary>
+        </member>
+        <member name="F:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.ParameterRebinder.map">
+            <summary>
+            The ParameterExpression map
+            </summary>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.ParameterRebinder.#ctor(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.ParameterRebinder"/> class.
+            </summary>
+            <param name="map">The map.</param>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.ParameterRebinder.ReplaceParameters(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression},System.Linq.Expressions.Expression)">
+            <summary>
+            Replaces the parameters.
+            </summary>
+            <param name="map">The map.</param>
+            <param name="exp">The exp.</param>
+            <returns>Expression</returns>
+        </member>
+        <member name="M:RuYiAdmin.Net.Entity.CoreExtensions.PredicateExtension.ParameterRebinder.VisitParameter(System.Linq.Expressions.ParameterExpression)">
+            <summary>
+            Visits the parameter.
+            </summary>
+            <param name="p">The p.</param>
+            <returns>Expression</returns>
+        </member>
+    </members>
+</doc>

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Apache.NMS.ActiveMQ.NetCore" Version="1.7.3" />
     <PackageReference Include="Confluent.Kafka" Version="1.9.3" />
     <PackageReference Include="CSRedisCore" Version="3.8.669" />
     <PackageReference Include="FluentFTP" Version="40.0.0" />
