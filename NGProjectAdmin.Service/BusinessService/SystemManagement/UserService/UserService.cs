@@ -165,7 +165,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.UserService
             if (resultNum != null && resultNum.Equals(login.Captcha))
             {
                 //删除验证码
-                await this.redisRepository.DeleteAsync(new String[] { login.CaptchaId });
+             //   await this.redisRepository.DeleteAsync(new String[] { login.CaptchaId });
 
                 #region 获取用户信息
 
@@ -178,7 +178,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.UserService
                 var tempUser = users.Where(t => t.IsDel.Equals(0)).Where(t => t.LogonName.Equals(login.UserName)).FirstOrDefault();
                 if (tempUser == null)
                 {
-                    throw new NGAdminCustomException("user is invalid");
+                    throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException("user is invalid");
                 }
 
                 //AesKey
@@ -250,7 +250,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.UserService
                         //达到登录上限
                         if (count.Equals(limitCount))
                         {
-                            throw new NGAdminCustomException("logon count limited");
+                            throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException("logon count limited");
                         }
                         //未达上限
                         else if (count < limitCount)
@@ -319,12 +319,12 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.UserService
                 }
                 else
                 {
-                    throw new NGAdminCustomException("user is invalid");
+                    throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException("user is invalid");
                 }
             }
             else
             {
-                throw new NGAdminCustomException("captcha is invalid");
+                throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException("captcha is invalid");
             }
 
             var actionResult = new ActionResult();
@@ -355,7 +355,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.UserService
             var user = await this.redisRepository.GetAsync<SysUserDTO>(token);
             if (user == null)
             {
-                throw new NGAdminCustomException("token is invalid");
+                throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException("token is invalid");
             }
 
             var log = new SysLog();

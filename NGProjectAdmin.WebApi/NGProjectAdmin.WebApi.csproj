@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>C:\Project\NGProject\NGProjectAdmin\NGProjectAdmin.WebApi\NGAdmin.Net.WebApi.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -11,7 +11,7 @@ using NGProjectAdmin.Common.Utility;
 using System;
 using System.Threading.Tasks;
 
-namespace RuYiAdmin.Net.WebApi.AppCode.FrameworkQuartz
+namespace NGProjectAdmin.WebApi.AppCode.FrameworkQuartz
 {
     [DisallowConcurrentExecution]
     public class NGAdminFrameworkJob : IJob

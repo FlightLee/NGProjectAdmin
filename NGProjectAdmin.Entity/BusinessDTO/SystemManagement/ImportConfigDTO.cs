@@ -40,7 +40,7 @@ namespace NGProjectAdmin.Entity.BusinessDTO.SystemManagement
 
             if (String.IsNullOrEmpty(this.ExcelPath))
             {
-                throw new NGAdminCustomException("file can not be empty");
+                throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException("file can not be empty");
             }
 
             var oldStream = new FileStream(this.ExcelPath, FileMode.OpenOrCreate, FileAccess.ReadWrite);

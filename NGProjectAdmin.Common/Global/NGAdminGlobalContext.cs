@@ -135,5 +135,16 @@ namespace NGProjectAdmin.Common.Global
         /// AspNetCoreRateLimit配置
         /// </summary>
         public static RateLimitConfig RateLimitConfig { get; set; }
+
+
+        /// <summary>
+        /// 全局路由模板
+        /// </summary>
+        public const String RouteTemplate = "API/[controller]/[action]";
+
+        /// <summary>
+        /// Smtp邮件配置
+        /// </summary>
+        public static MailConfig MailConfig { get; set; }
     }
 }

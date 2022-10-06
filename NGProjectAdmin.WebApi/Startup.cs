@@ -494,6 +494,7 @@ namespace NGProjectAdmin
             NGAdminGlobalContext.QuartzConfig = Configuration.GetSection("QuartzConfig").Get<QuartzConfig>();
             NGAdminGlobalContext.RateLimitConfig = Configuration.GetSection("RateLimitConfig").Get<RateLimitConfig>();
             NGAdminGlobalContext.SystemCacheConfig = Configuration.GetSection("SystemCacheConfig").Get<SystemCacheConfig>();
+            NGAdminGlobalContext.MailConfig = Configuration.GetSection("MailConfig").Get<MailConfig>();
         }
 
         #endregion

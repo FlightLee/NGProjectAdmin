@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Runtime.Serialization;
 
 namespace NGProjectAdmin.Common.Class.Exceptions
@@ -6,7 +7,7 @@ namespace NGProjectAdmin.Common.Class.Exceptions
     /// <summary>
     /// 自定义异常
     /// </summary>
-    public class NGAdminCustomException : Exception
+    public  class NGAdminCustomException : Exception
     {
         /// <summary>
         /// 无参构造函数

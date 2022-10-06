@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using NGProjectAdmin.Common.Global;
 using NGProjectAdmin.WebApi.AppCode.FrameworkExtensions;
 using Quartz;
-using RuYiAdmin.Net.WebApi.AppCode.FrameworkQuartz;
+using NGProjectAdmin.WebApi.AppCode.FrameworkQuartz;
 using System;
 using System.Collections.Generic;
 using System.IO;

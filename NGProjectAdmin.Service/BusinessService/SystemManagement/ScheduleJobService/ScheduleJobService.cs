@@ -134,7 +134,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.ScheduleJobSer
             }
             catch (Exception ex)
             {
-                throw new NGAdminCustomException(ex.Message);
+                throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException(ex.Message);
             }
         }
 
@@ -195,7 +195,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.ScheduleJobSer
             }
             catch (Exception ex)
             {
-                throw new NGAdminCustomException(ex.Message);
+                throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException(ex.Message);
             }
         }
 
@@ -257,7 +257,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.ScheduleJobSer
             }
             catch (Exception ex)
             {
-                throw new NGAdminCustomException(ex.Message);
+                throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException(ex.Message);
             }
         }
 
@@ -316,7 +316,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.ScheduleJobSer
             }
             catch (Exception ex)
             {
-                throw new NGAdminCustomException(ex.Message);
+                throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException(ex.Message);
             }
         }
 

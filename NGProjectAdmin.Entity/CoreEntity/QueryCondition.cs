@@ -92,7 +92,7 @@ namespace NGProjectAdmin.Entity.CoreEntity
                     Regex rx = new Regex(pattern, RegexOptions.IgnoreCase);
                     if (rx.IsMatch(result))
                     {
-                        throw new NGAdminCustomException("Warnning:Sql Injection Attack");
+                        throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException("Warnning:Sql Injection Attack");
                     }
                 }
             }

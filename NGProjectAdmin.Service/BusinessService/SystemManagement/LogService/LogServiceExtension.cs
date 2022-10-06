@@ -46,7 +46,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.LogService
                 var response = await NGEsNestContext.Instance.IndexDocumentAsync<SysLog>(log);
                 if (!response.IsValid)
                 {
-                    throw new NGAdminCustomException(response.OriginalException.Message);
+                    throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException(response.OriginalException.Message);
                 }
             }
             else if (NGAdminGlobalContext.LogConfig.SupportMeilisearch)
@@ -92,7 +92,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.LogService
                 var response = NGEsNestContext.Instance.IndexDocument<SysLog>(log);
                 if (!response.IsValid)
                 {
-                    throw new NGAdminCustomException(response.OriginalException.Message);
+                    throw new NGProjectAdmin.Common.Class.Exceptions.NGAdminCustomException(response.OriginalException.Message);
                 }
             }
             else if (NGAdminGlobalContext.LogConfig.SupportMeilisearch)
