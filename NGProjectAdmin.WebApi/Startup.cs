@@ -215,7 +215,7 @@ namespace NGProjectAdmin
             });
 
 
-          //  services.AddSingleton<PermissionAttribute>(); // 添加权限验证过滤器
+            services.AddSingleton<PermissionAttribute>(); // 添加权限验证过滤器
 
             #endregion
 
@@ -495,6 +495,7 @@ namespace NGProjectAdmin
             NGAdminGlobalContext.RateLimitConfig = Configuration.GetSection("RateLimitConfig").Get<RateLimitConfig>();
             NGAdminGlobalContext.SystemCacheConfig = Configuration.GetSection("SystemCacheConfig").Get<SystemCacheConfig>();
             NGAdminGlobalContext.MailConfig = Configuration.GetSection("MailConfig").Get<MailConfig>();
+            NGAdminGlobalContext.MomConfig = Configuration.GetSection("MOMConfig").Get<MomConfig>();
         }
 
         #endregion
