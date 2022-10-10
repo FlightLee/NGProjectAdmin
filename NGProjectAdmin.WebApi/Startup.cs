@@ -1,5 +1,6 @@
 using AspNetCoreRateLimit;
 using Autofac;
+using AutoMapper;
 using DotNetCore.CAP.Dashboard.NodeDiscovery;
 using Lazy.Captcha.Core;
 using Lazy.Captcha.Core.Generator;
@@ -16,12 +17,14 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NGProjectAdmin.Common.Global;
 using NGProjectAdmin.Entity.AutoMapperConfig;
+using NGProjectAdmin.Entity.BusinessDTO.SystemManagement;
 using NGProjectAdmin.Net.Common.Global;
 using NGProjectAdmin.WebApi.AppCode.ActionFilters;
 using NGProjectAdmin.WebApi.AppCode.AuthorizationFilter;
 using NGProjectAdmin.WebApi.AppCode.FrameworkClass;
 using NGProjectAdmin.WebApi.AppCode.FrameworkExtensions;
 using NGProjectAdmin.WebApi.AppCode.IoCDependencyInjection;
+using NPOI.SS.Formula.Functions;
 using SqlSugar;
 using StackExchange.Profiling.Storage;
 using Swashbuckle.AspNetCore.Filters;
@@ -221,7 +224,8 @@ namespace NGProjectAdmin
 
             #region 注册系统AutoMapper组件
 
-            services.AddAutoMapper(typeof(AutoMapperProfile));
+           services.AddAutoMapper(typeof(AutoMapperProfile));
+       
 
             #endregion
 
@@ -355,8 +359,7 @@ namespace NGProjectAdmin
             });
 
             #endregion
-
-
+       
 
             #region 启用系统全局启停事件
 

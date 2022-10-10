@@ -31,7 +31,7 @@ namespace NGProjectAdmin.Entity.Base
         [SugarColumn(ColumnName = "REMARK")]
         [ExcelExport("备注")]
         [ExcelImport("备注")]
-        public String Remark { get; set; }
+        public String Remark { get; set; } = String.Empty;
 
         /// <summary>
         /// 逻辑标志位

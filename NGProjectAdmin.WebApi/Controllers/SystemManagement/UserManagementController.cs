@@ -237,7 +237,7 @@ namespace NGProjectAdmin.WebApi.Controllers.SystemManagement
 
             userDTO.Salt = Guid.NewGuid();
             userDTO.Password = NGAesUtil.Encrypt(defaultPassword + userDTO.Salt, aesKey);
-
+            
             //DTO TO POCO
             var user = mapper.Map<SysUser>(userDTO);
             //新增用户

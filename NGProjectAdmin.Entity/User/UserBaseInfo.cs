@@ -22,7 +22,7 @@ namespace NGProjectAdmin.Entity.User
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "LOGON_NAME")]
         [ExcelExport("用户账户")]
-        public String LogonName { get; set; }
+        public String LogonName { get; set; } = String.Empty;
 
         /// <summary>
         /// 用户姓名
@@ -30,14 +30,14 @@ namespace NGProjectAdmin.Entity.User
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "DISPLAY_NAME")]
         [ExcelExport("用户姓名")]
-        public String DisplayName { get; set; }
+        public String DisplayName { get; set; } = String.Empty; 
 
         /// <summary>
         /// 登录密码
         /// </summary>
         [Required, MaxLength(512)]
         [SugarColumn(ColumnName = "PASSWORD")]
-        public String Password { get; set; }
+        public String Password { get; set; }= String.Empty; 
 
         /// <summary>
         /// 座机号码
@@ -45,7 +45,7 @@ namespace NGProjectAdmin.Entity.User
         [MaxLength(45)]
         [SugarColumn(ColumnName = "TELEPHONE")]
         [ExcelExport("座机号")]
-        public String Telephone { get; set; }
+        public String Telephone { get; set; }=String.Empty; 
 
         /// <summary>
         /// 手机号码
@@ -53,7 +53,7 @@ namespace NGProjectAdmin.Entity.User
         [MaxLength(45)]//, IsPhone
         [SugarColumn(ColumnName = "MOBILEPHONE")]
         [ExcelExport("手机号")]
-        public String MobilePhone { get; set; }
+        public String MobilePhone { get; set; }= String.Empty;
 
         /// <summary>
         /// 邮箱地址
@@ -61,7 +61,7 @@ namespace NGProjectAdmin.Entity.User
         [MaxLength(45)]//, IsEmail
         [SugarColumn(ColumnName = "EMAIL")]
         [ExcelExport("电子邮件")]
-        public String Email { get; set; }
+        public String Email { get; set; }= String.Empty;
 
         /// <summary>
         /// 是否超级管理员
@@ -109,30 +109,30 @@ namespace NGProjectAdmin.Entity.User
         /// 预留字段1
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND1")]
-        public String Extend1 { get; set; }
+        public String Extend1 { get; set; }=String.Empty; 
 
         /// <summary>
         /// 预留字段2
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND2")]
-        public String Extend2 { get; set; }
+        public String Extend2 { get; set; } = String.Empty;
 
         /// <summary>
         /// 预留字段3
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND3")]
-        public String Extend3 { get; set; }
+        public String Extend3 { get; set; } = String.Empty;
 
         /// <summary>
         /// 预留字段4
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND4")]
-        public String Extend4 { get; set; }
+        public String Extend4 { get; set; } = String.Empty;
 
         /// <summary>
         /// 预留字段5
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND5")]
-        public String Extend5 { get; set; }
+        public String Extend5 { get; set; } = String.Empty;
     }
 }

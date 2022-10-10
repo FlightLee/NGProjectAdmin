@@ -14,7 +14,7 @@
     <PackageReference Include="AspNetCoreRateLimit" Version="4.0.2" />
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Com.Ctrip.Framework.Apollo" Version="2.9.1" />
     <PackageReference Include="Com.Ctrip.Framework.Apollo.Configuration" Version="2.9.0" />
     <PackageReference Include="Consul" Version="1.6.10.7" />

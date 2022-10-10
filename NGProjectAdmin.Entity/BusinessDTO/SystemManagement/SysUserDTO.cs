@@ -16,7 +16,8 @@ namespace NGProjectAdmin.Entity.BusinessDTO.SystemManagement
     /// <summary>
     /// 用户DTO
     /// </summary>
-    public class SysUserDTO : UserBaseInfo
+   // public class SysUserDTO : UserBaseInfo
+   public class SysUserDTO : UserBaseInfo
     {
         /// <summary>
         /// 机构编号
@@ -30,17 +31,17 @@ namespace NGProjectAdmin.Entity.BusinessDTO.SystemManagement
         /// </summary>
         [SugarColumn(ColumnName = "ORG_NAME")]
         [ExcelExport("所在机构")]
-        public String OrgName { get; set; }
+        public String OrgName { get; set; }=String.Empty;       
 
         /// <summary>
         /// token
         /// </summary>
-        public String Token { get; set; }
+        public String Token { get; set; }=String.Empty;
 
         /// <summary>
         /// token有效时间
         /// 单位：秒
         /// </summary>
-        public int TokenExpiration { get; set; }
+        public int TokenExpiration { get; set; }        
     }
 }

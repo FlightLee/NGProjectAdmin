@@ -16,28 +16,28 @@ namespace NGProjectAdmin.Entity.AutoMapperConfig
             #region POCO TO DTO
 
             //机构
-            CreateMap<SysOrganization, SysOrganizationDTO>();
+            CreateMap<SysOrganization, SysOrganizationDTO>().ReverseMap(); 
 
             //用户
-            CreateMap<SysUser, SysUserDTO>();
+            CreateMap<SysUser, SysUserDTO>().ReverseMap();
 
             //菜单
-            CreateMap<SysMenu, SysMenuDTO>();
+            CreateMap<SysMenu, SysMenuDTO>().ReverseMap();
 
             //角色
-            CreateMap<SysRole, SysRoleDTO>();
+            CreateMap<SysRole, SysRoleDTO>().ReverseMap();
 
             //数据字典
-            CreateMap<SysCodeTable, SysCodeTableDTO>();
+            CreateMap<SysCodeTable, SysCodeTableDTO>().ReverseMap();
 
             //导入配置
-            CreateMap<SysImportConfig, ImportConfigDTO>();
+            CreateMap<SysImportConfig, ImportConfigDTO>().ReverseMap();
 
             //导入配置明细
-            CreateMap<SysImportConfigDetail, ImportConfigDetailDTO>();
+            CreateMap<SysImportConfigDetail, ImportConfigDetailDTO>().ReverseMap();
 
             //同步账号模型
-            CreateMap<BizAccount, BizAccountDTO>();
+            CreateMap<BizAccount, BizAccountDTO>().ReverseMap();
 
             #endregion
 

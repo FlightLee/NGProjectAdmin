@@ -20,82 +20,82 @@
       {
         "Endpoint": "*:/API/RuYiAdminHealth/Get",
         "Period": "10s",
-        "Limit": 1
+        "Limit": 10
       },
       {
         "Endpoint": "*:/API/WeatherForecast/Get",
         "Period": "10s",
-        "Limit": 1
+        "Limit": 10
       },
       {
         "Endpoint": "*:/API/LanguageManagement/Post",
         "Period": "10s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/UserManagement/GetCaptcha",
         "Period": "10s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/UserManagement/Logon",
-        "Period": "10s",
-        "Limit": 2
+        "Period": "1s",
+        "Limit": 10
       },
       {
         "Endpoint": "*:/API/UserManagement/GetMomType",
         "Period": "10s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/Authenticate/Get",
         "Period": "10s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/Authenticate/Post",
         "Period": "10s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/Authenticate/RefreshToken",
         "Period": "10s",
-        "Limit": 1
+        "Limit": 10
       },
       {
         "Endpoint": "*:/API/BizUserManagement/Add",
         "Period": "5s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/BizUserManagement/Put",
         "Period": "5s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/BizUserManagement/DeleteRange",
         "Period": "5s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/BizUserManagement/GetSalt",
         "Period": "5s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/BizUserManagement/GetToken",
         "Period": "5s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/BizUserModuleManagement/Logon",
         "Period": "5s",
-        "Limit": 2
+        "Limit": 20
       },
       {
         "Endpoint": "*:/API/BizUserModuleManagement/UpdatePassword",
         "Period": "10s",
-        "Limit": 1
+        "Limit": 10
       }
     ]
   },
