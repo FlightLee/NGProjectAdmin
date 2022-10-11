@@ -25,7 +25,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "LOGON_NAME")]
         [ExcelExport("用户账户")]
-        public String LogonName { get; set; }=String.Empty;
+        public String? LogonName { get; set; }=String.Empty;
 
         /// <summary>
         /// 用户姓名
@@ -33,14 +33,14 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "DISPLAY_NAME")]
         [ExcelExport("用户姓名")]
-        public String DisplayName { get; set; } = String.Empty;
+        public String? DisplayName { get; set; } = String.Empty;
 
         /// <summary>
         /// 登录密码
         /// </summary>
         [Required, MaxLength(512)]
         [SugarColumn(ColumnName = "PASSWORD")]
-        public String Password { get; set; } = String.Empty;
+        public String? Password { get; set; } = String.Empty;
 
         /// <summary>
         /// 座机号码
@@ -48,7 +48,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         [MaxLength(45)]
         [SugarColumn(ColumnName = "TELEPHONE")]
         [ExcelExport("座机号")]
-        public String Telephone { get; set; } = String.Empty;
+        public String? Telephone { get; set; } = String.Empty;
 
         /// <summary>
         /// 手机号码
@@ -56,7 +56,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         [MaxLength(45)]//, IsPhone
         [SugarColumn(ColumnName = "MOBILEPHONE")]
         [ExcelExport("手机号")]
-        public String MobilePhone { get; set; } = String.Empty;
+        public String? MobilePhone { get; set; } = String.Empty;
 
         /// <summary>
         /// 邮箱地址
@@ -64,7 +64,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         [MaxLength(45)]//, IsEmail
         [SugarColumn(ColumnName = "EMAIL")]
         [ExcelExport("电子邮件")]
-        public String Email { get; set; } = String.Empty;
+        public String? Email { get; set; } = String.Empty;
 
         /// <summary>
         /// 是否超级管理员

@@ -23,21 +23,21 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         /// </summary>
         [MaxLength(256)]
         [SugarColumn(ColumnName = "PATH")]
-        public String Path { get; set; }
+        public String? Path { get; set; }
 
         /// <summary>
         /// 菜单名称
         /// </summary>
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "MENU_NAME")]
-        public String MenuName { get; set; }
+        public String? MenuName { get; set; }
 
         /// <summary>
         /// 菜单路径
         /// </summary>
         [MaxLength(256)]
         [SugarColumn(ColumnName = "MENU_URL")]
-        public String MenuUrl { get; set; }
+        public String? MenuUrl { get; set; }
 
         /// <summary>
         /// 父键
@@ -63,43 +63,43 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         /// </summary>
         [MaxLength(256)]
         [SugarColumn(ColumnName = "ICON")]
-        public String Icon { get; set; }
+        public String? Icon { get; set; }
 
         /// <summary>
         /// 编码
         /// </summary>
         [MaxLength(125)]
         [SugarColumn(ColumnName = "CODE")]
-        public String Code { get; set; }
+        public String? Code { get; set; }
 
         /// <summary>
         /// 预留字段1
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND1")]
-        public String Extend1 { get; set; }
+        public String? Extend1 { get; set; }
 
         /// <summary>
         /// 预留字段2
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND2")]
-        public String Extend2 { get; set; }
+        public String? Extend2 { get; set; }
 
         /// <summary>
         /// 预留字段3
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND3")]
-        public String Extend3 { get; set; }
+        public String? Extend3 { get; set; }
 
         /// <summary>
         /// 预留字段4
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND4")]
-        public String Extend4 { get; set; }
+        public String? Extend4 { get; set; }
 
         /// <summary>
         /// 预留字段5
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND5")]
-        public String Extend5 { get; set; }
+        public String? Extend5 { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Nest;
 using Newtonsoft.Json;
 using NGProjectAdmin.Common.Class.Exceptions;
 using NGProjectAdmin.Common.Global;
@@ -20,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace NGProjectAdmin.Service.BusinessService.SystemManagement.UserService
@@ -607,14 +609,44 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.UserService
                 var menuSons = menuList.Where(t => t.ParentId.Equals(node.Id) && t.MenuType == MenuType.Menu).OrderBy(t => t.SerialNumber).ToList();
                 foreach (var subNode in menuSons)
                 {
-                    //三级菜单：按钮、视图
+
+
+                    //三级菜单
+                    subNode.Children = new List<SysMenuDTO>();
+                    var subItemsMenu = menuList.Where(t => t.ParentId.Equals(subNode.Id) && (t.MenuType == MenuType.Menu)).
+                                      OrderBy(t => t.SerialNumber).ToList();
+                    if (subItemsMenu.Count() > 0) {
+                        var parentson = mapper.Map<SysMenuDTO>(subNode);
+                        parentson.Children = new List<SysMenuDTO>();
+                        foreach (var menu in subItemsMenu)
+                        {
+                            subNode.Children.Add(menu);
+
+                            //三级菜单下的：按钮、视图
+                            var subItemsson = menuList.Where(t => t.ParentId.Equals(menu.Id) && (t.MenuType == MenuType.Button || t.MenuType == MenuType.View)).
+                                           OrderBy(t => t.SerialNumber).ToList();
+                            if (subItemsson.Count() > 0)
+                            {
+                                var thirdNode = mapper.Map<SysMenuDTO>(menu);
+                                thirdNode.Children = new List<SysMenuDTO>();
+                                var thirdchildren = mapper.Map<List<SysMenuDTO>>(subItemsson);
+                                thirdNode.Children.AddRange(thirdchildren);
+                                subNode.Children.Add(thirdNode);
+                            }
+
+                        }
+                    }
+                   
+
+
+                    //二级菜单下的：按钮、视图
                     var subItems = menuList.Where(t => t.ParentId.Equals(subNode.Id) && (t.MenuType == MenuType.Button || t.MenuType == MenuType.View)).
                                         OrderBy(t => t.SerialNumber).ToList();
-
+              
                     if (subItems.Count > 0)
                     {
                         var sonNode = mapper.Map<SysMenuDTO>(subNode);
-                        sonNode.Children = new List<SysMenuDTO>();
+                      //  sonNode.Children = new List<SysMenuDTO>();
 
                         var children = mapper.Map<List<SysMenuDTO>>(subItems);
                         sonNode.Children.AddRange(children);

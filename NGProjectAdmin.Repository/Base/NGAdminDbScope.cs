@@ -1,4 +1,5 @@
 ﻿using NGProjectAdmin.Common.Global;
+using NPOI.SS.Formula.Functions;
 using SqlSugar;
 
 namespace NGProjectAdmin.Repository.Base
@@ -33,7 +34,8 @@ namespace NGProjectAdmin.Repository.Base
              db.Aop.OnLogExecuting = (sql, pars) =>
              {
                  //执行前可以输出SQL
-                 //Console.WriteLine(sql);
+                 Console.WriteLine(sql);
+                 
              };
 
              //修改SQL和参数的值

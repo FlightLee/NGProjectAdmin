@@ -18,7 +18,7 @@ namespace NGProjectAdmin.Entity.BusinessDTO.SystemManagement
         /// <summary>
         /// 子集
         /// </summary>
-        public List<SysMenuDTO> Children { get; set; }
+        public List<SysMenuDTO> Children { get; set; }=new List<SysMenuDTO>();  
 
         /// <summary>
         /// 英文菜单名称
