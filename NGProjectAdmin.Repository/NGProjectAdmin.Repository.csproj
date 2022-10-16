@@ -10,4 +10,8 @@
     <ProjectReference Include="..\NGProjectAdmin.Entity\NGProjectAdmin.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="BusinessRepository\Contract\" />
+  </ItemGroup>
+
 </Project>

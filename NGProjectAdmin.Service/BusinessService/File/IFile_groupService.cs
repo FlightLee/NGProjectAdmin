@@ -16,25 +16,6 @@ namespace NGProjectAdmin.Service.BusinessService.File
     /// </summary>
     public interface IFile_groupService : INGAdminBaseService<File_group>
     {
-        /// <summary>
-        /// 新增文件
-        /// </summary>
-        /// <param name="File_group"></param>
-        /// <returns></returns>
-        Task<File_group> InsertFile_group(File_groupDTO File_group);
-
-        /// <summary>
-        /// 删除文件
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        Task<ActionResult> DeleteFile_group(int Id);
-
-        /// <summary>
-        /// 删除单个文件
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        Task<ActionResult> DeleteFile_group(int Id,int insideId);
+       
     }
 }

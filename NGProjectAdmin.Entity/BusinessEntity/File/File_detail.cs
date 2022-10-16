@@ -17,7 +17,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.File
         /// <summary>
         /// 文件组Id
         /// </summary>
-        public int FileId { get; set; }
+        public Guid FileId { get; set; }
 
         /// <summary>
         /// 文件名称

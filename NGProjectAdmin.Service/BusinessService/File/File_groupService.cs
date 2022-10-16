@@ -21,25 +21,11 @@ namespace NGProjectAdmin.Service.BusinessService.File
         /// </summary>
         private readonly IFile_groupRepository File_groupRepository;
 
-        public File_groupService(INGAdminBaseRepository<File_group> File_groupRepository) : base(File_groupRepository)
+        public File_groupService(IFile_groupRepository File_groupRepository) : base(File_groupRepository)
         {
             this.File_groupRepository = File_groupRepository;
         }
         #endregion
 
-        public Task<ActionResult> DeleteFile_group(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ActionResult> DeleteFile_group(int Id, int insideId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<File_group> InsertFile_group(File_groupDTO File_group)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

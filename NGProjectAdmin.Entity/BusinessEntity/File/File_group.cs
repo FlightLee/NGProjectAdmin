@@ -1,4 +1,5 @@
 ﻿using NGProjectAdmin.Entity.Base;
+using NGProjectAdmin.Entity.BusinessDTO.File;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,6 @@ namespace NGProjectAdmin.Entity.BusinessEntity.File
     [SugarTable("file_group")]
     public class File_group: NGAdminBaseEntity
     {
-        public int Id { get; set; }
+
     }
 }

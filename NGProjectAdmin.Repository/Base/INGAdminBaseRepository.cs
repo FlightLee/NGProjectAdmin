@@ -35,12 +35,6 @@ namespace NGProjectAdmin.Repository.Base
         /// <returns>实体</returns>
         T GetById(Guid id);
 
-        /// <summary>
-        /// 获取实体
-        /// </summary>
-        /// <param name="id">编号</param>
-        /// <returns>实体</returns>
-        T GetById(int id);
 
         /// <summary>
         /// SQL查询
