@@ -1,10 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// <Copyright>
-// * Copyright (C) 2022 RuYiAdmin All Rights Reserved
-// </Copyright>
-//-----------------------------------------------------------------------
-
-using NGProjectAdmin.Entity.Base;
+﻿using NGProjectAdmin.Entity.Base;
 using SqlSugar;
 using System;
 using System.ComponentModel.DataAnnotations;

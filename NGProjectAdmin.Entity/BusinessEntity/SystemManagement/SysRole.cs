@@ -1,10 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// <Copyright>
-// * Copyright (C) 2022 RuYiAdmin All Rights Reserved
-// </Copyright>
-//-----------------------------------------------------------------------
-
-using NGProjectAdmin.Common.Class.Excel;
+﻿using NGProjectAdmin.Common.Class.Excel;
 using NGProjectAdmin.Entity.Base;
 using SqlSugar;
 using System;
