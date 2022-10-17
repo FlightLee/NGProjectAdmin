@@ -8,7 +8,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.BusinessModule.BusinessUs
     /// <summary>
     /// File_group数据访问层实现
     /// </summary>   
-    public class File_groupRepository : BaseRepository<File_group>, IFile_groupRepository
+    public class File_detailRepository : BaseRepository<File_detail>, IFile_detailRepository
     {
         /// <summary>
         /// HttpContext
@@ -19,7 +19,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.BusinessModule.BusinessUs
         /// 构造函数
         /// </summary>
         /// <param name="context"></param>
-        public File_groupRepository(IHttpContextAccessor context) : base(context)
+        public File_detailRepository(IHttpContextAccessor context) : base(context)
         {
             this.context = context;
         }

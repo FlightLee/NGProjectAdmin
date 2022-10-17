@@ -1,11 +1,12 @@
-﻿using SqlSugar;
+﻿using NGProjectAdmin.Entity.BusinessEntity.File;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGProjectAdmin.Entity.BusinessEntity.Contract
+namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 {
     /// <summary>
     /// 合同基础信息
@@ -116,7 +117,14 @@ namespace NGProjectAdmin.Entity.BusinessEntity.Contract
         /// <summary>
         /// 合同附件表Id
         /// </summary>
+
         public int ContractPdfGroupId { get; set; }
+
+        /// <summary>
+        /// 合同附件信息
+        /// </summary>
+        [Navigate(NavigateType.OneToOne, nameof(ContractPdfGroupId), nameof(File_group.Id))]
+        public File_group? file_group { get; set; }
 
         /// <summary>
         /// 合同信息备注

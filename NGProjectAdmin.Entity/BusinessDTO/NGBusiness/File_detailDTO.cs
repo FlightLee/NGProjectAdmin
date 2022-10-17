@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGProjectAdmin.Entity.BusinessDTO.File
+namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
 {
     /// <summary>
     /// 文件信息主表

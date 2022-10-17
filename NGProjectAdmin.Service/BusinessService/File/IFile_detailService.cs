@@ -14,7 +14,7 @@ namespace NGProjectAdmin.Service.BusinessService.File
     /// <summary>
     /// File_group 业务接口
     /// </summary>
-    public interface IFile_groupService : IBaseService<File_group>
+    public interface IFile_detailService : IBaseService<File_detail>
     {
        
     }

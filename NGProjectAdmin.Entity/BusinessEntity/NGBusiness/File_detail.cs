@@ -6,17 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGProjectAdmin.Entity.BusinessEntity.File
+namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 {
     /// <summary>
     /// 文件信息主表
     /// </summary>
     [SugarTable("file_detail")]
-    public class File_detail: NGAdminBaseEntity
+    public class File_detail : BaseEntity
     {
         /// <summary>
         /// 文件组Id
         /// </summary>
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public Guid FileId { get; set; }
 
         /// <summary>

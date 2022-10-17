@@ -13,17 +13,17 @@ using System.Threading.Tasks;
 
 namespace NGProjectAdmin.Service.BusinessService.File
 {
-    public class File_groupService : BaseService<File_group>, IFile_groupService
+    public class File_detailService : BaseService<File_detail>, IFile_detailService
     {
         #region 属性及其构造函数   
         /// <summary>
         /// 仓储实例
         /// </summary>
-        private readonly IFile_groupRepository File_groupRepository;
+        private readonly IFile_detailRepository File_detailRepository;
 
-        public File_groupService(IFile_groupRepository File_groupRepository) : base(File_groupRepository)
+        public File_detailService(IFile_detailRepository File_detailRepository) : base(File_detailRepository)
         {
-            this.File_groupRepository = File_groupRepository;
+            this.File_detailRepository = File_detailRepository;
         }
         #endregion
 

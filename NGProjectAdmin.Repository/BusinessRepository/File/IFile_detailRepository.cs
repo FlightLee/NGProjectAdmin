@@ -7,7 +7,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.BusinessModule.BusinessUs
     /// <summary>
     /// BizUser数据访问层接口
     /// </summary>   
-    public interface IFile_groupRepository : IBaseRepository<File_group>
+    public interface IFile_detailRepository : IBaseRepository<File_detail>
     {
     }
 }

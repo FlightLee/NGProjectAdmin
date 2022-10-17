@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGProjectAdmin.Entity.BusinessDTO.Contract
+namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
 {
     /// <summary>
     /// 合同基础信息
