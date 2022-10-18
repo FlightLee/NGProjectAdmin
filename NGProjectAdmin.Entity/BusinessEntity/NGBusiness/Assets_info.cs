@@ -11,6 +11,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
     /// <summary>
     /// 资产信息档案
     /// </summary>
+    [SugarTable("assets_info")]
     public class Assets_info: BaseEntity
     {
         /// <summary>
@@ -83,7 +84,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 资产评估表
         /// </summary>
-        [Navigate(NavigateType.OneToOne, nameof(AssetsMentGroupId), nameof(assetment_group.Id))]
+        [Navigate(NavigateType.OneToOne, nameof(AssetsMentGroupId), nameof(Assetment_group.Id))]
         public Assetment_group? assetment_group { get; set; }
         /// <summary>
         /// 房产证号

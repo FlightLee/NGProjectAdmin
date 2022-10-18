@@ -3,12 +3,12 @@ using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
 using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Repository.Base;
 
-namespace NGProjectAdmin.Repository.BusinessRepository.BusinessModule.BusinessUserRepository
+namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
 {
     /// <summary>
     /// File_group数据访问层实现
     /// </summary>   
-    public class File_detailRepository : BaseRepository<File_detail>, IFile_detailRepository
+    public class File_groupRepository : BaseRepository<File_group>, IFile_groupRepository
     {
         /// <summary>
         /// HttpContext
@@ -19,7 +19,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.BusinessModule.BusinessUs
         /// 构造函数
         /// </summary>
         /// <param name="context"></param>
-        public File_detailRepository(IHttpContextAccessor context) : base(context)
+        public File_groupRepository(IHttpContextAccessor context) : base(context)
         {
             this.context = context;
         }

@@ -226,6 +226,7 @@ namespace NGProjectAdmin.Repository.Base
             if (create)
             {
                 obj.Create(this.context);
+                obj.Id = GetNewId();
             }
 
             try
@@ -1160,6 +1161,20 @@ namespace NGProjectAdmin.Repository.Base
                 totalCount = list.Count;
             }
             return list;
+        }
+
+        public string GetNewId()
+        {
+            var obj = NGDbContext.Queryable<T>().OrderBy("Id desc ").First();
+            
+            string head = "NG" + DateTime.Now.ToString("yyyyMMdd");
+            if (obj==null)
+            {
+                return head + "0001";
+            }
+            else {
+                return head + Convert.ToString(Convert.ToInt32(obj.Id.Substring(10, 4)) + 1).PadLeft(4, '0');
+            }            
         }
 
         #endregion

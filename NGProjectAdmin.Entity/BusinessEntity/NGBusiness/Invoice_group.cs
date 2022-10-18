@@ -9,15 +9,13 @@ using System.Threading.Tasks;
 namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 {
     /// <summary>
-    /// 文件信息主表
+    /// 发票主表
     /// </summary>
-    [SugarTable("file_group")]
-    public class File_group : BaseEntity
+    [SugarTable("invoice_group")]
+    public class Invoice_group: BaseEntity
     {
 
-
-
         [Navigate(NavigateType.OneToMany, nameof(File_detail.FileId))]
-        public List<File_detail> File_details { get; set; }
+        public List<Invoice_detail> invoice_details { get; set; }
     }
 }

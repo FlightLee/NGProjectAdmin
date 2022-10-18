@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using NGProjectAdmin.Entity.BusinessDTO.File;
 using NGProjectAdmin.Entity.BusinessDTO.SystemManagement;
 using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Entity.CoreEntity;
@@ -52,7 +51,7 @@ namespace NGProjectAdmin.WebApi.Controllers.Contract
         public async Task<IActionResult> Post(int FileId)
         {
              var actionResult = await this.File_groupService.GetByIdAsync(FileId);
-
+            var actionResult2=  this.File_groupService.Add(new File_group(), true);
             //var actionResult2 = NGAdminDbScope.NGDbContext.Queryable<File_group>().Where(x => x.Id == FileId).ToList();
             //var actionResult = await this.userService.Logon(loginDTO);
             return Ok(actionResult);

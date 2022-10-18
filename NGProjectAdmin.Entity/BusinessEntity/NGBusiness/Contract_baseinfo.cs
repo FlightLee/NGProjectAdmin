@@ -1,4 +1,4 @@
-﻿using NGProjectAdmin.Entity.BusinessEntity.File;
+﻿using NGProjectAdmin.Entity.Base;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
     /// 合同基础信息
     /// </summary>
     [SugarTable("contract_baseinfo")]
-    public class Contract_baseinfo
+    public class Contract_baseinfo: BaseEntity
     {
         /// <summary>
         /// 合同编号
@@ -137,9 +137,21 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         public int AssetsId { get; set; }
 
         /// <summary>
+        /// 资产信息
+        /// </summary>
+        [Navigate(NavigateType.OneToOne, nameof(AssetsId), nameof(Assets_groupinfo.Id))]
+        public Assets_groupinfo assets_groupinfo { get; set; }
+
+        /// <summary>
         /// 租金收款组Id
         /// </summary>
         public int RentGroupId { get; set; }
+
+        /// <summary>
+        /// 资产信息
+        /// </summary>
+        [Navigate(NavigateType.OneToOne, nameof(RentGroupId), nameof(Assets_groupinfo.Id))]
+        public Assets_groupinfo RentGroupfiles{ get; set; }
 
         /// <summary>
         /// 开票登记组Id
@@ -147,15 +159,33 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         public int InvoiceGroupId { get; set; }
 
         /// <summary>
+        /// 开票登记信息
+        /// </summary>
+        [Navigate(NavigateType.OneToOne, nameof(InvoiceGroupId), nameof(Invoice_group.Id))]
+        public Invoice_group invoice_group { get; set; }
+
+        /// <summary>
         /// 保证金违约金信息表Id
         /// </summary>
         public int ContractDefaultId { get; set; }
+
+
+        /// <summary>
+        /// 保证金违约金信息
+        /// </summary>
+        [Navigate(NavigateType.OneToOne, nameof(ContractDefaultId), nameof(Contract_default.Id))]
+        public Contract_default contract_default { get; set; }
 
         /// <summary>
         /// 财务信息Id
         /// </summary>
         public int FinanceId { get; set; }
 
+        /// <summary>
+        /// 保证金违约金信息
+        /// </summary>
+        [Navigate(NavigateType.OneToOne, nameof(FinanceId), nameof(Finance_info.Id))]
+        public Finance_info finance_info { get; set; }
 
         /// <summary>
         /// 0合同完结1合同逾期2不存在逾期

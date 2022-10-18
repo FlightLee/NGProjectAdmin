@@ -13,6 +13,7 @@ namespace NGProjectAdmin.Repository.Base
     /// </summary>
     public interface IBaseRepository<T> where T : BaseEntity
     {
+      
         /// <summary>
         /// 分页查询
         /// </summary>
@@ -388,5 +389,11 @@ namespace NGProjectAdmin.Repository.Base
         /// <param name="errorCallBack">错误回调事件</param>
         /// <returns>DbResult</returns>
         Task<DbResult<TEntity>> UseTransactionAsync<TEntity>(Func<Task<TEntity>> action, Action<Exception> errorCallBack = null) where TEntity : NGAdminBaseEntity;
+
+        /// <summary>
+        /// 获取一个新的Id
+        /// </summary>
+        /// <returns></returns>
+        string GetNewId();
     }
 }

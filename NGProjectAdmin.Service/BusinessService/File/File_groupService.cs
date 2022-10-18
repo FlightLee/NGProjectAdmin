@@ -1,9 +1,8 @@
-﻿using NGProjectAdmin.Entity.BusinessDTO.File;
-using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
+﻿using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
 using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Repository.Base;
-using NGProjectAdmin.Repository.BusinessRepository.BusinessModule.BusinessUserRepository;
+using NGProjectAdmin.Repository.BusinessRepository.NGBusiness;
 using NGProjectAdmin.Service.Base;
 using System;
 using System.Collections.Generic;

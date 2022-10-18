@@ -21,8 +21,8 @@ namespace NGProjectAdmin.Entity.Base
         /// 编号
         /// </summary>
         [Required]
-        [SugarColumn(IsPrimaryKey = true, ColumnName = "Id", IsIdentity = true)]
-        public int Id { get; set; }
+        [SugarColumn(IsPrimaryKey = true, ColumnName = "Id")]
+        public string Id { get; set; }
 
         #endregion
 
