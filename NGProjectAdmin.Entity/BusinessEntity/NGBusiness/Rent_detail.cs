@@ -1,4 +1,5 @@
-﻿using SqlSugar;
+﻿using NGProjectAdmin.Entity.Base;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 {
 
-    public class Rent_detail
+    public class Rent_detail:BaseEntity
     {
 
         /// <summary>

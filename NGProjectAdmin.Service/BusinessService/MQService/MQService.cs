@@ -34,7 +34,8 @@ namespace NGProjectAdmin.Service.BusinessService.MQService
         /// <returns></returns>
         public void SendTopic(String message, String topicName = null)
         {
-            this.mqRepository.SendTopic(HttpUtility.UrlEncode(message, Encoding.UTF8), topicName);
+            return;
+         //   this.mqRepository.SendTopic(HttpUtility.UrlEncode(message, Encoding.UTF8), topicName);
         }
 
         /// <summary>

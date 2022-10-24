@@ -1,10 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// <Copyright>
-// * Copyright (C) 2022 RuYiAdmin All Rights Reserved
-// </Copyright>
-//-----------------------------------------------------------------------
-
-using NGProjectAdmin.Entity.Base;
+﻿using NGProjectAdmin.Entity.Base;
 using SqlSugar;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -36,6 +30,6 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         /// </summary>
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "MENU_NAME")]
-        public String MenuName { get; set; }
+        public String? MenuName { get; set; }
     }
 }

@@ -413,7 +413,7 @@ namespace NGProjectAdmin.WebApi.Controllers.SystemManagement
             msg.MessageType = MessageType.ForceLogout;
             msg.Object = user;
 
-            this.mqService.SendTopic(JsonConvert.SerializeObject(msg));
+        //    this.mqService.SendTopic(JsonConvert.SerializeObject(msg));
 
             #endregion
 

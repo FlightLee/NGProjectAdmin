@@ -1,4 +1,5 @@
-﻿using SqlSugar;
+﻿using NGProjectAdmin.Entity.Base;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
     /// 合同资产信息明细
     /// </summary>
     [SugarTable("assets_detail")]
-    public class Assets_detail
+    public class Assets_detail:BaseEntity
     {
         /// <summary>
         /// 序号

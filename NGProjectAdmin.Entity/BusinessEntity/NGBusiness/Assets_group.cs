@@ -11,8 +11,8 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
     /// <summary>
     /// 合同资产信息主表
     /// </summary>
-    [SugarTable("assets_groupinfo")]
-    public class Assets_groupinfo: BaseEntity
+    [SugarTable("assets_group")]
+    public class Assets_group: BaseEntity
     {
         /// <summary>
         /// 面积

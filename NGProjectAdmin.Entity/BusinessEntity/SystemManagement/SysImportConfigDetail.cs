@@ -37,7 +37,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         /// </summary>
         [Required, MaxLength(512)]
         [SugarColumn(ColumnName = "CELLS")]
-        public String Cells { get; set; }
+        public String? Cells { get; set; }
 
         /// <summary>
         /// 是否必填项
@@ -69,25 +69,25 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         /// 枚举列表
         /// </summary>
         [SugarColumn(ColumnName = "TEXT_ENUM")]
-        public String TextEnum { get; set; }
+        public String? TextEnum { get; set; }
 
         /// <summary>
         /// 扩展字段
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND1")]
-        public String Extend1 { get; set; }
+        public String? Extend1 { get; set; }
 
         /// <summary>
         /// 扩展字段
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND2")]
-        public String Extend2 { get; set; }
+        public String? Extend2 { get; set; }
 
         /// <summary>
         /// 扩展字段
         /// </summary>
         [SugarColumn(ColumnName = "EXTEND3")]
-        public String Extend3 { get; set; }
+        public String? Extend3 { get; set; }
 
         /// <summary>
         /// 序号

@@ -139,8 +139,8 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 资产信息
         /// </summary>
-        [Navigate(NavigateType.OneToOne, nameof(AssetsId), nameof(Assets_groupinfo.Id))]
-        public Assets_groupinfo assets_groupinfo { get; set; }
+        [Navigate(NavigateType.OneToOne, nameof(AssetsId), nameof(Assets_group.Id))]
+        public Assets_group assets_groupinfo { get; set; }
 
         /// <summary>
         /// 租金收款组Id
@@ -150,8 +150,8 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 资产信息
         /// </summary>
-        [Navigate(NavigateType.OneToOne, nameof(RentGroupId), nameof(Assets_groupinfo.Id))]
-        public Assets_groupinfo RentGroupfiles{ get; set; }
+        [Navigate(NavigateType.OneToOne, nameof(RentGroupId), nameof(Assets_group.Id))]
+        public Assets_group RentGroupfiles{ get; set; }
 
         /// <summary>
         /// 开票登记组Id

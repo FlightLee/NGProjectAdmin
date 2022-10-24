@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGProjectAdmin.Service.BusinessService.File
+namespace NGProjectAdmin.Service.BusinessService.NGBusiness
 {
     /// <summary>
-    /// File_group 业务接口
+    /// Contract_default 业务接口
     /// </summary>
-    public interface IFile_detailService : IBaseService<File_detail>
+    public interface IContract_defaultService : IBaseService<Contract_default>
     {
        
     }

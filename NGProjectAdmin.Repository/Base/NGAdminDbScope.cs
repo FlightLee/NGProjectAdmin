@@ -1,13 +1,15 @@
 ﻿using NGProjectAdmin.Common.Global;
+using NGProjectAdmin.Common.Utility;
 using NPOI.SS.Formula.Functions;
 using SqlSugar;
 
 namespace NGProjectAdmin.Repository.Base
 {
     public class NGAdminDbScope
-    {/// <summary>
-     /// 单例模式对象
-     /// </summary>
+    {        
+        /// <summary>
+        /// 单例模式对象
+        /// </summary>
         public static SqlSugarScope NGDbContext = new SqlSugarScope(new ConnectionConfig()
         {
             DbType = (DbType)NGAdminGlobalContext.DBConfig.DBType,
@@ -35,7 +37,7 @@ namespace NGProjectAdmin.Repository.Base
              {
                  //执行前可以输出SQL
                  Console.WriteLine(sql);
-                 
+
              };
 
              //修改SQL和参数的值
@@ -52,8 +54,8 @@ namespace NGProjectAdmin.Repository.Base
              //SQL执行完回调函数
              db.Aop.OnLogExecuted = (sql, pars) =>
              {
-                 //执行完可以输出SQL执行时间
-                 Console.Write($"SQL:{sql},\r\nTimeSpan:{db.Ado.SqlExecutionTime.TotalMilliseconds}ms\r\n");
+                 //执行完可以输出SQL执行时间                 
+                 NGLoggerContext.Info($"SQL:{sql},\r\nTimeSpan:{db.Ado.SqlExecutionTime.TotalMilliseconds}ms\r\n");                 
              };
          });
     }

@@ -23,11 +23,11 @@ namespace NGProjectAdmin.Entity.BusinessDTO.SystemManagement
         /// <summary>
         /// 英文菜单名称
         /// </summary>
-        public String MenuNameEn { get; set; }
+        public String? MenuNameEn { get; set; }
 
         /// <summary>
         /// 俄文菜单名称
         /// </summary>
-        public String MenuNameRu { get; set; }
+        public String? MenuNameRu { get; set; }
     }
 }

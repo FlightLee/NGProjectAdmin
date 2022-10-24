@@ -113,7 +113,7 @@ namespace NGProjectAdmin.WebApi.AppCode.ActionFilters
 
             if (!result)
             {
-                context.Result = new BadRequestObjectResult("access denied");
+                context.Result = new BadRequestObjectResult("没有该操作权限");
                 return;
             }
         }

@@ -167,7 +167,7 @@ namespace NGProjectAdmin.Service.BusinessService.SystemManagement.UserService
             if (resultNum != null && resultNum.Equals(login.Captcha))
             {
                 //删除验证码
-             //   await this.redisRepository.DeleteAsync(new String[] { login.CaptchaId });
+                await this.redisRepository.DeleteAsync(new String[] { login.CaptchaId });
 
                 #region 获取用户信息
 

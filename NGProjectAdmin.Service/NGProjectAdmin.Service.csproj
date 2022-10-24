@@ -16,8 +16,4 @@
     <ProjectReference Include="..\NGProjectAdmin.Repository\NGProjectAdmin.Repository.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="BusinessService\Contract\" />
-  </ItemGroup>
-
 </Project>

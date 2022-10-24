@@ -1,4 +1,5 @@
-﻿using SqlSugar;
+﻿using NGProjectAdmin.Entity.Base;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
     /// 资产评估报告单明细
     /// </summary>
     [SugarTable("assetment_detail")]
-    public class Assetment_detail
+    public class Assetment_detail: BaseEntity
     {
         /// <summary>
         /// 资产评估主表Id

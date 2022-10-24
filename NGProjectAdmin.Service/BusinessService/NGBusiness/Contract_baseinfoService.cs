@@ -10,19 +10,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGProjectAdmin.Service.BusinessService.File
+namespace NGProjectAdmin.Service.BusinessService.NGBusiness
 {
-    public class File_detailService : BaseService<File_detail>, IFile_detailService
+    public class Contract_baseinfoService : BaseService<Contract_baseinfo>, IContract_baseinfoService
     {
         #region 属性及其构造函数   
         /// <summary>
         /// 仓储实例
         /// </summary>
-        private readonly IFile_detailRepository File_detailRepository;
+        private readonly IContract_baseinfoRepository Contract_baseinfoRepository;
 
-        public File_detailService(IFile_detailRepository File_detailRepository) : base(File_detailRepository)
+        public Contract_baseinfoService(IContract_baseinfoRepository Contract_baseinfoRepository) : base(Contract_baseinfoRepository)
         {
-            this.File_detailRepository = File_detailRepository;
+            this.Contract_baseinfoRepository = Contract_baseinfoRepository;
         }
         #endregion
 

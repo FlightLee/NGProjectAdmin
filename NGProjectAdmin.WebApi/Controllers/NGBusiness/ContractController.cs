@@ -7,18 +7,18 @@ using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Repository.Base;
 using NGProjectAdmin.Service.Base;
-using NGProjectAdmin.Service.BusinessService.File;
+using NGProjectAdmin.Service.BusinessService.NGBusiness;
 using NGProjectAdmin.WebApi.AppCode.FrameworkBase;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace NGProjectAdmin.WebApi.Controllers.Contract
+namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
 {
     /// <summary>
-    /// 合同控制器
+    /// 合同相关
     /// </summary>
-    public class ContractController : BaseController<File_group>
+    public class ContractController : BaseController<Contract_baseinfo>
     {
 
         #region 属性及构造函数
@@ -30,12 +30,15 @@ namespace NGProjectAdmin.WebApi.Controllers.Contract
 
         private readonly IFile_detailService File_detailService;
 
+        private readonly IContract_baseinfoService Contract_baseinfoService;
+
         /// <summary>
         /// 合同控制器
         /// </summary>
         /// <param name="File_groupService"></param>      
-        /// <param name="file_detailService"></param>      
-        public ContractController(IFile_groupService File_groupService, IFile_detailService file_detailService) : base(File_groupService)
+        /// <param name="file_detailService"></param>
+        /// <param name="contract_baseinfoService"></param>      
+        public ContractController(IContract_baseinfoService contract_baseinfoService,IFile_groupService File_groupService, IFile_detailService file_detailService) : base(contract_baseinfoService)
         {
             this.File_groupService = File_groupService;
             File_detailService = file_detailService;

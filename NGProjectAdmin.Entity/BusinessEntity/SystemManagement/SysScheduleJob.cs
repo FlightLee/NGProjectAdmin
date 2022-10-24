@@ -1,10 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// <Copyright>
-// * Copyright (C) 2022 RuYiAdmin All Rights Reserved
-// </Copyright>
-//-----------------------------------------------------------------------
-
-using NGProjectAdmin.Entity.Base;
+﻿using NGProjectAdmin.Entity.Base;
 using NGProjectAdmin.Entity.BusinessEnum;
 using SqlSugar;
 using System;
@@ -23,35 +17,35 @@ namespace NGProjectAdmin.Entity.BusinessEntity.SystemManagement
         /// </summary>
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "JOB_NAME")]
-        public String JobName { get; set; }
+        public String? JobName { get; set; }
 
         /// <summary>
         /// 任务描述
         /// </summary>
         [MaxLength(512)]
         [SugarColumn(ColumnName = "JOB_DESCRIPTION")]
-        public String JobDescription { get; set; }
+        public String? JobDescription { get; set; }
 
         /// <summary>
         /// 命名空间
         /// </summary>
         [Required, MaxLength(512)]
         [SugarColumn(ColumnName = "NAMESPACE")]
-        public String NameSpace { get; set; }
+        public String? NameSpace { get; set; }
 
         /// <summary>
         /// 实现类
         /// </summary>
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "JOB_IMPLEMENT")]
-        public String JobImplement { get; set; }
+        public String? JobImplement { get; set; }
 
         /// <summary>
         /// Cron表达式
         /// </summary>
         [Required, MaxLength(128)]
         [SugarColumn(ColumnName = "CRON_EXPRESSION")]
-        public String CronExpression { get; set; }
+        public String? CronExpression { get; set; }
 
         /// <summary>
         /// 开始时间

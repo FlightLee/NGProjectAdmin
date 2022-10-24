@@ -1,4 +1,5 @@
-﻿using SqlSugar;
+﻿using NGProjectAdmin.Entity.Base;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
     /// 发票明细
     /// </summary>
     [SugarTable("invoice_detail")]
-    public class Invoice_detail
+    public class Invoice_detail:BaseEntity
     {
         public int InvoiceId { get; set; }
 
