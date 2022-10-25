@@ -2,6 +2,8 @@
 using NGProjectAdmin.Common.Utility;
 using NPOI.SS.Formula.Functions;
 using SqlSugar;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NGProjectAdmin.Repository.Base
 {
@@ -16,7 +18,25 @@ namespace NGProjectAdmin.Repository.Base
             InitKeyType = InitKeyType.Attribute,
             IsAutoCloseConnection = true,
             ConnectionString = NGAdminGlobalContext.DBConfig.ConnectionString,//主库
-            MoreSettings = new ConnMoreSettings()
+            ConfigureExternalServices = new ConfigureExternalServices()
+            {
+                EntityService = (property, column) =>
+                {
+                    var attributes = property.GetCustomAttributes(true);//get all attributes 
+
+                    if (attributes.Any(it => it is KeyAttribute))// by attribute set primarykey
+                    {
+                        column.IsPrimarykey = true; //有哪些特性可以看 1.2 特性明细
+                    }
+                    //可以写多个，这边可以断点调试
+                    if (attributes.Any(it => it is NotMappedAttribute))
+                    {
+                        column.IsIgnore = true;
+                    }
+                }
+                
+            },
+                MoreSettings = new ConnMoreSettings()
             {
                 //MySql禁用NVarchar
                 DisableNvarchar = (DbType)NGAdminGlobalContext.DBConfig.DBType == DbType.MySql ? true : false

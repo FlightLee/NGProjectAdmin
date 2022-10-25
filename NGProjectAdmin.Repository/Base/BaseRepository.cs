@@ -561,8 +561,7 @@ namespace NGProjectAdmin.Repository.Base
         /// <returns>查询结果</returns>
         public async Task<List<T>> GetListAsync(QueryCondition queryCondition)
         {
-            QueryCondition.AddDefaultQueryItem(queryCondition);
-
+          
             var where = QueryCondition.BuildExpression<T>(queryCondition.QueryItems);
 
             var list = await NGDbContext.

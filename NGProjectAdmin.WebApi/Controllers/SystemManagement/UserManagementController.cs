@@ -486,7 +486,7 @@ namespace NGProjectAdmin.WebApi.Controllers.SystemManagement
         /// <returns>ActionResult</returns>
         [HttpPost]
         [AllowAnonymous]
-        //[Log(OperationType.Logon)]
+        [Log(OperationType.Logon)]
         public async Task<IActionResult> Logon([FromBody] LoginDTO loginDTO)
         {
             var actionResult = await this.userService.Logon(loginDTO);

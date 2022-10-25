@@ -21,6 +21,10 @@ namespace NGProjectAdmin.Common.Utility
             var token = String.Empty;
             //从头部获取token
             token = context.Request.Headers["token"];
+            if (token == null)
+            {
+                return null;
+            }
             //从头部获取salt
             var tokenSalt = context.Request.Headers["ts"];
             //token解密

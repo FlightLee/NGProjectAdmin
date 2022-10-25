@@ -51,16 +51,17 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 
         /// <summary>
         /// 评估费用
-        /// </summary>
+        /// </summary>        
         public double Money { get; set; }
 
         /// <summary>
         /// 评估文件Id
         /// </summary>
-        public int MAEPFileGroupId { get; set; }        
+        public int MAEPFileGroupId { get; set; }
         /// <summary>
         /// 评估文件
         /// </summary>
+        
         [Navigate(NavigateType.OneToOne, nameof(MAEPFileGroupId), nameof(File_group.Id))]
         public File_group? MAEPFiles { get; set; }
 

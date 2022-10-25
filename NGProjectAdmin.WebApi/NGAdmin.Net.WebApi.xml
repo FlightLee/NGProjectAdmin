@@ -770,6 +770,11 @@
             </summary>
             <returns>ActionResult</returns>
         </member>
+        <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetMentController">
+            <summary>
+            资产评估
+            </summary>
+        </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController">
             <summary>
             合同相关
