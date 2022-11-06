@@ -770,6 +770,18 @@
             </summary>
             <returns>ActionResult</returns>
         </member>
+        <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController">
+            <summary>
+            资产档案
+            </summary>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.Post(NGProjectAdmin.Entity.CoreEntity.QueryCondition)">
+            <summary>
+            查询资产档案列表
+            </summary>
+            <param name="queryCondition"></param>
+            <returns></returns>
+        </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetMentController">
             <summary>
             资产评估

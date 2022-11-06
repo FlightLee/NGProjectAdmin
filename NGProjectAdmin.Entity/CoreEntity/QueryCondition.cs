@@ -158,7 +158,7 @@ namespace NGProjectAdmin.Entity.CoreEntity
 
                 Expression constant = null;
                 //构建参数
-                var parameter = Expression.Parameter(typeof(T), "p");
+                var parameter = Expression.Parameter(typeof(T), "a");
                 //表达式左侧 like: p.Name
                 Expression left = Expression.PropertyOrField(parameter, field);
                 //表达式右侧，比较值， like '张三'

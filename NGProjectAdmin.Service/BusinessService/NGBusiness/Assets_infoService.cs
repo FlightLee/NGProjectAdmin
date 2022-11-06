@@ -1,12 +1,16 @@
-﻿using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
+﻿using NetTaste;
+using NGProjectAdmin.Entity.BusinessDTO.NGBusiness;
+using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
 using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Repository.Base;
 using NGProjectAdmin.Repository.BusinessRepository.NGBusiness;
 using NGProjectAdmin.Service.Base;
+using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +27,17 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
         public Assets_infoService(IAssets_infoRepository Assets_infoRepository) : base(Assets_infoRepository)
         {
             this.Assets_infoRepository = Assets_infoRepository;
+        }
+
+        public async Task<QueryResult<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition)
+        {
+            var queryResult = new QueryResult<Assets_infoDTO>();
+            queryResult.HttpStatusCode = HttpStatusCode.OK;
+            queryResult.Message = new String("OK");
+            queryResult.List = await this.Assets_infoRepository.GetAssetInfoListAsync(queryCondition);
+            queryResult.TotalCount = queryResult.List.Count;
+
+            return queryResult;
         }
         #endregion
 

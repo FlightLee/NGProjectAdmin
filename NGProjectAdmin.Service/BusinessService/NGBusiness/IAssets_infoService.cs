@@ -1,7 +1,9 @@
-﻿using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
+﻿using NGProjectAdmin.Entity.BusinessDTO.NGBusiness;
+using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
 using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Service.Base;
+using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,6 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
     /// </summary>
     public interface IAssets_infoService : IBaseService<Assets_info>
     {
-       
+        Task<QueryResult<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition);
     }
 }

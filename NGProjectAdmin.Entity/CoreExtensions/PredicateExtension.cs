@@ -19,7 +19,7 @@ namespace NGProjectAdmin.Entity.CoreExtensions
         /// <returns>表达式</returns>
         public static Expression<Func<T, bool>> True<T>()
         {
-            return p => true;
+            return a => true;
         }
 
         /// <summary>

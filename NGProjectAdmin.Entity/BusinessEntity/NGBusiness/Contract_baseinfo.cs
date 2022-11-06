@@ -134,7 +134,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 资产信息ID
         /// </summary>
-        public int AssetsId { get; set; }
+        public string? AssetsId { get; set; }
 
         /// <summary>
         /// 资产信息

@@ -107,6 +107,12 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// 处置方式0移交1拆迁2出借3停用4正常管理
         /// </summary>
         public int AssetUseType { get; set; }
-        
+
+        /// <summary>
+        /// 当前合同Id
+        /// </summary>
+        public string? ContractCode { get; set; }
+        [Navigate(NavigateType.OneToOne, nameof(ContractCode), nameof(Contract_baseinfo.Id))]
+        public Contract_baseinfo Currentcontract { get; set; }
     }
 }
