@@ -775,12 +775,36 @@
             资产档案
             </summary>
         </member>
+        <member name="F:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.mapper">
+            <summary>
+            AutoMapper实例
+            </summary>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_infoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_detailService,AutoMapper.IMapper)">
+            <summary>
+            接口服务
+            </summary>
+            <param name="assets_infoService"></param>
+            <param name="contract_baseinfoService"></param>
+            <param name="assets_groupService"></param>
+            <param name="assets_detailService"></param>
+            <param name="assetment_groupService"></param>
+            <param name="assetment_detailService"></param>
+            <param name="mapper"></param>
+        </member>
         <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.Post(NGProjectAdmin.Entity.CoreEntity.QueryCondition)">
             <summary>
             查询资产档案列表
             </summary>
             <param name="queryCondition"></param>
             <returns></returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.Add(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Assets_infoDTO)">
+            <summary>
+            新增资产档案
+            </summary>
+            <param name="assets_info">资产档案对象</param>
+            <returns>ActionResult</returns>
         </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetMentController">
             <summary>
@@ -811,6 +835,18 @@
             </summary>
             <param name="FileId">查询条件</param>
             <returns>ActionResult</returns>
+        </member>
+        <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.FilesController">
+            <summary>
+            文件管理
+            </summary>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.FilesController.UploadFiles(System.Int32)">
+            <summary>
+            上传文件接口
+            </summary>
+            <param name="businessId"></param>
+            <returns></returns>
         </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.SystemManagement.AnnouncementManagementController">
             <summary>

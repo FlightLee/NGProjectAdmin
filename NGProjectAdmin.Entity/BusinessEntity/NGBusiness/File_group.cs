@@ -17,6 +17,10 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 
 
 
+        
+
+        public int optype { get; set; }
+
         [Navigate(NavigateType.OneToMany, nameof(File_detail.FileId))]
         public List<File_detail> File_details { get; set; }
     }

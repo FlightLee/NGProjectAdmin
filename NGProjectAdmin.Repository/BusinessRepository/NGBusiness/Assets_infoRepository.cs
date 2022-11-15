@@ -35,7 +35,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                Queryable<Assets_info>().LeftJoin<Contract_baseinfo>((a,c)=>a.AssetsCode==c.AssetsId).
                WhereIF(true, where).
                OrderByIF(!String.IsNullOrEmpty(queryCondition.Sort), queryCondition.Sort).
-               Select((a, c) =>new Assets_infoDTO() { AssetsCode=a.AssetsCode, AssetsTypeId=a.AssetsTypeId, AssetsState=a.AssetsState, AssetsArea=a.AssetsArea,AssetsAdress=a.AssetsAdress,AssetUseType=a.AssetUseType,Currentcontract=new Contract_baseinfo() { lessee=c.lessee,lesseePhone=c.lesseePhone,ContracStartDate=c.ContracStartDate,ContractEndDate=c.ContractEndDate,ContractPrice=c.ContractPrice,ContractMoney=c.ContractMoney   }  }).
+               Select((a, c) =>new Assets_infoDTO() {Id=a.Id, AssetsCode=a.AssetsCode, AssetsTypeId=a.AssetsTypeId, AssetsState=a.AssetsState, AssetsArea=a.AssetsArea,AssetsAdress=a.AssetsAdress,AssetUseType=a.AssetUseType,contractinfo=new Assets_info_ContractDTO() { lessee=c.lessee,lesseePhone=c.lesseePhone,ContracStartDate=c.ContracStartDate,ContractEndDate=c.ContractEndDate,ContractPrice=c.ContractPrice,ContractMoney=c.ContractMoney   }  }).
                ToListAsync();            
             return list;
         }

@@ -12,7 +12,7 @@ namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
     /// </summary>
     public class Assets_infoDTO: Assets_info
     {
-        public Contract_baseinfo Currentcontract { get; set; }
-        public List<Contract_baseinfo> listContract { get; set; }
+        public Assets_info_ContractDTO? contractinfo { get; set; }
+        public Assets_info_AssetMentDTO? assetsMent { get; set; }
     }
 }

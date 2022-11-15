@@ -8,7 +8,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
     /// <summary>
     /// File_group数据访问层实现
     /// </summary>   
-    public class File_detailRepository : BaseRepository<File_detail>, IFile_detailRepository
+    public class File_detailRepository : NGAdminBaseRepository<File_detail>, IFile_detailRepository
     {
         /// <summary>
         /// HttpContext

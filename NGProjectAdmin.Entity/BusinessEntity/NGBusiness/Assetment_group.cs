@@ -17,47 +17,47 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 评估报告编号
         /// </summary>
-        public string AssetCode { get; set; }
+        public string? AssetCode { get; set; }
 
         /// <summary>
         /// 经办人Id
         /// </summary>
-        public Guid PersonId { get; set; }
+        public Guid? PersonId { get; set; }
 
         /// <summary>
         /// 经办人名称
         /// </summary>
-        public string PersonName { get; set; }
+        public string? PersonName { get; set; }
 
         /// <summary>
         /// 经办人部门Id
         /// </summary>
-        public Guid DepartmentId { get; set; }
+        public Guid? DepartmentId { get; set; }
 
         /// <summary>
         /// 经办人部门名称
         /// </summary>
-        public string DepartName { get; set; }
+        public string? DepartName { get; set; }
 
         /// <summary>
         /// 评估日期
         /// </summary>
-        public DateTime BuildDate { get; set; }
+        public DateTime? BuildDate { get; set; }
 
         /// <summary>
         /// 评估机构
         /// </summary>
-        public string MAEPName { get; set; }
+        public string? MAEPName { get; set; }
 
         /// <summary>
         /// 评估费用
         /// </summary>        
-        public double Money { get; set; }
+        public double? Money { get; set; }
 
         /// <summary>
         /// 评估文件Id
         /// </summary>
-        public int MAEPFileGroupId { get; set; }
+        public string? MAEPFileGroupId { get; set; }
         /// <summary>
         /// 评估文件
         /// </summary>

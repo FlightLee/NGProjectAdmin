@@ -110,7 +110,10 @@ namespace NGProjectAdmin.Entity.Base
 
             this.VersionId = Guid.NewGuid();
         }
-
+        public void CreateId(IHttpContextAccessor context)
+        {
+            this.Id = Guid.NewGuid();            
+        }
         /// <summary>
         /// 编辑赋值
         /// </summary>

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace NGProjectAdmin.Service.BusinessService.NGBusiness
 {
-    public class File_detailService : BaseService<File_detail>, IFile_detailService
+    public class File_detailService : NGAdminBaseService<File_detail>, IFile_detailService
     {
         #region 属性及其构造函数   
         /// <summary>

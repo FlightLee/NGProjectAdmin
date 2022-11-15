@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using NGProjectAdmin.Entity.BusinessDTO.BusinessModule;
+using NGProjectAdmin.Entity.BusinessDTO.NGBusiness;
 using NGProjectAdmin.Entity.BusinessDTO.SystemManagement;
 using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
+using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Entity.BusinessEntity.SystemManagement;
 
 namespace NGProjectAdmin.Entity.AutoMapperConfig
@@ -14,6 +16,9 @@ namespace NGProjectAdmin.Entity.AutoMapperConfig
         public AutoMapperProfile()
         {
             #region POCO TO DTO
+
+            //合同
+            CreateMap<Contract_baseinfo, Assets_info_ContractDTO>().ReverseMap();
 
             //机构
             CreateMap<SysOrganization, SysOrganizationDTO>().ReverseMap(); 

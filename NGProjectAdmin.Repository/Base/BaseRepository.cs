@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using NetTaste;
 using NGProjectAdmin.Common.Class.Exceptions;
 using NGProjectAdmin.Common.Global;
 using NGProjectAdmin.Entity.Base;
@@ -701,6 +702,7 @@ namespace NGProjectAdmin.Repository.Base
             if (create)
             {
                 obj.Create(this.context);
+                obj.Id = GetNewId();
             }
 
             try
@@ -740,6 +742,7 @@ namespace NGProjectAdmin.Repository.Base
                 foreach (var item in list)
                 {
                     item.Create(this.context);
+                    item.Id = GetNewId();
                 }
             }
 
@@ -1167,13 +1170,14 @@ namespace NGProjectAdmin.Repository.Base
             var obj = NGDbContext.Queryable<T>().OrderBy("Id desc ").First();
             
             string head = "NG" + DateTime.Now.ToString("yyyyMMdd");
-            if (obj==null)
+            if (obj != null && DateTime.Now.ToString("yyyyMMdd") == obj.Id.Substring(2, 8))
+            {
+                return head + Convert.ToString(Convert.ToInt32(obj.Id.Substring(10, 4)) + 1).PadLeft(4, '0');
+            }
+            else
             {
                 return head + "0001";
-            }
-            else {
-                return head + Convert.ToString(Convert.ToInt32(obj.Id.Substring(10, 4)) + 1).PadLeft(4, '0');
-            }            
+            }                                    
         }
 
         #endregion

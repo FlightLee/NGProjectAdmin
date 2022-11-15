@@ -34,5 +34,6 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             return Ok(assetments);
 
         }
+
     }
 }

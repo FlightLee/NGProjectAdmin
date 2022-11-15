@@ -14,6 +14,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
     [SugarTable("assets_info")]
     public class Assets_info: BaseEntity
     {
+    
         /// <summary>
         /// 档案编号
         /// </summary>
@@ -23,7 +24,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 资产取得时间
         /// </summary>
-        public DateTime AssetsGetDate { get; set; }
+        public DateTime? AssetsGetDate { get; set; }
 
         /// <summary>
         /// 资产类型0租赁型住宅1租赁型门面房2土地3经营性用房4商服用房5工厂用房6沿街商铺
@@ -69,7 +70,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 相关资料附件
         /// </summary>
-        public int AssetsFileGroupId { get; set; }
+        public string? AssetsFileGroupId { get; set; }
 
         /// <summary>
         /// 资料附件
@@ -79,7 +80,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 最新评估表Id
         /// </summary>
-        public int AssetsMentGroupId { get; set; }
+        public string? AssetsMentGroupId { get; set; }
 
         /// <summary>
         /// 资产评估表
@@ -113,6 +114,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// </summary>
         public string? ContractCode { get; set; }
         [Navigate(NavigateType.OneToOne, nameof(ContractCode), nameof(Contract_baseinfo.Id))]
-        public Contract_baseinfo Currentcontract { get; set; }
+        public Contract_baseinfo? contract_baseinfo { get; set; }
+        
     }
 }

@@ -17,17 +17,17 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 面积
         /// </summary>
-        public double Area { get; set; }
+        public double? Area { get; set; }
 
         /// <summary>
         /// 总评估价
         /// </summary>
-        public double Money { get; set; }
+        public double? Money { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        public string Remark { get; set; }
+        public string? Remark { get; set; }
 
         [Navigate(NavigateType.OneToMany, nameof(Assets_detail.GroupId))]
         public List<Assets_detail> assets_detail { get; set; }

@@ -12,13 +12,12 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
     /// 文件信息主表
     /// </summary>
     [SugarTable("file_detail")]
-    public class File_detail : BaseEntity
+    public class File_detail : NGAdminBaseEntity
     {
         /// <summary>
         /// 文件组Id
-        /// </summary>
-        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
-        public Guid FileId { get; set; }
+        /// </summary>        
+        public string FileId { get; set; }
 
         /// <summary>
         /// 文件名称

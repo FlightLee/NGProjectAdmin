@@ -22,32 +22,32 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 组Id
         /// </summary>
-        public int GroupId { get; set; }
+        public string? GroupId { get; set; }
 
         /// <summary>
         /// 资产编号Id
         /// </summary>
-        public int AssetsId { get; set; }
+        public string? AssetsId { get; set; }
 
         /// <summary>
         /// 资产地址
         /// </summary>
-        public string AssetAdress { get; set; }
+        public string? AssetAdress { get; set; }
 
         /// <summary>
         /// 资产面积
         /// </summary>
-        public double AssetArea { get; set; }
+        public double? AssetArea { get; set; }
 
         /// <summary>
         /// 资产评估价
         /// </summary>
-        public double AssetPrice { get; set; }
+        public double? AssetPrice { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        public string Remark { get; set; }
+        public string? Remark { get; set; }
  
     }
 }

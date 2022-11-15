@@ -17,7 +17,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 资产评估主表Id
         /// </summary>
-        public int AssetMentId { get; set; }
+        public string? AssetMentId { get; set; }
 
         /// <summary>
         /// 序号
@@ -27,41 +27,46 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 资产Id
         /// </summary>
-        public int AssetId { get; set; }
+        public string? AssetId { get; set; }
 
         /// <summary>
         /// 资产名称
         /// </summary>
-        public string AssetName { get; set; }
+        public string? AssetName { get; set; }
 
         /// <summary>
         /// 资产地址
         /// </summary>
-        public string AssetAdress { get; set; }
+        public string? AssetAdress { get; set; }
 
         /// <summary>
         /// 资产面积
         /// </summary>
-        public double AssessArea { get; set; }
+        public double? AssessArea { get; set; }
+
+        /// <summary>
+        /// 评估面积
+        /// </summary>
+        public double? measureArea { get; set; }
 
         /// <summary>
         /// 评估单价/月
         /// </summary>
-        public double AssetPriceOneMonth { get; set; }
+        public double? AssetPriceOneMonth { get; set; }
 
         /// <summary>
         /// 评估总价/年
         /// </summary>
-        public double AssetPriceOneYear { get; set; }
+        public double? AssetPriceOneYear { get; set; }
 
         /// <summary>
         /// 分摊评估费用
         /// </summary>
-        public double EverAssessMoney { get; set; }
+        public double? EverAssessMoney { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        public string Remark { get; set; }
+        public string? Remark { get; set; }
     }
 }

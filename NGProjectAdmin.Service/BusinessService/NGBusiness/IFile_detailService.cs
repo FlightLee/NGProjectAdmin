@@ -13,7 +13,7 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
     /// <summary>
     /// File_group 业务接口
     /// </summary>
-    public interface IFile_detailService : IBaseService<File_detail>
+    public interface IFile_detailService : INGAdminBaseService<File_detail>
     {
        
     }
