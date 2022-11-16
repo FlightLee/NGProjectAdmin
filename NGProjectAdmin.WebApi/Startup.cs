@@ -174,6 +174,7 @@ namespace NGProjectAdmin
                             if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
                             {
                                 context.Response.Headers.Add("act", "expired");
+                                context.Response.StatusCode = 401;                                
                             }
                             return Task.CompletedTask;
                         }

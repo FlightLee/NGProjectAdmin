@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using NGProjectAdmin.Common.Global;
 using NGProjectAdmin.Common.Utility;
 using NGProjectAdmin.Entity.Base;
+using NGProjectAdmin.Entity.BusinessEntity.SystemManagement;
 using NGProjectAdmin.Entity.BusinessEnum;
 using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Service.Base;
@@ -24,7 +25,7 @@ namespace NGProjectAdmin.WebApi.AppCode.FrameworkBase
     [Route(NGAdminGlobalContext.RouteTemplate)]
     public class BaseController<T> : ControllerBase where T : BaseEntity
     {
-    
+
 
         #region 属性与构造函数
 
@@ -208,6 +209,9 @@ namespace NGProjectAdmin.WebApi.AppCode.FrameworkBase
                 return File(stream, "application/octet-stream", "RuYiAdmin.zip");
             });
         }
+
+      
+
 
         #endregion
     }
