@@ -18,5 +18,7 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
     public interface IAssets_infoService : IBaseService<Assets_info>
     {
         Task<QueryResult<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition);
+
+        Task<ActionResult> GetAssetByIdAsync(string assetId);
     }
 }

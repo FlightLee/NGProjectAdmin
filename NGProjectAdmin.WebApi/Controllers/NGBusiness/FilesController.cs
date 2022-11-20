@@ -8,6 +8,7 @@ using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Service.BusinessService.NGBusiness;
 using NGProjectAdmin.WebApi.AppCode.ActionFilters;
 using NGProjectAdmin.WebApi.AppCode.FrameworkBase;
+using SixLabors.ImageSharp.Drawing;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -38,7 +39,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         /// <returns></returns>
         [HttpPost]
         [Log(OperationType.UploadFile)]
-        public async Task<IActionResult> UploadFiles(int businessId)
+        public async Task<IActionResult> UploadFiles(int businessId, string groupId)
         {
             File_group f = new File_group();
             f.optype = businessId;
@@ -80,6 +81,31 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                 //设置流的起始位置
                 stream.Position = 0;
                 return File(stream, "application/octet-stream", file.FileName);
+
+            });
+        }
+        /// <summary>
+        /// 删除文件
+        /// </summary>
+        /// <param name="fileId">文件Id</param>
+        /// <returns>ActionResult</returns>
+        [HttpGet("{fileId}")]
+        [Log(OperationType.EditEntity)]
+        public async Task<IActionResult> DeleteFiles(Guid fileId)
+        {
+            return await Task.Run(() =>
+            {
+                var res = File_detailService.GetById(fileId);
+                File_detail file = (res.Object as File_detail);
+
+                bool isFile = System.IO.File.Exists(file.FileUrl);
+                if (isFile)
+                {
+                    // 删除文件
+                    System.IO.File.Delete(file.FileUrl);
+                }
+                var actionResult = File_detailService.Delete(fileId);
+                return Ok(actionResult);
 
             });
         }

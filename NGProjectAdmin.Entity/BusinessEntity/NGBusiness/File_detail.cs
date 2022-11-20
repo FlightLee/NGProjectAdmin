@@ -17,7 +17,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 文件组Id
         /// </summary>        
-        public string FileId { get; set; }
+        public string? FileId { get; set; }
 
         /// <summary>
         /// 文件名称
@@ -37,6 +37,15 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 序号
         /// </summary>
-        public int insideId { get; set; }
+        public int? insideId { get; set; }
+
+        [SugarColumn(IsIgnore=true)]
+        public string? name
+        {
+            get
+            {
+                return FileName;
+            }
+        }
     }
 }

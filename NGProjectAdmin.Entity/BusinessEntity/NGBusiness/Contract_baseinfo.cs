@@ -44,10 +44,17 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// </summary>
         public string? lessee { get; set; }
 
+        public string? lessorPhone { get; set; }
+
         /// <summary>
         /// 乙方身份证号码（统一社会信用代码）
         /// </summary>
         public string? lesseeId { get; set; }
+
+        /// <summary>
+        /// 甲方身份证号码（统一社会信用代码）
+        /// </summary>
+        public string? lessorId { get; set; }
 
         /// <summary>
         /// 乙方联系方式

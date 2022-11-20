@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Consul;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NGProjectAdmin.Entity.BusinessDTO.NGBusiness;
@@ -11,6 +12,8 @@ using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Service.BusinessService.NGBusiness;
 using NGProjectAdmin.WebApi.AppCode.ActionFilters;
 using NGProjectAdmin.WebApi.AppCode.FrameworkBase;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
@@ -32,6 +35,8 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
 
         private readonly IAssets_detailService Assets_detailService;
 
+        private readonly IFile_detailService File_detailService;
+
         /// <summary>
         /// AutoMapper实例
         /// </summary>
@@ -40,6 +45,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         /// <summary>
         /// 接口服务
         /// </summary>
+        /// <param name="file_detailService"></param>
         /// <param name="assets_infoService"></param>
         /// <param name="contract_baseinfoService"></param>
         /// <param name="assets_groupService"></param>
@@ -47,7 +53,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         /// <param name="assetment_groupService"></param>
         /// <param name="assetment_detailService"></param>
         /// <param name="mapper"></param>
-        public AssetController(IAssets_infoService assets_infoService, IContract_baseinfoService contract_baseinfoService, IAssets_groupService assets_groupService, IAssets_detailService assets_detailService, IAssetment_groupService assetment_groupService, IAssetment_detailService assetment_detailService, IMapper mapper) : base(assets_infoService)
+        public AssetController(IFile_detailService file_detailService, IAssets_infoService assets_infoService, IContract_baseinfoService contract_baseinfoService, IAssets_groupService assets_groupService, IAssets_detailService assets_detailService, IAssetment_groupService assetment_groupService, IAssetment_detailService assetment_detailService, IMapper mapper) : base(assets_infoService)
         {
             this.Assets_infoService = assets_infoService;
             this.Assetment_groupService = assetment_groupService;
@@ -55,6 +61,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             this.Assets_groupService = assets_groupService;
             this.Assets_detailService = assets_detailService;
             this.Contract_baseinfoService = contract_baseinfoService;
+            this.File_detailService = file_detailService;
             this.mapper = mapper;
         }
 
@@ -105,9 +112,9 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             assets_Group.Area = assets_info.assetsMent.assessArea;
             await Assets_groupService.AddAsync(assets_Group, true);
             Assets_detail assets_Detail = new Assets_detail();
-            assets_Detail.AssetAdress=assets_info.AssetsAdress;
+            assets_Detail.AssetAdress = assets_info.AssetsAdress;
             assets_Detail.AssetArea = assets_info.assetsMent.assessArea;
-            assets_Detail.AssetsId=assets_info.Id;
+            assets_Detail.AssetsId = assets_info.Id;
             assets_Detail.insideId = 1;
             assets_Detail.GroupId = assets_Group.Id;
             await Assets_detailService.AddAsync(assets_Detail, true);
@@ -116,7 +123,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             var contact = mapper.Map<Contract_baseinfo>(assets_info.contractinfo);
             if (contact == null)
             {
-                contact=new Contract_baseinfo();
+                contact = new Contract_baseinfo();
             }
             contact.AssetsId = assets_Group.Id;
             await Contract_baseinfoService.AddAsync(contact, true);
@@ -124,10 +131,56 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             //修改资产档案信息
             assets_info.AssetsMentGroupId = assetment_Group.Id;
             assets_info.ContractCode = contact.Id;
-            var actionResult= await this.Assets_infoService.UpdateAsync(assets_info);
+            var actionResult = await this.Assets_infoService.UpdateAsync(assets_info);
+
+            foreach (var item in assets_info.contractinfo.contractPdfGroupFiles)
+            {
+                File_detail file_Detail = File_detailService.GetById(item.Id).Object as File_detail;
+                file_Detail.FileId = assets_info.contractinfo.ContractPdfGroupId;
+                await File_detailService.UpdateAsync(file_Detail);
+            }
+
+            foreach (var item in assets_info.assetsFileGroupFiles)
+            {
+                File_detail file_Detail = File_detailService.GetById(item.Id).Object as File_detail;
+                file_Detail.FileId = assets_info.AssetsFileGroupId;
+                await File_detailService.UpdateAsync(file_Detail);
+            }
 
 
             return Ok(actionResult);
         }
+
+        /// <summary>
+        /// 查询同步账号信息
+        /// </summary>
+        /// <param name="assetId">同步账号编号</param>
+        /// <returns>ActionResult</returns>
+        [HttpGet("{assetId}")]
+        [Log(OperationType.QueryEntity)]
+        [Permission("asset:edit:entity")]
+        public async Task<IActionResult> GetById(string assetId)
+        {
+            var actionResult = await this.Assets_infoService.GetAssetByIdAsync(assetId);
+            Assets_infoDTO asset = actionResult.Object as Assets_infoDTO;
+            if (asset.AssetsFileGroupId != null)
+            {
+                var querynResult = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = asset.AssetsFileGroupId } } });
+                asset.assetsFileGroupFiles = querynResult.List;
+            }
+            if (asset.propertyFileGroupId != null)
+            {
+                var querynResult2 = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = asset.propertyFileGroupId } } });
+                asset.propertyFileGroupFiles = querynResult2.List;
+            }
+            if (asset.contractinfo.ContractPdfGroupId != null)
+            {
+                var querynResult3 = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = asset.contractinfo.ContractPdfGroupId } } });
+                asset.contractinfo.contractPdfGroupFiles = querynResult3.List;
+            }
+                                            
+            return Ok(actionResult);
+        }
+
     }
 }

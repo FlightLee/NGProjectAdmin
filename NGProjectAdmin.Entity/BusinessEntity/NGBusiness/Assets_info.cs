@@ -99,10 +99,12 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// 不懂产权证号
         /// </summary>
         public string? LandPropertyInfo { get; set; }
+        public string? propertyFileGroupId { get; set; }
+
         /// <summary>
         /// 产权资料附件
         /// </summary>
-        [Navigate(NavigateType.OneToOne, nameof(AssetsFileGroupId), nameof(File_group.Id))]
+        [Navigate(NavigateType.OneToOne, nameof(propertyFileGroupId), nameof(File_group.Id))]
         public File_group? propertyFiles { get; set; }
         /// <summary>
         /// 处置方式0移交1拆迁2出借3停用4正常管理

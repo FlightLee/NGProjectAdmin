@@ -13,5 +13,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
     public interface IAssets_infoRepository : IBaseRepository<Assets_info>
     {
         Task<List<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition);
+
+        Task<Assets_infoDTO> GetAssetByIdAsync(string assetId);
     }
 }

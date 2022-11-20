@@ -14,5 +14,9 @@ namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
     {
         public Assets_info_ContractDTO? contractinfo { get; set; }
         public Assets_info_AssetMentDTO? assetsMent { get; set; }
+
+        public List<File_detail>? assetsFileGroupFiles { get; set; }
+
+        public List<File_detail>? propertyFileGroupFiles { get; set; }
     }
 }

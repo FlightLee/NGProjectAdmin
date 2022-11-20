@@ -780,10 +780,11 @@
             AutoMapper实例
             </summary>
         </member>
-        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_infoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_detailService,AutoMapper.IMapper)">
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_infoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_detailService,AutoMapper.IMapper)">
             <summary>
             接口服务
             </summary>
+            <param name="file_detailService"></param>
             <param name="assets_infoService"></param>
             <param name="contract_baseinfoService"></param>
             <param name="assets_groupService"></param>
@@ -804,6 +805,13 @@
             新增资产档案
             </summary>
             <param name="assets_info">资产档案对象</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.GetById(System.String)">
+            <summary>
+            查询同步账号信息
+            </summary>
+            <param name="assetId">同步账号编号</param>
             <returns>ActionResult</returns>
         </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetMentController">
@@ -841,7 +849,7 @@
             文件管理
             </summary>
         </member>
-        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.FilesController.UploadFiles(System.Int32)">
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.FilesController.UploadFiles(System.Int32,System.String)">
             <summary>
             上传文件接口
             </summary>
@@ -851,6 +859,13 @@
         <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.FilesController.DownloadFiles(System.Guid)">
             <summary>
             下载文件
+            </summary>
+            <param name="fileId">文件Id</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.FilesController.DeleteFiles(System.Guid)">
+            <summary>
+            删除文件
             </summary>
             <param name="fileId">文件Id</param>
             <returns>ActionResult</returns>

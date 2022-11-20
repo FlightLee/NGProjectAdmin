@@ -1,4 +1,5 @@
-﻿using NetTaste;
+﻿using Nest;
+using NetTaste;
 using NGProjectAdmin.Entity.BusinessDTO.NGBusiness;
 using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
 using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
@@ -27,6 +28,17 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
         public Assets_infoService(IAssets_infoRepository Assets_infoRepository) : base(Assets_infoRepository)
         {
             this.Assets_infoRepository = Assets_infoRepository;
+        }
+
+        public async Task<ActionResult> GetAssetByIdAsync(string assetId)
+        {
+            var actionResult = new ActionResult();
+
+            actionResult.HttpStatusCode = HttpStatusCode.OK;
+            actionResult.Message = new String("OK");
+            actionResult.Object = await this.Assets_infoRepository.GetAssetByIdAsync(assetId);
+
+            return actionResult;
         }
 
         public async Task<QueryResult<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition)
