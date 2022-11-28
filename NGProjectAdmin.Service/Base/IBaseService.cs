@@ -302,7 +302,7 @@ namespace NGProjectAdmin.Service.Base
         /// </summary>
         /// <param name="id">对象编号</param>
         /// <returns>执行结果</returns>
-        Task<ActionResult> DeleteAsync(int id);
+        Task<ActionResult> DeleteAsync(string id);
 
         /// <summary>
         /// 批量逻辑删除对象

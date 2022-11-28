@@ -314,7 +314,7 @@ namespace NGProjectAdmin.Repository.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>标志</returns>
-        Task<bool> DeleteEntityAsync(int id);
+        Task<bool> DeleteEntityAsync(string id);
 
         /// <summary>
         /// 逻辑批量删除

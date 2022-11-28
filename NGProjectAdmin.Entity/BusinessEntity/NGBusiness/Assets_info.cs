@@ -117,6 +117,10 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         public string? ContractCode { get; set; }
         [Navigate(NavigateType.OneToOne, nameof(ContractCode), nameof(Contract_baseinfo.Id))]
         public Contract_baseinfo? contract_baseinfo { get; set; }
-        
+
+        public Guid? contract_groupId { get; set; }
+
+       
+
     }
 }

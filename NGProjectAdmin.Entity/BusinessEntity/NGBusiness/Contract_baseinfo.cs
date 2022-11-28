@@ -198,5 +198,10 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// 0合同完结1合同逾期2不存在逾期
         /// </summary>
         public int? ContractState { get; set; }
+
+        /// <summary>
+        /// 对应合同组
+        /// </summary>
+        public Guid? contract_groupId { get; set; }
     }
 }

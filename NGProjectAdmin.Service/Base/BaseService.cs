@@ -694,7 +694,7 @@ namespace NGProjectAdmin.Service.Base
         /// </summary>
         /// <param name="id">对象编号</param>
         /// <returns>执行结果</returns>
-        public async Task<ActionResult> DeleteAsync(int id)
+        public async Task<ActionResult> DeleteAsync(string id)
         {
             var actionResult = new ActionResult();
 

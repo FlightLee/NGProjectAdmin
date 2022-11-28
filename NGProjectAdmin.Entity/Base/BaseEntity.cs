@@ -23,6 +23,8 @@ namespace NGProjectAdmin.Entity.Base
         [SugarColumn(IsPrimaryKey = true, ColumnName = "Id")]
         public string Id { get; set; }
 
+        public int? IsDel { get; set; }
+
         #endregion
 
         #region 通用方法 
@@ -37,7 +39,8 @@ namespace NGProjectAdmin.Entity.Base
         }
         public void Create(IHttpContextAccessor context)
         {       
-            var user = NGAdminSessionContext.GetCurrentUserInfo(context);        
+            var user = NGAdminSessionContext.GetCurrentUserInfo(context);
+            this.IsDel = 0;
         }
 
         /// <summary>
@@ -56,6 +59,7 @@ namespace NGProjectAdmin.Entity.Base
         public void Delete(IHttpContextAccessor context)
         {
             var user = NGAdminSessionContext.GetCurrentUserInfo(context);
+            this.IsDel = (int)DeletionType.Deleted;
         }
 
         #endregion

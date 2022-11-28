@@ -14,6 +14,6 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
     {
         Task<List<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition);
 
-        Task<Assets_infoDTO> GetAssetByIdAsync(string assetId);
+        Task<Assets_infoDTO> GetAssetByIdAsync(Assets_infoDTO assetId);
     }
 }

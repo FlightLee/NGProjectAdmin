@@ -65,7 +65,7 @@ namespace NGProjectAdmin.WebApi.AppCode.FrameworkExtensions
             }
             catch (Exception ex)
             {
-                await HandleExceptionAsync(httpContext, ex); //捕获异常,在HandleExceptionAsync中处理
+                await  HandleExceptionAsync(httpContext, ex); //捕获异常,在HandleExceptionAsync中处理
             }
         }
 
@@ -141,7 +141,7 @@ namespace NGProjectAdmin.WebApi.AppCode.FrameworkExtensions
                     break;
                 default:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                    errorResponse.Message = "Internal Server Error";
+                    errorResponse.Message = "Internal Server Error"+ exception.Message;
                     break;
             }
 

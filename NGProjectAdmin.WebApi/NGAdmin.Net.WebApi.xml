@@ -88,7 +88,7 @@
             <param name="t">对象</param>
             <returns>ActionResult</returns>
         </member>
-        <member name="M:NGProjectAdmin.WebApi.AppCode.FrameworkBase.BaseController`1.DeleteEntityById(System.Int32)">
+        <member name="M:NGProjectAdmin.WebApi.AppCode.FrameworkBase.BaseController`1.DeleteEntityById(System.String)">
             <summary>
             删除
             </summary>
@@ -780,10 +780,11 @@
             AutoMapper实例
             </summary>
         </member>
-        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_infoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_detailService,AutoMapper.IMapper)">
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.Icontract_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_infoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssetment_detailService,AutoMapper.IMapper)">
             <summary>
             接口服务
             </summary>
+            <param name="contract_groupService"></param>
             <param name="file_detailService"></param>
             <param name="assets_infoService"></param>
             <param name="contract_baseinfoService"></param>
@@ -807,11 +808,18 @@
             <param name="assets_info">资产档案对象</param>
             <returns>ActionResult</returns>
         </member>
-        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.GetById(System.String)">
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.GetById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Assets_infoDTO)">
             <summary>
-            查询同步账号信息
+            查询资产信息
             </summary>
-            <param name="assetId">同步账号编号</param>
+            <param name="assets_infoDTO">资产编号</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.DeleteById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Assets_infoDTO)">
+            <summary>
+            删除资产信息
+            </summary>
+            <param name="assets_infoDTO">资产编号</param>
             <returns>ActionResult</returns>
         </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetMentController">

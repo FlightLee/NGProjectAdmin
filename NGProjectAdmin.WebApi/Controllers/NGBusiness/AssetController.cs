@@ -37,6 +37,8 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
 
         private readonly IFile_detailService File_detailService;
 
+        private readonly Icontract_groupService Contract_groupService;
+
         /// <summary>
         /// AutoMapper实例
         /// </summary>
@@ -45,6 +47,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         /// <summary>
         /// 接口服务
         /// </summary>
+        /// <param name="contract_groupService"></param>
         /// <param name="file_detailService"></param>
         /// <param name="assets_infoService"></param>
         /// <param name="contract_baseinfoService"></param>
@@ -53,7 +56,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         /// <param name="assetment_groupService"></param>
         /// <param name="assetment_detailService"></param>
         /// <param name="mapper"></param>
-        public AssetController(IFile_detailService file_detailService, IAssets_infoService assets_infoService, IContract_baseinfoService contract_baseinfoService, IAssets_groupService assets_groupService, IAssets_detailService assets_detailService, IAssetment_groupService assetment_groupService, IAssetment_detailService assetment_detailService, IMapper mapper) : base(assets_infoService)
+        public AssetController(Icontract_groupService contract_groupService,IFile_detailService file_detailService, IAssets_infoService assets_infoService, IContract_baseinfoService contract_baseinfoService, IAssets_groupService assets_groupService, IAssets_detailService assets_detailService, IAssetment_groupService assetment_groupService, IAssetment_detailService assetment_detailService, IMapper mapper) : base(assets_infoService)
         {
             this.Assets_infoService = assets_infoService;
             this.Assetment_groupService = assetment_groupService;
@@ -62,6 +65,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             this.Assets_detailService = assets_detailService;
             this.Contract_baseinfoService = contract_baseinfoService;
             this.File_detailService = file_detailService;
+            this.Contract_groupService = contract_groupService;
             this.mapper = mapper;
         }
 
@@ -120,12 +124,18 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             await Assets_detailService.AddAsync(assets_Detail, true);
 
             //新建合同
+            contract_group contract_Group = new contract_group();
+            await Contract_groupService.AddAsync(contract_Group, true);
+
+
             var contact = mapper.Map<Contract_baseinfo>(assets_info.contractinfo);
             if (contact == null)
             {
                 contact = new Contract_baseinfo();
             }
+            contact.contract_groupId = contract_Group.Id;
             contact.AssetsId = assets_Group.Id;
+            
             await Contract_baseinfoService.AddAsync(contact, true);
 
             //修改资产档案信息
@@ -152,16 +162,16 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         }
 
         /// <summary>
-        /// 查询同步账号信息
+        /// 查询资产信息
         /// </summary>
-        /// <param name="assetId">同步账号编号</param>
+        /// <param name="assets_infoDTO">资产编号</param>
         /// <returns>ActionResult</returns>
-        [HttpGet("{assetId}")]
+        [HttpPost]
         [Log(OperationType.QueryEntity)]
         [Permission("asset:edit:entity")]
-        public async Task<IActionResult> GetById(string assetId)
+        public async Task<IActionResult> GetById([FromBody] Assets_infoDTO assets_infoDTO)
         {
-            var actionResult = await this.Assets_infoService.GetAssetByIdAsync(assetId);
+            var actionResult = await this.Assets_infoService.GetAssetByIdAsync(assets_infoDTO);
             Assets_infoDTO asset = actionResult.Object as Assets_infoDTO;
             if (asset.AssetsFileGroupId != null)
             {
@@ -182,5 +192,27 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             return Ok(actionResult);
         }
 
+        /// <summary>
+        /// 删除资产信息
+        /// </summary>
+        /// <param name="assets_infoDTO">资产编号</param>
+        /// <returns>ActionResult</returns>
+        [HttpPost]
+        [Log(OperationType.DeleteEntity)]
+        [Permission("asset:delete:entity")]
+        public async Task<IActionResult> DeleteById([FromBody] Assets_infoDTO assets_infoDTO)
+        {
+            if (!string.IsNullOrWhiteSpace(assets_infoDTO.Id)&& !string.IsNullOrWhiteSpace(assets_infoDTO.contractinfo.id))
+            {
+                var actionResult = await Contract_baseinfoService.DeleteAsync(assets_infoDTO.contractinfo.id);
+                return Ok(actionResult);
+            }
+            else
+            {
+                var actionResult = await Assets_infoService.DeleteAsync(assets_infoDTO.Id);
+                return Ok(actionResult);
+            }
+           
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
             this.Assets_infoRepository = Assets_infoRepository;
         }
 
-        public async Task<ActionResult> GetAssetByIdAsync(string assetId)
+        public async Task<ActionResult> GetAssetByIdAsync(Assets_infoDTO assetId)
         {
             var actionResult = new ActionResult();
 

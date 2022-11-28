@@ -119,7 +119,7 @@ namespace NGProjectAdmin.WebApi.AppCode.FrameworkBase
         /// <returns>ActionResult</returns>
         [HttpDelete("{id}")]
         [Log(OperationType.DeleteEntity)]
-        public async Task<IActionResult> DeleteEntityById(int id)
+        public async Task<IActionResult> DeleteEntityById(string id)
         {
             var actionResult = await this.NGAdminBaseService.DeleteAsync(id);
             return Ok(actionResult);

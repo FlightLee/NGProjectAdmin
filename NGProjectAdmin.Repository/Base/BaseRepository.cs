@@ -820,7 +820,7 @@ namespace NGProjectAdmin.Repository.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>标志</returns>
-        public async Task<bool> DeleteEntityAsync(int id)
+        public async Task<bool> DeleteEntityAsync(string id)
         {
             var result = false;
 
