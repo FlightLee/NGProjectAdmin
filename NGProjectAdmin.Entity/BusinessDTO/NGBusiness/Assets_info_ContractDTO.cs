@@ -48,5 +48,7 @@ namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
         public List<File_detail>? contractPdfGroupFiles { get; set; }
 
         public string? ContractPdfGroupId { get; set; }
+
+
     }
 }

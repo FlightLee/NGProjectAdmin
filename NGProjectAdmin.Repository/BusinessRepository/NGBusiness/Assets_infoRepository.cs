@@ -31,10 +31,10 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
 
         public async Task<Assets_infoDTO> GetAssetByIdAsync(Assets_infoDTO assetId)
         {
-            if (assetId.contractinfo != null && assetId.contractinfo.id != null)
+            if (assetId.contractinfo != null && assetId.contractinfo[0].id != null)
             {
                 var asset = await NGDbContext.Queryable<Assets_info>()
-             .InnerJoin<Contract_baseinfo>((a, c) => c.AssetsId == a.Id && c.Id == assetId.contractinfo.id && a.IsDel == 0)
+             .InnerJoin<Contract_baseinfo>((a, c) => c.AssetsId == a.Id && c.Id == assetId.contractinfo[0].id && a.IsDel == 0)
              .LeftJoin<Assetment_detail>((a, c, d) => a.AssetsMentGroupId == d.AssetId)
              .LeftJoin<Assetment_group>((a, c, d, e) => a.AssetsMentGroupId == e.Id)
               .Select((a, c, d, e) => new Assets_infoDTO()
@@ -54,7 +54,32 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   AssetsArea = a.AssetsArea,
                   AssetsAdress = a.AssetsAdress,
                   AssetUseType = a.AssetUseType,
-                  contractinfo = new Assets_info_ContractDTO()
+                  gyqk = a.gyqk,
+                  bdcdyh = a.bdcdyh,
+                  qlxz = a.qlxz,
+                  yt = a.yt,
+                  tdsymj = a.tdsymj,
+                  fwjzmj = a.fwjzmj,
+                  qx = a.qx,
+                  bgtime = a.bgtime,
+                  endtime = a.endtime,
+                  cs = a.cs,
+                  fwjg = a.fwjg,
+                  tdmj = a.tdmj,
+                  fwmj = a.fwmj,
+                  dyqr = a.dyqr,
+                  dyje = a.dyje,
+                  dyqx = a.dyqx,
+                  xcsj1 = a.xcsj1,
+                  xcqk1 = a.xcqk1,
+                  xcsj2 = a.xcsj2,
+                  xcqk2 = a.xcqk2,
+                  xcsj3 = a.xcsj3,
+                  xcqk3 = a.xcqk3,
+                  remarks=a.remarks,
+                  assetsName=a.assetsName,
+                  jsnd=a.jsnd,
+                  contractinfoMain = new Assets_info_ContractDTO()
                   {
                       remark = c.Remark,
                       contractState = c.ContractState,
@@ -75,8 +100,9 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                       ContracStartDate = c.ContracStartDate,
                       ContractEndDate = c.ContractEndDate,
                       ContractPrice = c.ContractPrice,
-                      ContractMoney = c.ContractMoney
-                  },
+                      ContractMoney = c.ContractMoney,
+                  }
+                ,
                   assetsMent = new Assets_info_AssetMentDTO()
                   {
                       buildDate = e.BuildDate,
@@ -85,13 +111,14 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   }
               })
               .FirstAsync();
-
+                asset.assetDate = new List<DateTime>() { Convert.ToDateTime(asset.bgtime), Convert.ToDateTime(asset.endtime) };
+                asset.contractinfo = new List<Assets_info_ContractDTO?>() { asset.contractinfoMain };
                 return asset;
             }
             else
             {
                 var asset = await NGDbContext.Queryable<Assets_info>()
-             .LeftJoin<Contract_baseinfo>((a, c) => c.AssetsId == a.Id  && a.IsDel == 0)
+             .LeftJoin<Contract_baseinfo>((a, c) => c.AssetsId == a.Id && a.IsDel == 0)
              .LeftJoin<Assetment_detail>((a, c, d) => a.AssetsMentGroupId == d.AssetId)
              .LeftJoin<Assetment_group>((a, c, d, e) => a.AssetsMentGroupId == e.Id)
               .Select((a, c, d, e) => new Assets_infoDTO()
@@ -111,7 +138,32 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   AssetsArea = a.AssetsArea,
                   AssetsAdress = a.AssetsAdress,
                   AssetUseType = a.AssetUseType,
-                  contractinfo = new Assets_info_ContractDTO()
+                  gyqk = a.gyqk,
+                  bdcdyh = a.bdcdyh,
+                  qlxz = a.qlxz,
+                  yt = a.yt,
+                  tdsymj = a.tdsymj,
+                  fwjzmj = a.fwjzmj,
+                  qx = a.qx,
+                  bgtime = a.bgtime,
+                  endtime = a.endtime,
+                  cs = a.cs,
+                  fwjg = a.fwjg,
+                  tdmj = a.tdmj,
+                  fwmj = a.fwmj,
+                  dyqr = a.dyqr,
+                  dyje = a.dyje,
+                  dyqx = a.dyqx,
+                  xcsj1 = a.xcsj1,
+                  xcqk1 = a.xcqk1,
+                  xcsj2 = a.xcsj2,
+                  xcqk2 = a.xcqk2,
+                  xcsj3 = a.xcsj3,
+                  xcqk3 = a.xcqk3,
+                  remarks = a.remarks,
+                  assetsName = a.assetsName,
+                  jsnd = a.jsnd,
+                  contractinfoMain = new Assets_info_ContractDTO()
                   {
                       remark = c.Remark,
                       contractState = c.ContractState,
@@ -133,7 +185,8 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                       ContractEndDate = c.ContractEndDate,
                       ContractPrice = c.ContractPrice,
                       ContractMoney = c.ContractMoney
-                  },
+                  }
+                 ,
                   assetsMent = new Assets_info_AssetMentDTO()
                   {
                       buildDate = e.BuildDate,
@@ -141,11 +194,12 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                       assetPriceOneYear = d.AssetPriceOneYear
                   }
               })
-              .FirstAsync(a=>a.Id.Equals(assetId.Id));
-
+              .FirstAsync(a => a.Id.Equals(assetId.Id));
+                asset.assetDate = new List<DateTime>() { Convert.ToDateTime(asset.bgtime), Convert.ToDateTime(asset.endtime) };
+                asset.contractinfo = new List<Assets_info_ContractDTO?>() { asset.contractinfoMain };
                 return asset;
             }
-          
+
         }
 
         public async Task<List<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition)
@@ -154,13 +208,21 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
 
             var list = await NGDbContext.
                Queryable<Assets_info>().
-               LeftJoin<contract_group>((a,b)=>a.contract_groupId==b.Id).
-               LeftJoin<Contract_baseinfo>((a, b,c) => c.contract_groupId == b.Id&&c.IsDel==0).
+               LeftJoin<contract_group>((a, b) => a.contract_groupId == b.Id).
+               LeftJoin<Contract_baseinfo>((a, b, c) => c.contract_groupId == b.Id && c.IsDel == 0).
                WhereIF(true, where).
-               Where(a=>a.IsDel ==0).
+               Where(a => a.IsDel == 0).
                OrderByIF(!String.IsNullOrEmpty(queryCondition.Sort), queryCondition.Sort).
-               Select((a, b,c) => new Assets_infoDTO() { Id = a.Id, AssetsCode = a.AssetsCode, AssetsTypeId = a.AssetsTypeId, AssetsState = a.AssetsState, AssetsArea = a.AssetsArea, AssetsAdress = a.AssetsAdress, AssetUseType = a.AssetUseType, contractinfo = new Assets_info_ContractDTO() { id=c.Id, lessee = c.lessee, lesseePhone = c.lesseePhone, ContracStartDate = c.ContracStartDate, ContractEndDate = c.ContractEndDate, ContractPrice = c.ContractPrice, ContractMoney = c.ContractMoney } }).
+               Select((a, b, c) => new Assets_infoDTO() { Id = a.Id, AssetsCode = a.AssetsCode, AssetsTypeId = a.AssetsTypeId, AssetsState = a.AssetsState, AssetsArea = a.AssetsArea, AssetsAdress = a.AssetsAdress, AssetUseType = a.AssetUseType, contractinfoMain = new Assets_info_ContractDTO() { id = c.Id, lessee = c.lessee, lesseePhone = c.lesseePhone, ContracStartDate = c.ContracStartDate, ContractEndDate = c.ContractEndDate, ContractPrice = c.ContractPrice, ContractMoney = c.ContractMoney } }).
                ToListAsync();
+            foreach (Assets_infoDTO item in list)
+            {
+                if (item.contractinfoMain != null)
+                {
+                    item.contractinfo = new List<Assets_info_ContractDTO?>() { item.contractinfoMain };
+                }
+               
+            }
             return list;
         }
     }

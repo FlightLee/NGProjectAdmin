@@ -120,7 +120,37 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 
         public Guid? contract_groupId { get; set; }
 
-       
+        public int? gyqk { get; set; }
+
+        public string? bdcdyh { get; set; }
+        public int? qlxz { get; set; }
+        public string? yt { get; set; }
+        public double? tdsymj { get; set; }
+        public double? fwjzmj { get; set; }
+        public string? qx { get; set; }
+        public DateTime? bgtime { get; set; }
+        public DateTime? endtime { get; set; }
+        [SugarColumn(IsIgnore = true)]
+        public List<DateTime>? assetDate { get; set; }
+        public string? cs { get; set; }
+        public string? fwjg { get; set; }
+        public string? jsnd { get; set; }
+        public double? tdmj { get; set; }
+        public double? fwmj { get; set; }
+        public string? dyqr { get; set; }
+        public double? dyje { get; set; }
+        public string? dyqx { get; set; }
+        public DateTime? xcsj1 { get; set; }
+
+        public string? xcqk1 { get; set; }
+        public DateTime? xcsj2 { get; set; }
+        public string? xcqk2 { get; set; }
+        public DateTime? xcsj3 { get; set; }
+        public string? xcqk3 { get; set; }
+
+        public string? remarks { get; set; }
+
+        public string? assetsName { get; set; }
 
     }
 }
