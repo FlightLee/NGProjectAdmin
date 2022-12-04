@@ -49,6 +49,8 @@ namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
 
         public string? ContractPdfGroupId { get; set; }
 
+        public string? lessorAdress { get; set; }
+
 
     }
 }

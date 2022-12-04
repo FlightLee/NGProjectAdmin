@@ -54,6 +54,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   AssetsArea = a.AssetsArea,
                   AssetsAdress = a.AssetsAdress,
                   AssetUseType = a.AssetUseType,
+                  MapInfo = a.MapInfo,
                   gyqk = a.gyqk,
                   bdcdyh = a.bdcdyh,
                   qlxz = a.qlxz,
@@ -106,7 +107,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   assetsMent = new Assets_info_AssetMentDTO()
                   {
                       buildDate = e.BuildDate,
-                      assessArea = d.AssessArea,
+                      assessArea = d.measureArea,
                       assetPriceOneYear = d.AssetPriceOneYear
                   }
               })

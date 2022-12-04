@@ -29,7 +29,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 资产类型0租赁型住宅1租赁型门面房2土地3经营性用房4商服用房5工厂用房6沿街商铺
         /// </summary>
-        public int? AssetsTypeId { get; set; }
+        public string? AssetsTypeId { get; set; }
 
         /// <summary>
         /// 资产来源0代管1自购
@@ -120,7 +120,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 
         public Guid? contract_groupId { get; set; }
 
-        public int? gyqk { get; set; }
+        public string? gyqk { get; set; }
 
         public string? bdcdyh { get; set; }
         public int? qlxz { get; set; }

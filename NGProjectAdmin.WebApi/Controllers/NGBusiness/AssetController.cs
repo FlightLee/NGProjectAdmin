@@ -95,7 +95,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         public async Task<IActionResult> Add([FromBody] Assets_infoDTO assets_info)
         {
             Assetment_group assetment_Group = new Assetment_group() { BuildDate = assets_info.assetsMent.buildDate };
-                Assetment_detail assetment_detail = new Assetment_detail();
+            Assetment_detail assetment_detail = new Assetment_detail();
             if (assets_info.assetDate != null)
             {
                 assets_info.bgtime = assets_info.assetDate[0];
@@ -202,6 +202,28 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                 asset.contractinfo[0].contractPdfGroupFiles = querynResult3.List;
             }
                                             
+            return Ok(actionResult);
+        }
+        /// <summary>
+        /// 查询资产信息
+        /// </summary>
+        /// <param name="assets_info">资产信息</param>
+        /// <returns>ActionResult</returns>
+        [HttpPost]
+        [Log(OperationType.QueryEntity)]
+        [Permission("asset:edit:entity")]
+        public async Task<IActionResult>UpdateById([FromBody] Assets_infoDTO assets_info)
+        {
+          var actionResult = await this.Assets_infoService.UpdateAsync(assets_info);
+            foreach (Assets_info_ContractDTO item in assets_info.contractinfo)
+            {
+                var contact = mapper.Map<Contract_baseinfo>(item);
+                if (contact == null)
+                {
+                    contact = new Contract_baseinfo();
+                }
+                await this.Contract_baseinfoService.UpdateAsync(contact);
+            }
             return Ok(actionResult);
         }
 

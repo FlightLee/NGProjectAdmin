@@ -775,7 +775,7 @@ namespace NGProjectAdmin.Repository.Base
             try
             {
                 NGDbContext.BeginTran();
-                await NGDbContext.Updateable<T>(obj).ExecuteCommandAsync();
+                await NGDbContext.Updateable<T>(obj).IgnoreColumns(ignoreAllNullColumns: true).ExecuteCommandAsync(); 
                 NGDbContext.CommitTran();
             }
             catch (Exception ex)

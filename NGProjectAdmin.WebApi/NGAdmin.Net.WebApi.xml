@@ -815,6 +815,13 @@
             <param name="assets_infoDTO">资产编号</param>
             <returns>ActionResult</returns>
         </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.UpdateById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Assets_infoDTO)">
+            <summary>
+            查询资产信息
+            </summary>
+            <param name="assets_info">资产信息</param>
+            <returns>ActionResult</returns>
+        </member>
         <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.DeleteById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Assets_infoDTO)">
             <summary>
             删除资产信息
