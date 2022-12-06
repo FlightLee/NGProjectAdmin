@@ -51,7 +51,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         /// <returns>ActionResult</returns>
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Post(int FileId)
+        public async Task<IActionResult> Post(string FileId)
         {
              var actionResult = await this.File_groupService.GetByIdAsync(FileId);
             var actionResult2=  this.File_groupService.Add(new File_group(), true);

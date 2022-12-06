@@ -80,7 +80,7 @@ namespace NGProjectAdmin.WebApi.AppCode.FrameworkBase
         /// <returns></returns>
         [HttpGet("{id}")]
         [Log(OperationType.QueryEntity)]
-        public async Task<IActionResult> GetEntityById(int id)
+        public async Task<IActionResult> GetEntityById(string id)
         {
             var actionResult = await this.NGAdminBaseService.GetByIdAsync(id);
             return Ok(actionResult);

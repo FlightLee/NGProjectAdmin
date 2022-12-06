@@ -67,7 +67,7 @@
             <param name="queryCondition">查询条件</param>
             <returns>ActionResult</returns>
         </member>
-        <member name="M:NGProjectAdmin.WebApi.AppCode.FrameworkBase.BaseController`1.GetEntityById(System.Int32)">
+        <member name="M:NGProjectAdmin.WebApi.AppCode.FrameworkBase.BaseController`1.GetEntityById(System.String)">
             <summary>
             按编号查询
             </summary>
@@ -817,7 +817,7 @@
         </member>
         <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.UpdateById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Assets_infoDTO)">
             <summary>
-            查询资产信息
+            更新资产信息
             </summary>
             <param name="assets_info">资产信息</param>
             <returns>ActionResult</returns>
@@ -852,7 +852,7 @@
             <param name="file_detailService"></param>
             <param name="contract_baseinfoService"></param>      
         </member>
-        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.Post(System.Int32)">
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.Post(System.String)">
             <summary>
             查询文件信息
             </summary>

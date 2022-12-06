@@ -218,7 +218,7 @@ namespace NGProjectAdmin.Service.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>实体</returns>
-        Task<ActionResult> GetByIdAsync(int id);
+        Task<ActionResult> GetByIdAsync(string id);
 
         /// <summary>
         /// SQL查询

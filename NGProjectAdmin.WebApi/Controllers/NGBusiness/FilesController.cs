@@ -41,6 +41,10 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         [Log(OperationType.UploadFile)]
         public async Task<IActionResult> UploadFiles(int businessId, string groupId)
         {
+            if (this.context.HttpContext.Request.Form.Files.Count == 0)
+            { 
+                return Ok("");
+            }
             File_group f = new File_group();
             f.optype = businessId;
             List<File_detail> list = new List<File_detail>();

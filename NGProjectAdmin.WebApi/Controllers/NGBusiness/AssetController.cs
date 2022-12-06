@@ -110,7 +110,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             assetment_detail.AssetId = assets_info.Id;
             assetment_detail.AssetAdress = assets_info.AssetsAdress;
             assetment_detail.measureArea = assets_info.assetsMent.assessArea;
-            assetment_detail.AssessArea = assets_info.AssetsArea;
+            assetment_detail.AssessArea = assets_info.assetsMent.assessArea;
             assetment_detail.AssetPriceOneYear = assets_info.assetsMent.assetPriceOneYear;
             await Assetment_detailService.AddAsync(assetment_detail, true);
 
@@ -170,6 +170,12 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                 await File_detailService.UpdateAsync(file_Detail);
             }
 
+            foreach (var item in assets_info.propertyFileGroupFiles)
+            {
+                File_detail file_Detail = File_detailService.GetById(item.Id).Object as File_detail;
+                file_Detail.FileId = assets_info.propertyFileGroupId;
+                await File_detailService.UpdateAsync(file_Detail);
+            }
 
             return Ok(actionResult);
         }
@@ -205,26 +211,84 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             return Ok(actionResult);
         }
         /// <summary>
-        /// 查询资产信息
+        /// 更新资产信息
         /// </summary>
         /// <param name="assets_info">资产信息</param>
         /// <returns>ActionResult</returns>
-        [HttpPost]
+        [HttpPut]
         [Log(OperationType.QueryEntity)]
         [Permission("asset:edit:entity")]
         public async Task<IActionResult>UpdateById([FromBody] Assets_infoDTO assets_info)
         {
-          var actionResult = await this.Assets_infoService.UpdateAsync(assets_info);
-            foreach (Assets_info_ContractDTO item in assets_info.contractinfo)
+            try
             {
-                var contact = mapper.Map<Contract_baseinfo>(item);
-                if (contact == null)
+                var actionResult = await this.Assets_infoService.UpdateAsync(assets_info);
+                foreach (Assets_info_ContractDTO item in assets_info.contractinfo)
                 {
-                    contact = new Contract_baseinfo();
+                    var contact = mapper.Map<Contract_baseinfo>(item);
+                    if (contact == null)
+                    {
+                        contact = new Contract_baseinfo();
+                    }
+                    await this.Contract_baseinfoService.UpdateAsync(contact);
                 }
-                await this.Contract_baseinfoService.UpdateAsync(contact);
+                var actionResult2 = await Assetment_groupService.GetByIdAsync(assets_info.assetsMent.AssetMentId);
+                Assetment_group assetment_Group = actionResult2.Object as Assetment_group;
+                assetment_Group.BuildDate = assets_info.assetsMent.buildDate;
+                await Assetment_groupService.UpdateAsync(assetment_Group);
+
+                var actionResult3 = await Assetment_detailService.GetByIdAsync(assets_info.assetsMent.id);
+                Assetment_detail assetment_Detail = actionResult3.Object as Assetment_detail;
+                assetment_Detail.AssessArea = assets_info.assetsMent.assessArea;
+                assetment_Detail.measureArea = assets_info.assetsMent.assessArea;
+                assetment_Detail.AssetPriceOneYear = assets_info.assetsMent.assetPriceOneYear;
+
+                await Assetment_detailService.UpdateAsync(assetment_Detail);
+
+                if (assets_info.assetsFileGroupFiles != null)
+                {
+                    foreach (var item in assets_info.assetsFileGroupFiles)
+                    {
+                        File_detail file_Detail = File_detailService.GetById(item.Id).Object as File_detail;
+                        file_Detail.FileId = assets_info.AssetsFileGroupId;
+                        await File_detailService.UpdateAsync(file_Detail);
+                    }
+                }
+
+                if (assets_info.contractinfo != null)
+                {
+                    foreach (var item in assets_info.contractinfo)
+                    {
+                        if (item.contractPdfGroupFiles != null)
+                        {
+                            foreach (var k in item.contractPdfGroupFiles)
+                            {
+                                File_detail file_Detail = File_detailService.GetById(k.Id).Object as File_detail;
+                                file_Detail.FileId = item.ContractPdfGroupId;
+                                await File_detailService.UpdateAsync(file_Detail);
+                            }
+                        }
+
+                    }
+                }
+                if (assets_info.propertyFileGroupFiles != null)
+                {
+                    foreach (var item in assets_info.propertyFileGroupFiles)
+                    {
+                        File_detail file_Detail = File_detailService.GetById(item.Id).Object as File_detail;
+                        file_Detail.FileId = assets_info.propertyFileGroupId;
+                        await File_detailService.UpdateAsync(file_Detail);
+                    }
+                }
+                
+                return Ok(actionResult);
             }
-            return Ok(actionResult);
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        
         }
 
         /// <summary>

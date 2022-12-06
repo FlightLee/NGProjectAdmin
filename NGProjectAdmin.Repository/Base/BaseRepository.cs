@@ -579,7 +579,7 @@ namespace NGProjectAdmin.Repository.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>实体</returns>
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(string id)
         {
             return await NGDbContext.Queryable<T>().FirstAsync(t => t.Id.Equals(id));
         }

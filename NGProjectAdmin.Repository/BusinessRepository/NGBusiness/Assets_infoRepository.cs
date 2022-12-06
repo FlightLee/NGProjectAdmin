@@ -107,8 +107,10 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   assetsMent = new Assets_info_AssetMentDTO()
                   {
                       buildDate = e.BuildDate,
-                      assessArea = d.measureArea,
-                      assetPriceOneYear = d.AssetPriceOneYear
+                      assessArea = d.AssessArea,
+                      assetPriceOneYear = d.AssetPriceOneYear,
+                      id= d.Id,
+                      AssetMentId = d.AssetMentId
                   }
               })
               .FirstAsync();
@@ -192,7 +194,9 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   {
                       buildDate = e.BuildDate,
                       assessArea = d.AssessArea,
-                      assetPriceOneYear = d.AssetPriceOneYear
+                      assetPriceOneYear = d.AssetPriceOneYear,
+                         id = d.Id,
+                      AssetMentId = d.AssetMentId
                   }
               })
               .FirstAsync(a => a.Id.Equals(assetId.Id));
