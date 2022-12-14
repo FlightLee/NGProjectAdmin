@@ -57,7 +57,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 评估总价/年
         /// </summary>
-        public double? AssetPriceOneYear { get; set; }
+        public string? AssetPriceOneYear { get; set; }
 
         /// <summary>
         /// 分摊评估费用

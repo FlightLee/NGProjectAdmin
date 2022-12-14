@@ -15,6 +15,8 @@ namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
 
         public double? assessArea { get; set; }
 
-        public double? assetPriceOneYear { get; set; }
+        public string? assetPriceOneYear { get; set; }
+
+        public string? assetCode { get; set; }
     }
 }

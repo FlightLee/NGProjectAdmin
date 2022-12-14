@@ -42,7 +42,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 面积
         /// </summary>
-        public double AssetsArea { get; set; }
+        public double? AssetsArea { get; set; }
         /// <summary>
         /// 固定资产原值
         /// </summary>
@@ -135,10 +135,10 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         public string? cs { get; set; }
         public string? fwjg { get; set; }
         public string? jsnd { get; set; }
-        public double? tdmj { get; set; }
-        public double? fwmj { get; set; }
+        public string? tdmj { get; set; }
+        public string? fwmj { get; set; }
         public string? dyqr { get; set; }
-        public double? dyje { get; set; }
+        public string? dyje { get; set; }
         public string? dyqx { get; set; }
         public DateTime? xcsj1 { get; set; }
 
@@ -151,6 +151,10 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         public string? remarks { get; set; }
 
         public string? assetsName { get; set; }
+
+        public string? tdpgjz { get; set; }
+
+        public string? fwpgjz { get; set; }
 
     }
 }

@@ -7,6 +7,7 @@ using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Repository.Base;
 using NPOI.SS.Formula.Functions;
+using SqlSugar;
 
 namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
 {
@@ -35,7 +36,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             {
                 var asset = await NGDbContext.Queryable<Assets_info>()
              .InnerJoin<Contract_baseinfo>((a, c) => c.AssetsId == a.Id && c.Id == assetId.contractinfo[0].id && a.IsDel == 0)
-             .LeftJoin<Assetment_detail>((a, c, d) => a.AssetsMentGroupId == d.AssetId)
+             .LeftJoin<Assetment_detail>((a, c, d) => a.AssetsMentGroupId == d.AssetMentId)
              .LeftJoin<Assetment_group>((a, c, d, e) => a.AssetsMentGroupId == e.Id)
               .Select((a, c, d, e) => new Assets_infoDTO()
               {
@@ -67,6 +68,8 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   cs = a.cs,
                   fwjg = a.fwjg,
                   tdmj = a.tdmj,
+                  tdpgjz = a.tdpgjz,
+                  fwpgjz = a.fwpgjz,
                   fwmj = a.fwmj,
                   dyqr = a.dyqr,
                   dyje = a.dyje,
@@ -110,7 +113,8 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                       assessArea = d.AssessArea,
                       assetPriceOneYear = d.AssetPriceOneYear,
                       id= d.Id,
-                      AssetMentId = d.AssetMentId
+                      AssetMentId = d.AssetMentId,
+                      assetCode=e.AssetCode
                   }
               })
               .FirstAsync();
@@ -122,7 +126,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             {
                 var asset = await NGDbContext.Queryable<Assets_info>()
              .LeftJoin<Contract_baseinfo>((a, c) => c.AssetsId == a.Id && a.IsDel == 0)
-             .LeftJoin<Assetment_detail>((a, c, d) => a.AssetsMentGroupId == d.AssetId)
+             .LeftJoin<Assetment_detail>((a, c, d) => a.AssetsMentGroupId == d.AssetMentId)
              .LeftJoin<Assetment_group>((a, c, d, e) => a.AssetsMentGroupId == e.Id)
               .Select((a, c, d, e) => new Assets_infoDTO()
               {
@@ -141,6 +145,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   AssetsArea = a.AssetsArea,
                   AssetsAdress = a.AssetsAdress,
                   AssetUseType = a.AssetUseType,
+                  MapInfo = a.MapInfo,
                   gyqk = a.gyqk,
                   bdcdyh = a.bdcdyh,
                   qlxz = a.qlxz,
@@ -153,6 +158,8 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                   cs = a.cs,
                   fwjg = a.fwjg,
                   tdmj = a.tdmj,
+                  tdpgjz = a.tdpgjz,
+                  fwpgjz = a.fwpgjz,
                   fwmj = a.fwmj,
                   dyqr = a.dyqr,
                   dyje = a.dyje,
@@ -196,7 +203,8 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                       assessArea = d.AssessArea,
                       assetPriceOneYear = d.AssetPriceOneYear,
                          id = d.Id,
-                      AssetMentId = d.AssetMentId
+                      AssetMentId = d.AssetMentId,
+                      assetCode = e.AssetCode
                   }
               })
               .FirstAsync(a => a.Id.Equals(assetId.Id));
@@ -207,7 +215,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
 
         }
 
-        public async Task<List<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition)
+        public async Task<List<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition, RefAsync<int> totalCount)
         {
             var where = QueryCondition.BuildExpression<Assets_info>(queryCondition.QueryItems);
 
@@ -218,8 +226,9 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                WhereIF(true, where).
                Where(a => a.IsDel == 0).
                OrderByIF(!String.IsNullOrEmpty(queryCondition.Sort), queryCondition.Sort).
-               Select((a, b, c) => new Assets_infoDTO() { Id = a.Id, AssetsCode = a.AssetsCode, AssetsTypeId = a.AssetsTypeId, AssetsState = a.AssetsState, AssetsArea = a.AssetsArea, AssetsAdress = a.AssetsAdress, AssetUseType = a.AssetUseType, contractinfoMain = new Assets_info_ContractDTO() { id = c.Id, lessee = c.lessee, lesseePhone = c.lesseePhone, ContracStartDate = c.ContracStartDate, ContractEndDate = c.ContractEndDate, ContractPrice = c.ContractPrice, ContractMoney = c.ContractMoney } }).
-               ToListAsync();
+               Select((a, b, c) => new Assets_infoDTO() { Id = a.Id, assetsName =a.assetsName, AssetsCode = a.AssetsCode, AssetsTypeId = a.AssetsTypeId, AssetsState = a.AssetsState, AssetsArea = a.tdsymj, AssetsAdress = a.AssetsAdress, AssetUseType = a.AssetUseType, contractinfoMain = new Assets_info_ContractDTO() { id = c.Id, lessee = c.lessee, lesseePhone = c.lesseePhone, ContracStartDate = c.ContracStartDate, ContractEndDate = c.ContractEndDate, ContractPrice = c.ContractPrice, ContractMoney = c.ContractMoney } }).
+               ToPageListAsync(queryCondition.PageIndex+1, queryCondition.PageSize, totalCount);
+
             foreach (Assets_infoDTO item in list)
             {
                 if (item.contractinfoMain != null)

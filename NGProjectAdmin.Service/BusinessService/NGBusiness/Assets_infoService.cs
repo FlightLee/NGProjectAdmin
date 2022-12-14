@@ -8,6 +8,7 @@ using NGProjectAdmin.Repository.Base;
 using NGProjectAdmin.Repository.BusinessRepository.NGBusiness;
 using NGProjectAdmin.Service.Base;
 using NPOI.SS.Formula.Functions;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,10 +34,10 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
         public async Task<ActionResult> GetAssetByIdAsync(Assets_infoDTO assetId)
         {
             var actionResult = new ActionResult();
-
+          
             actionResult.HttpStatusCode = HttpStatusCode.OK;
             actionResult.Message = new String("OK");
-            actionResult.Object = await this.Assets_infoRepository.GetAssetByIdAsync(assetId);
+            actionResult.Object = await this.Assets_infoRepository.GetAssetByIdAsync(assetId );
 
             return actionResult;
         }
@@ -46,8 +47,9 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
             var queryResult = new QueryResult<Assets_infoDTO>();
             queryResult.HttpStatusCode = HttpStatusCode.OK;
             queryResult.Message = new String("OK");
-            queryResult.List = await this.Assets_infoRepository.GetAssetInfoListAsync(queryCondition);
-            queryResult.TotalCount = queryResult.List.Count;
+            RefAsync<int> totalCount = 0;
+            queryResult.List = await this.Assets_infoRepository.GetAssetInfoListAsync(queryCondition,  totalCount);
+            queryResult.TotalCount = totalCount;
 
             return queryResult;
         }

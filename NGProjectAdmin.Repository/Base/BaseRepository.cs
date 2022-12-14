@@ -1169,14 +1169,14 @@ namespace NGProjectAdmin.Repository.Base
         {
             var obj = NGDbContext.Queryable<T>().OrderBy("Id desc ").First();
             
-            string head = "NG" + DateTime.Now.ToString("yyyyMMdd");
-            if (obj != null && DateTime.Now.ToString("yyyyMMdd") == obj.Id.Substring(2, 8))
+            string head = "XTZC" + DateTime.Now.ToString("yyyy");
+            if (obj != null && DateTime.Now.ToString("yyyy") == obj.Id.Substring(4, 4))
             {
-                return head + Convert.ToString(Convert.ToInt32(obj.Id.Substring(10, 4)) + 1).PadLeft(4, '0');
+                return head +"-"+ Convert.ToString(Convert.ToInt32(obj.Id.Substring(9, 5)) + 1).PadLeft(5, '0');
             }
             else
             {
-                return head + "0001";
+                return head + "-00001";
             }                                    
         }
 
