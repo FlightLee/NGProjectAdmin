@@ -57,7 +57,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         /// <param name="assetment_groupService"></param>
         /// <param name="assetment_detailService"></param>
         /// <param name="mapper"></param>
-        public AssetController(Icontract_groupService contract_groupService,IFile_detailService file_detailService, IAssets_infoService assets_infoService, IContract_baseinfoService contract_baseinfoService, IAssets_groupService assets_groupService, IAssets_detailService assets_detailService, IAssetment_groupService assetment_groupService, IAssetment_detailService assetment_detailService, IMapper mapper) : base(assets_infoService)
+        public AssetController(Icontract_groupService contract_groupService, IFile_detailService file_detailService, IAssets_infoService assets_infoService, IContract_baseinfoService contract_baseinfoService, IAssets_groupService assets_groupService, IAssets_detailService assets_detailService, IAssetment_groupService assetment_groupService, IAssetment_detailService assetment_detailService, IMapper mapper) : base(assets_infoService)
         {
             this.Assets_infoService = assets_infoService;
             this.Assetment_groupService = assetment_groupService;
@@ -98,13 +98,13 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         {
             if (assets_info == null) { return ValidationProblem("资产信息不能为空"); }
             NGLoggerContext.Info(assets_info.ToJson());
-            Assetment_group assetment_Group = new Assetment_group() { BuildDate = assets_info.assetsMent.buildDate, AssetCode= assets_info.assetsMent.assetCode };
+            Assetment_group assetment_Group = new Assetment_group() { BuildDate = assets_info.assetsMent.buildDate, AssetCode = assets_info.assetsMent.assetCode };
             Assetment_detail assetment_detail = new Assetment_detail();
             if (assets_info.assetDate != null)
             {
                 assets_info.bgtime = assets_info.assetDate[0];
                 assets_info.endtime = assets_info.assetDate[1];
-            }    
+            }
             //新建资产档案
             await this.Assets_infoService.AddAsync(assets_info);
 
@@ -149,11 +149,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                     await Contract_baseinfoService.AddAsync(contact, true);
                 }
             }
-         
 
-
-
-            
 
             //修改资产档案信息
             assets_info.AssetsMentGroupId = assetment_Group.Id;
@@ -179,8 +175,12 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                 foreach (var item in assets_info.assetsFileGroupFiles)
                 {
                     File_detail file_Detail = File_detailService.GetById(item.Id).Object as File_detail;
-                    file_Detail.FileId = assets_info.AssetsFileGroupId;
-                    await File_detailService.UpdateAsync(file_Detail);
+                    if (file_Detail!=null)
+                    {
+                        file_Detail.FileId = assets_info.AssetsFileGroupId;
+                        await File_detailService.UpdateAsync(file_Detail);
+                    }
+                   
                 }
             }
 
@@ -193,7 +193,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                     await File_detailService.UpdateAsync(file_Detail);
                 }
             }
-           
+
 
             return Ok(actionResult);
         }
@@ -220,12 +220,17 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                 var querynResult2 = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = asset.propertyFileGroupId } } });
                 asset.propertyFileGroupFiles = querynResult2.List;
             }
-            if (asset.contractinfo.Count>0&& asset.contractinfo[0].ContractPdfGroupId != null)
+            if (asset.contractinfo.Count > 0 && asset.contractinfo[0].ContractPdfGroupId != null)
             {
-                var querynResult3 = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = asset.contractinfo[0].ContractPdfGroupId } } });
-                asset.contractinfo[0].contractPdfGroupFiles = querynResult3.List;
+                foreach (var item in asset.contractinfo)
+                {
+                    var querynResult3 = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = item.ContractPdfGroupId } } });
+                    item.contractPdfGroupFiles = querynResult3.List;
+                }
+              
+                
             }
-                                            
+
             return Ok(actionResult);
         }
         /// <summary>
@@ -236,19 +241,31 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         [HttpPut]
         [Log(OperationType.QueryEntity)]
         [Permission("asset:edit:entity")]
-        public async Task<IActionResult>UpdateById([FromBody] Assets_infoDTO assets_info)
+        public async Task<IActionResult> UpdateById([FromBody] Assets_infoDTO assets_info)
         {
             try
             {
+
                 var actionResult = await this.Assets_infoService.UpdateAsync(assets_info);
                 foreach (Assets_info_ContractDTO item in assets_info.contractinfo)
                 {
                     var contact = mapper.Map<Contract_baseinfo>(item);
-                    if (contact == null)
+                    if (contact != null&&!string.IsNullOrWhiteSpace(contact.Id))
                     {
-                        contact = new Contract_baseinfo();
+                        await this.Contract_baseinfoService.UpdateAsync(contact);
                     }
-                    await this.Contract_baseinfoService.UpdateAsync(contact);
+                    else
+                    {
+                        contact.contract_groupId= assets_info.contract_groupId;
+                        contact.AssetsId = assets_info.Id;
+                        await this.Contract_baseinfoService.AddAsync(contact,true);
+                    }
+
+                    if (contact.ContractPrice > 0)
+                    {
+                        assets_info.AssetsState = 1;
+                    }
+                   
                 }
                 var actionResult2 = await Assetment_groupService.GetByIdAsync(assets_info.assetsMent.AssetMentId);
                 Assetment_group assetment_Group = actionResult2.Object as Assetment_group;
@@ -299,7 +316,8 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                         await File_detailService.UpdateAsync(file_Detail);
                     }
                 }
-                
+
+                actionResult = await this.Assets_infoService.UpdateAsync(assets_info);
                 return Ok(actionResult);
             }
             catch (Exception ex)
@@ -307,7 +325,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
 
                 return BadRequest(ex.Message);
             }
-        
+
         }
 
         /// <summary>
@@ -320,7 +338,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         [Permission("asset:delete:entity")]
         public async Task<IActionResult> DeleteById([FromBody] Assets_infoDTO assets_infoDTO)
         {
-            if (!string.IsNullOrWhiteSpace(assets_infoDTO.Id)&& !string.IsNullOrWhiteSpace(assets_infoDTO.contractinfo[0].id))
+            if (!string.IsNullOrWhiteSpace(assets_infoDTO.Id) && !string.IsNullOrWhiteSpace(assets_infoDTO.contractinfo[0].id))
             {
                 var actionResult = await Contract_baseinfoService.DeleteAsync(assets_infoDTO.contractinfo[0].id);
                 return Ok(actionResult);
@@ -330,7 +348,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                 var actionResult = await Assets_infoService.DeleteAsync(assets_infoDTO.Id);
                 return Ok(actionResult);
             }
-           
+
         }
     }
 }

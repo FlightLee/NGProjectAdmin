@@ -1172,6 +1172,7 @@ namespace NGProjectAdmin.Repository.Base
             }
             else
             {
+                
                 list = await NGDbContext.SqlQueryable<TDTO>(sqlStr).ToListAsync();
                 totalCount = list.Count;
             }
