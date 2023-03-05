@@ -147,6 +147,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                     contact.contract_groupId = contract_Group.Id;
                     contact.AssetsId = assets_info.Id;
                     await Contract_baseinfoService.AddAsync(contact, true);
+                    await Contract_baseinfoService.BuildContractFeeInfo(contact);
                 }
             }
 
@@ -265,7 +266,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                     {
                         assets_info.AssetsState = 1;
                     }
-                   
+                    await Contract_baseinfoService.BuildContractFeeInfo(contact);
                 }
                 var actionResult2 = await Assetment_groupService.GetByIdAsync(assets_info.assetsMent.AssetMentId);
                 Assetment_group assetment_Group = actionResult2.Object as Assetment_group;

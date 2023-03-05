@@ -15,6 +15,6 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
     /// </summary>
     public interface IContract_baseinfoService : IBaseService<Contract_baseinfo>
     {
-       
+        Task<ActionResult> BuildContractFeeInfo(Contract_baseinfo contract_Baseinfo);
     }
 }

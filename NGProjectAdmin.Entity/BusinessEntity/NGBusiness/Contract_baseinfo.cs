@@ -94,17 +94,17 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 租期起始日期
         /// </summary>
-        public DateTime? ContracStartDate { get; set; }
+        public DateTime ContracStartDate { get; set; } = new DateTime();
 
         /// <summary>
         /// 租期终止日期
         /// </summary>
-        public DateTime? ContractEndDate { get; set; }
+        public DateTime ContractEndDate { get; set; } = new DateTime();
 
         /// <summary>
         /// 合同年租金
         /// </summary>
-        public double? ContractPrice { get; set; }
+        public double ContractPrice { get; set; } = 0;
 
         /// <summary>
         /// 合同总金额
