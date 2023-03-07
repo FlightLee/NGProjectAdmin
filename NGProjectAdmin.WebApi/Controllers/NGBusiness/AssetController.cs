@@ -339,16 +339,8 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         [Permission("asset:delete:entity")]
         public async Task<IActionResult> DeleteById([FromBody] Assets_infoDTO assets_infoDTO)
         {
-            if (!string.IsNullOrWhiteSpace(assets_infoDTO.Id) && !string.IsNullOrWhiteSpace(assets_infoDTO.contractinfo[0].id))
-            {
-                var actionResult = await Contract_baseinfoService.DeleteAsync(assets_infoDTO.contractinfo[0].id);
-                return Ok(actionResult);
-            }
-            else
-            {
-                var actionResult = await Assets_infoService.DeleteAsync(assets_infoDTO.Id);
-                return Ok(actionResult);
-            }
+            var actionResult = await Assets_infoService.DeleteAsync(assets_infoDTO.Id);
+            return Ok(actionResult);
 
         }
     }
