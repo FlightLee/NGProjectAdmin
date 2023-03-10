@@ -31,6 +31,17 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
             this.Assets_infoRepository = Assets_infoRepository;
         }
 
+        public async Task<ActionResult> DeleteAssetAndContract(Assets_infoDTO assetId)
+        {
+            var actionResult = new ActionResult();
+
+            actionResult.HttpStatusCode = HttpStatusCode.OK;
+            actionResult.Message = new String("OK");
+            actionResult.Object = await this.Assets_infoRepository.DeleteAssetAndContract(assetId);
+
+            return actionResult;
+        }
+
         public async Task<ActionResult> GetAssetByIdAsync(Assets_infoDTO assetId)
         {
             var actionResult = new ActionResult();

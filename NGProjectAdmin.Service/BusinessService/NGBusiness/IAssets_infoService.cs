@@ -20,5 +20,13 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
         Task<QueryResult<Assets_infoDTO>> GetAssetInfoListAsync(QueryCondition queryCondition);
 
         Task<ActionResult> GetAssetByIdAsync(Assets_infoDTO assetId);
+
+
+        /// <summary>
+        /// 删除资产时把对应的合同和缴费信息也停掉
+        /// </summary>
+        /// <param name="assetId"></param>
+        /// <returns></returns>
+        Task<ActionResult> DeleteAssetAndContract(Assets_infoDTO assetId); 
     }
 }
