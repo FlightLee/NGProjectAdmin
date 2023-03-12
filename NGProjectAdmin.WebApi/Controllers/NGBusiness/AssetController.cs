@@ -144,6 +144,10 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                     {
                         contact = new Contract_baseinfo();
                     }
+                    if (contact.ContractPrice > 0)
+                    {
+                        assets_info.AssetsState = 1;
+                    }
                     contact.contract_groupId = contract_Group.Id;
                     contact.AssetsId = assets_info.Id;
                     await Contract_baseinfoService.AddAsync(contact, true);
@@ -339,7 +343,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         [Permission("asset:delete:entity")]
         public async Task<IActionResult> DeleteById([FromBody] Assets_infoDTO assets_infoDTO)
         {
-            var actionResult = await Assets_infoService.DeleteAsync(assets_infoDTO.Id);
+            var actionResult = await Assets_infoService.DeleteAssetAndContract(assets_infoDTO);
             return Ok(actionResult);
 
         }
