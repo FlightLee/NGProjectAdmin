@@ -25,5 +25,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
         Task<int> DeleteAssetAndContract(Assets_infoDTO assetId);
 
         Task<AssetsDataDTO> GetAssetsData();
+
+        Task<int> UpdateAssetsByContractId(string contractId);
     }
 }

@@ -130,7 +130,7 @@ namespace NGProjectAdmin.Repository.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>标志</returns>
-        bool DeleteEntity(int id);
+        bool DeleteEntity(string id);
 
         /// <summary>
         /// 逻辑批量删除

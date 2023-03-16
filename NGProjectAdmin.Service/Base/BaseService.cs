@@ -290,7 +290,7 @@ namespace NGProjectAdmin.Service.Base
         /// </summary>
         /// <param name="id">对象编号</param>
         /// <returns>执行结果</returns>
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
             var actionResult = new ActionResult();
 

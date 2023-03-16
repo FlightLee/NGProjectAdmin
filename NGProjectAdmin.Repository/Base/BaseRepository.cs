@@ -345,7 +345,7 @@ namespace NGProjectAdmin.Repository.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>标志</returns>
-        public bool DeleteEntity(int id)
+        public bool DeleteEntity(string id)
         {
             var result = false;
 

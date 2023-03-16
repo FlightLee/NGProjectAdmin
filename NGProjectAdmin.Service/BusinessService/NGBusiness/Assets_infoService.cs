@@ -75,6 +75,17 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
 
             return actionResult;
         }
+
+        public async Task<ActionResult> UpdateAssetsByContractId(string contractId)
+        {
+            var actionResult = new ActionResult();
+
+            actionResult.HttpStatusCode = HttpStatusCode.OK;
+            actionResult.Message = new String("OK");
+            actionResult.Object = await this.Assets_infoRepository.UpdateAssetsByContractId(contractId);
+
+            return actionResult;
+        }
         #endregion
 
     }

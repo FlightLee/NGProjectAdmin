@@ -829,6 +829,12 @@
             <param name="assets_infoDTO">资产编号</param>
             <returns>ActionResult</returns>
         </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.GetAssetsData">
+            <summary>
+            查询资产信息报表统计
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetMentController">
             <summary>
             资产评估
@@ -844,7 +850,7 @@
             业务模块接口实例
             </summary>
         </member>
-        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_detailService)">
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_infoService)">
             <summary>
             合同控制器
             </summary>
@@ -852,6 +858,7 @@
             <param name="file_detailService"></param>
             <param name="contract_baseinfoService"></param>      
         </member>
+        <!-- Badly formed XML comment ignored for member "M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.DeleteById(NGProjectAdmin.Entity.BusinessEntity.NGBusiness.Contract_baseinfo)" -->
         <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.Post(System.String)">
             <summary>
             查询文件信息

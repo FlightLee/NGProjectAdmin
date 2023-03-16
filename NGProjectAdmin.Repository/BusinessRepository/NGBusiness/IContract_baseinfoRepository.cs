@@ -12,5 +12,6 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
     {
 
         Task<List<Contract_feeinfo>>  BuildContractFeeInfo(Contract_baseinfo contract_Baseinfo);
+
     }
 }

@@ -87,7 +87,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
         public async Task<Assets_infoDTO> GetAssetByIdAsync(Assets_infoDTO assetId)
         {
             var asset = await NGDbContext.Queryable<Assets_info>()
-           .LeftJoin<Contract_baseinfo>((a, c) => c.AssetsId == a.Id && a.IsDel == 0)
+           .LeftJoin<Contract_baseinfo>((a, c) => c.AssetsId == a.Id && a.IsDel == 0 && c.IsDel == 0)
            .LeftJoin<Assetment_detail>((a, c, d) => a.AssetsMentGroupId == d.AssetMentId)
            .LeftJoin<Assetment_group>((a, c, d, e) => a.AssetsMentGroupId == e.Id)
             .Select((a, c, d, e) => new Assets_infoDTO()
@@ -149,7 +149,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             .FirstAsync(a => a.Id.Equals(assetId.Id));
             asset.assetDate = new List<DateTime>() { Convert.ToDateTime(asset.bgtime), Convert.ToDateTime(asset.endtime) };
 
-            List<Assets_info_ContractDTO> ls = NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.AssetsId == asset.Id && x.contract_groupId == asset.contract_groupId)
+            List<Assets_info_ContractDTO> ls = NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.AssetsId == asset.Id && x.contract_groupId == asset.contract_groupId && x.IsDel == 0)
               .Select(c => new Assets_info_ContractDTO()
               {
                   remark = c.Remark,
@@ -217,8 +217,8 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             {
                 assetsDataDTO.AssetsCount = await NGDbContext.Queryable<Assets_info>().Where(x => x.IsDel == 0).CountAsync();
                 assetsDataDTO.validContract = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate > DateTime.Now).CountAsync();
-                assetsDataDTO.invalidContract= await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate < DateTime.Now).CountAsync();
-                assetsDataDTO.mouthCloseContract= await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate.Month == DateTime.Now.Month).CountAsync();
+                assetsDataDTO.invalidContract = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate < DateTime.Now).CountAsync();
+                assetsDataDTO.mouthCloseContract = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate.Month == DateTime.Now.Month).CountAsync();
 
             }
             catch (Exception ex)
@@ -228,6 +228,48 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             }
 
             return assetsDataDTO;
+        }
+
+        public async Task<int> UpdateAssetsByContractId(string contractId)
+        {
+            try
+            {
+                NGDbContext.BeginTran();
+                var obj = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.Id == contractId).FirstAsync();
+
+                var contract_list = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.AssetsId == obj.AssetsId).ToListAsync();
+                int isVail = 0;
+                foreach (var item in contract_list)
+                {
+                    if (item.ContractEndDate > DateTime.Now && item.IsDel == 0)
+                    {
+                        isVail = 1;
+                    }
+                }
+                var assets = await NGDbContext.Queryable<Assets_info>().Where(x => x.Id == obj.AssetsId).FirstAsync();
+
+                NGDbContext.Tracking(assets);
+                if (isVail == 1)
+                {
+
+                    assets.AssetsState = 1;
+                }
+
+                else
+                {
+                    assets.AssetsState = 0;
+                }
+
+                NGDbContext.Updateable(assets).ExecuteCommand();
+                NGDbContext.CommitTran();
+                return isVail;
+            }
+            catch (Exception ex)
+            {
+
+                throw new NGAdminCustomException(ex.Message);
+            }
+
         }
     }
 }

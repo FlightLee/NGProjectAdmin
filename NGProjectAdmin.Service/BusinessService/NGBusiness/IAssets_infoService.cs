@@ -34,5 +34,7 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
         /// </summary>
         /// <returns></returns>
         Task<ActionResult> GetAssetsData();
+
+        Task<ActionResult> UpdateAssetsByContractId(string contractId);
     }
 }
