@@ -77,7 +77,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                     }
                     if (kk2[1] != 0)
                     {
-                        Contract_feeinfo contract_Feeinfo1 = new Contract_feeinfo(this.context) { Amount = contract_Baseinfo.ContractPrice , IsFee = 0, contractId = contract_Baseinfo.Id, contractBeginTime = new DateTime(contract_Baseinfo.ContractEndDate.Year, 1, 1), contractEndTime = contract_Baseinfo.ContractEndDate };
+                        Contract_feeinfo contract_Feeinfo1 = new Contract_feeinfo(this.context) { Amount = contract_Baseinfo.ContractPrice , IsFee = 0, contractId = contract_Baseinfo.Id, contractBeginTime = contract_Baseinfo.ContracStartDate.AddYears(kk2[0]).AddDays(1), contractEndTime = contract_Baseinfo.ContractEndDate };
                         waiteFeeinfo.Add(contract_Feeinfo1);
                     }
                 }
