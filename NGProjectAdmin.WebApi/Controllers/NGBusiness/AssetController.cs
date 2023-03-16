@@ -343,5 +343,19 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             return Ok(actionResult);
 
         }
+
+
+        /// <summary>
+        /// 查询资产信息报表统计
+        /// </summary>
+        /// <returns>ActionResult</returns>
+        [HttpPost]
+        [AllowAnonymous]
+        [Log(OperationType.QueryEntity)]
+        public async Task<IActionResult> GetAssetsData()
+        {
+            var actionResult = await this.Assets_infoService.GetAssetsData();          
+            return Ok(actionResult);
+        }
     }
 }

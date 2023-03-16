@@ -27,6 +27,12 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
         /// </summary>
         /// <param name="assetId"></param>
         /// <returns></returns>
-        Task<ActionResult> DeleteAssetAndContract(Assets_infoDTO assetId); 
+        Task<ActionResult> DeleteAssetAndContract(Assets_infoDTO assetId);
+
+        /// <summary>
+        /// 首页资产统计报表
+        /// </summary>
+        /// <returns></returns>
+        Task<ActionResult> GetAssetsData();
     }
 }

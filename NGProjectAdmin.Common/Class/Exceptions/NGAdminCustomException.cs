@@ -1,4 +1,5 @@
 ﻿
+using NGProjectAdmin.Common.Utility;
 using System;
 using System.Runtime.Serialization;
 
@@ -31,6 +32,7 @@ namespace NGProjectAdmin.Common.Class.Exceptions
         /// <param name="message">异常信息</param>
         public NGAdminCustomException(String message = null) : base(message)
         {
+            NGLoggerContext.Error(DateTime.Now.ToString()+"  "+ message);
         }
 
         /// <summary>

@@ -209,5 +209,25 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             }
             return list;
         }
+
+        public async Task<AssetsDataDTO> GetAssetsData()
+        {
+            AssetsDataDTO assetsDataDTO = new AssetsDataDTO();
+            try
+            {
+                assetsDataDTO.AssetsCount = await NGDbContext.Queryable<Assets_info>().Where(x => x.IsDel == 0).CountAsync();
+                assetsDataDTO.validContract = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate > DateTime.Now).CountAsync();
+                assetsDataDTO.invalidContract= await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate < DateTime.Now).CountAsync();
+                assetsDataDTO.mouthCloseContract= await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate.Month == DateTime.Now.Month).CountAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new NGAdminCustomException(ex.Message);
+            }
+
+            return assetsDataDTO;
+        }
     }
 }

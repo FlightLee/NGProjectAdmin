@@ -64,6 +64,17 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
 
             return queryResult;
         }
+
+        public async Task<ActionResult> GetAssetsData()
+        {
+            var actionResult = new ActionResult();
+
+            actionResult.HttpStatusCode = HttpStatusCode.OK;
+            actionResult.Message = new String("OK");
+            actionResult.Object = await this.Assets_infoRepository.GetAssetsData();
+
+            return actionResult;
+        }
         #endregion
 
     }
