@@ -196,7 +196,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                WhereIF(true, where).
                Where(a => a.IsDel == 0).
                OrderByIF(!String.IsNullOrEmpty(queryCondition.Sort), queryCondition.Sort).
-               Select((a) => new Assets_infoDTO() { Id = a.Id, assetsName = a.assetsName, AssetsCode = a.AssetsCode, AssetsTypeId = a.AssetsTypeId, AssetsState = a.AssetsState, AssetsArea = a.tdsymj, AssetsAdress = a.AssetsAdress, AssetUseType = a.AssetUseType }).
+               Select((a) => new Assets_infoDTO() { PropertyOwner=a.PropertyOwner,dyje=a.dyje, Id = a.Id, assetsName = a.assetsName, AssetsCode = a.AssetsCode, AssetsTypeId = a.AssetsTypeId, AssetsState = a.AssetsState, AssetsArea = a.tdsymj, AssetsAdress = a.AssetsAdress, AssetUseType = a.AssetUseType }).
                ToPageListAsync(queryCondition.PageIndex, queryCondition.PageSize, totalCount);
 
             foreach (Assets_infoDTO item in list)
