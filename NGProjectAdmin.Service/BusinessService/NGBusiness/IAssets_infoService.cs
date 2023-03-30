@@ -35,6 +35,25 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
         /// <returns></returns>
         Task<ActionResult> GetAssetsData();
 
+        /// <summary>
+        /// 首页资产统计报表按照公司分类
+        /// </summary>
+        /// <returns></returns>
+        Task<ActionResult> GetAssetsJZFL();
+
+        /// <summary>
+        /// 首页资产统计报表按照用途分类
+        /// </summary>
+        /// <returns></returns>
+        Task<ActionResult> GetAssetsYT();
+
+
         Task<ActionResult> UpdateAssetsByContractId(string contractId);
+
+        /// <summary>
+        /// 首页合同缴费信息
+        /// </summary>
+        /// <returns></returns>
+        Task<ActionResult> GetFeeinfoData(int count); 
     }
 }

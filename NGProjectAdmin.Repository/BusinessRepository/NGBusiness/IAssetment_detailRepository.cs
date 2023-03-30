@@ -26,6 +26,12 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
 
         Task<AssetsDataDTO> GetAssetsData();
 
+        Task<AssetsDataDTO> GetAssetsJZFL();
+
+        Task<AssetsDataDTO> GetAssetsYT();
+
+        Task<List<string>> GetFeeinfoData(int count);
+
         Task<int> UpdateAssetsByContractId(string contractId);
     }
 }

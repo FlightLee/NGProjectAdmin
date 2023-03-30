@@ -10,6 +10,8 @@ using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Repository.Base;
 using NPOI.SS.Formula.Functions;
 using SqlSugar;
+using StackExchange.Redis;
+using System.Text;
 
 namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
 {
@@ -92,6 +94,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
            .LeftJoin<Assetment_group>((a, c, d, e) => a.AssetsMentGroupId == e.Id)
             .Select((a, c, d, e) => new Assets_infoDTO()
             {
+                zcjz = a.zcjz,
                 propertyFileGroupId = a.propertyFileGroupId,
                 LandPropertyInfo = a.LandPropertyInfo,
                 landCode = a.landCode,
@@ -196,7 +199,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                WhereIF(true, where).
                Where(a => a.IsDel == 0).
                OrderByIF(!String.IsNullOrEmpty(queryCondition.Sort), queryCondition.Sort).
-               Select((a) => new Assets_infoDTO() { PropertyOwner=a.PropertyOwner,dyje=a.dyje, Id = a.Id, assetsName = a.assetsName, AssetsCode = a.AssetsCode, AssetsTypeId = a.AssetsTypeId, AssetsState = a.AssetsState, AssetsArea = a.tdsymj, AssetsAdress = a.AssetsAdress, AssetUseType = a.AssetUseType }).
+               Select((a) => new Assets_infoDTO() { zcjz = a.zcjz, PropertyOwner = a.PropertyOwner, dyje = a.dyje, Id = a.Id, assetsName = a.assetsName, AssetsCode = a.AssetsCode, AssetsTypeId = a.AssetsTypeId, AssetsState = a.AssetsState, AssetsArea = a.tdsymj, AssetsAdress = a.AssetsAdress, AssetUseType = a.AssetUseType }).
                ToPageListAsync(queryCondition.PageIndex, queryCondition.PageSize, totalCount);
 
             foreach (Assets_infoDTO item in list)
@@ -217,7 +220,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             {
                 assetsDataDTO.AssetsCount = await NGDbContext.Queryable<Assets_info>().Where(x => x.IsDel == 0).CountAsync();
                 assetsDataDTO.validContract = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate > DateTime.Now).CountAsync();
-                assetsDataDTO.invalidContract = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate < DateTime.Now).CountAsync();
+                assetsDataDTO.invalidContract = await NGDbContext.Queryable<Assets_info>().Where(x => x.IsDel == 0).SumAsync(x => x.zcjz);
                 assetsDataDTO.mouthCloseContract = await NGDbContext.Queryable<Contract_baseinfo>().Where(x => x.IsDel == 0 && x.ContractEndDate.Month == DateTime.Now.Month).CountAsync();
 
             }
@@ -230,6 +233,41 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             return assetsDataDTO;
         }
 
+        public async Task<AssetsDataDTO> GetAssetsJZFL()
+        {
+            AssetsDataDTO assetsDataDTO = new AssetsDataDTO();
+            try
+            {
+                assetsDataDTO.companyName = await NGDbContext.Queryable<Assets_info>().GroupBy(x => new { x.PropertyOwner, x.PropertyCode }).OrderBy(x => x.PropertyOwner).Where(x => x.IsDel == 0).Select(x => x.PropertyOwner).ToListAsync();
+                assetsDataDTO.companyPrice = await NGDbContext.Queryable<Assets_info>().GroupBy(x => new { x.PropertyOwner, x.PropertyCode }).OrderBy(x => x.PropertyOwner).Where(x => x.IsDel == 0).Select(x => SqlFunc.AggregateSum(x.zcjz)/1000).ToListAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new NGAdminCustomException(ex.Message);
+            }
+
+            return assetsDataDTO;
+        }
+
+        public async Task<AssetsDataDTO> GetAssetsYT()
+        {
+            AssetsDataDTO assetsDataDTO = new AssetsDataDTO();
+            try
+            {
+                assetsDataDTO.ytName = await NGDbContext.Queryable<Assets_info>().GroupBy(x => new { x.yt }).OrderBy(x => x.yt).Where(x => x.IsDel == 0).Select(x => x.yt).ToListAsync();
+                assetsDataDTO.ytCount = await NGDbContext.Queryable<Assets_info>().GroupBy(x => new { x.yt }).OrderBy(x => x.yt).Where(x => x.IsDel == 0).Select(x => SqlFunc.AggregateCount(x.yt)).ToListAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new NGAdminCustomException(ex.Message);
+            }
+
+            return assetsDataDTO;
+        }
         public async Task<int> UpdateAssetsByContractId(string contractId)
         {
             try
@@ -271,5 +309,37 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             }
 
         }
+
+        public async Task<List<string>> GetFeeinfoData(int count)
+        {
+            try
+            {
+                List<string> list = new List<string>();
+                List<AssetsDataDTO> assetsDataDTOs = await NGDbContext.Queryable<Contract_feeinfo>()
+                                                          .LeftJoin<Contract_baseinfo>((a, b) => a.contractId == b.Id)
+                                                          .LeftJoin<Assets_info>((a, b, c) => b.AssetsId == c.Id)
+                                                          .Where((a, b, c) => a.IsFee == 1 && a.IsDel == 0)
+                                                          .Select((a, b, c) => new AssetsDataDTO() { feeAmount=a.Amount, FeeDatetime = a.FeeDatetime, lessee = b.lessee, lesseePhone = b.lesseePhone, assetsName = c.assetsName })
+                                                          .OrderByDescending(a => a.FeeDatetime)
+                                                          .ToPageListAsync(0, count);
+                if (assetsDataDTOs != null)
+                {
+                    foreach (var item in assetsDataDTOs)
+                    {
+                        string date = item.FeeDatetime.ToString() == "1900/1/1 0:00:00" ? "" : item.FeeDatetime.ToString();
+                        list.Add(string.Format("{0} 缴费人: {1} 缴费金额: {4} 电话: {2} 资产:{3}", date, item.lessee, item.lesseePhone, item.assetsName,item.feeAmount.ToString("N")));
+                    }
+                }
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+
+                throw new NGAdminCustomException(ex.Message);
+            }
+        }
+
+
     }
 }

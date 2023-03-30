@@ -156,5 +156,10 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
 
         public string? fwpgjz { get; set; }
 
+        /// <summary>
+        /// 资产价值
+        /// </summary>
+        public double zcjz { get; set; } = 0;
+
     }
 }

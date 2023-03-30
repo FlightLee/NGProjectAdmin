@@ -835,6 +835,24 @@
             </summary>
             <returns>ActionResult</returns>
         </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.GetAssetsJZFL">
+            <summary>
+            查询资产信息价值分类
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.GetAssetsYT">
+            <summary>
+            查询资产信息用途分类
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetController.GetFeeinfoData(System.Int32)">
+            <summary>
+            查询合同缴费信息
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetMentController">
             <summary>
             资产评估

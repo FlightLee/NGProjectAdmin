@@ -361,5 +361,46 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
             var actionResult = await this.Assets_infoService.GetAssetsData();          
             return Ok(actionResult);
         }
+
+
+        /// <summary>
+        /// 查询资产信息价值分类
+        /// </summary>
+        /// <returns>ActionResult</returns>
+        [HttpPost]
+        [AllowAnonymous]
+        [Log(OperationType.QueryEntity)]
+        public async Task<IActionResult> GetAssetsJZFL()
+        {
+            var actionResult = await this.Assets_infoService.GetAssetsJZFL();
+            return Ok(actionResult);
+        }
+
+
+        /// <summary>
+        /// 查询资产信息用途分类
+        /// </summary>
+        /// <returns>ActionResult</returns>
+        [HttpPost]
+        [AllowAnonymous]
+        [Log(OperationType.QueryEntity)]
+        public async Task<IActionResult> GetAssetsYT()
+        {
+            var actionResult = await this.Assets_infoService.GetAssetsYT();
+            return Ok(actionResult);
+        }
+
+
+        /// <summary>
+        /// 查询合同缴费信息
+        /// </summary>
+        /// <returns>ActionResult</returns>
+        [HttpPost]
+        [AllowAnonymous]        
+        public async Task<IActionResult> GetFeeinfoData([FromBody] int count)
+        {
+            var actionResult = await this.Assets_infoService.GetFeeinfoData(count);
+            return Ok(actionResult);
+        }
     }
 }

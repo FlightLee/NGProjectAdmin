@@ -76,6 +76,27 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
             return actionResult;
         }
 
+        public async Task<ActionResult> GetAssetsJZFL()
+        {
+            var actionResult = new ActionResult();
+
+            actionResult.HttpStatusCode = HttpStatusCode.OK;
+            actionResult.Message = new String("OK");
+            actionResult.Object = await this.Assets_infoRepository.GetAssetsJZFL();
+
+            return actionResult;
+        }
+
+        public async Task<ActionResult> GetAssetsYT()
+        {
+            var actionResult = new ActionResult();
+
+            actionResult.HttpStatusCode = HttpStatusCode.OK;
+            actionResult.Message = new String("OK");
+            actionResult.Object = await this.Assets_infoRepository.GetAssetsYT();
+
+            return actionResult;
+        }
         public async Task<ActionResult> UpdateAssetsByContractId(string contractId)
         {
             var actionResult = new ActionResult();
@@ -86,6 +107,19 @@ namespace NGProjectAdmin.Service.BusinessService.NGBusiness
 
             return actionResult;
         }
+
+        public async Task<ActionResult> GetFeeinfoData(int count)
+        {
+            var actionResult = new ActionResult();
+
+            actionResult.HttpStatusCode = HttpStatusCode.OK;
+            actionResult.Message = new String("OK");
+            actionResult.Object = await this.Assets_infoRepository.GetFeeinfoData(count);
+
+            return actionResult;
+        }
+
+      
         #endregion
 
     }
