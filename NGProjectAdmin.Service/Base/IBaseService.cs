@@ -32,7 +32,7 @@ namespace NGProjectAdmin.Service.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>实体</returns>
-        ActionResult GetById(int id);
+        ActionResult GetById(string id);
 
         /// <summary>
         /// SQL查询

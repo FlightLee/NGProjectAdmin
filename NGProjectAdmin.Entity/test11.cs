@@ -1,20 +1,14 @@
-﻿using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
-using SqlSugar;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
+namespace NGProjectAdmin.Entity
 {
-    /// <summary>
-    /// 合同基础信息
-    /// </summary>
-    [SugarTable("contract_baseinfo")]
-    public class Contract_baseinfoDTO
+    public  class test11
     {
-      
+
         public string Id { get; set; } = "";
         /// <summary>
         /// 合同编号
@@ -29,7 +23,7 @@ namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
         /// <summary>
         /// 合同类型 0公开租牌合同1协议租赁合同2出借协议
         /// </summary>
-        public int ContractType { get; set; } 
+        public int ContractType { get; set; }
 
         /// <summary>
         /// 出租方（甲方）
@@ -99,22 +93,22 @@ namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
         /// <summary>
         /// 合同年租金
         /// </summary>
-        public string ContractPrice { get; set; } = "0";
+        public string ContractPrice { get; set; } = "";
 
-        /// <summary>
+         /// <summary>
         /// 合同总金额
         /// </summary>
-        public string ContractMoney { get; set; } = "0";
+        public string ContractMoney { get; set; } = "";
 
         /// <summary>
         /// 合同保证金
         /// </summary>
-        public string ContractPromiseMoney { get; set; } = "0";
+        public string ContractPromiseMoney { get; set; } = "";
 
         /// <summary>
         /// 0半年一交1一年一交
         /// </summary>
-        public int ContractPayment { get; set; } 
+        public string ContractPayment { get; set; } = "";
 
 
         /// <summary>
@@ -126,27 +120,6 @@ namespace NGProjectAdmin.Entity.BusinessDTO.NGBusiness
         /// 资产信息ID
         /// </summary>
         public string AssetsId { get; set; }
-
-
-
-
-        /// <summary>
-        /// 0合同完结1合同逾期2不存在逾期
-        /// </summary>
-        public int ContractState { get; set; }
-
-        /// <summary>
-        /// 资产地址
-        /// </summary>
-        public string AssetsAdress { get; set; } = "";
-
-        public string lessorPhone { get; set; } = "";
-
-        public string lessorId { get; set; } = "";
-
-        public string ContractPdfGroupId { get; set; } = "";
-        public List<File_detail>? contractPdfGroupFiles { get; set; }
-
-        public string assetsName { get; set; } = "";
     }
+
 }

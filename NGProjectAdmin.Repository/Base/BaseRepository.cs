@@ -95,7 +95,7 @@ namespace NGProjectAdmin.Repository.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>实体</returns>
-        public T GetById(int id)
+        public T GetById(string id)
         {
             return NGDbContext.Queryable<T>().First(t => t.Id.Equals(id));
         }

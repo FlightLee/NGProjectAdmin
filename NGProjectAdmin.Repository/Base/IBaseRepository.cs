@@ -34,7 +34,7 @@ namespace NGProjectAdmin.Repository.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>实体</returns>
-        T GetById(int id);
+        T GetById(string id);
 
 
         /// <summary>

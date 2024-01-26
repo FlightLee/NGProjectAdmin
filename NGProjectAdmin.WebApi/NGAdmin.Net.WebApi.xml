@@ -868,7 +868,7 @@
             业务模块接口实例
             </summary>
         </member>
-        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_infoService)">
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IContract_baseinfoService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_groupService,NGProjectAdmin.Service.BusinessService.NGBusiness.IFile_detailService,NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_infoService,AutoMapper.IMapper)">
             <summary>
             合同控制器
             </summary>
@@ -876,13 +876,49 @@
             <param name="file_detailService"></param>
             <param name="contract_baseinfoService"></param>      
         </member>
-        <!-- Badly formed XML comment ignored for member "M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.DeleteById(NGProjectAdmin.Entity.BusinessEntity.NGBusiness.Contract_baseinfo)" -->
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.DeleteById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Contract_baseinfoDTO)">
+            <summary>
+            删除资产信息
+            </summary>        
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.GetAllContract(NGProjectAdmin.Entity.CoreEntity.QueryCondition)">
+            <summary>
+            获取全部合同信息
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
         <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.Post(System.String)">
             <summary>
             查询文件信息
             </summary>
             <param name="FileId">查询条件</param>
             <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.GetById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Contract_baseinfoDTO)">
+            <summary>
+            查询合同信息
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.GetAllAssets">
+            <summary>
+            查询资产信息
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.UpdateById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Contract_baseinfoDTO)">
+            <summary>
+            更新合同信息
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController.Add(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Contract_baseinfoDTO)">
+            <summary>
+            新增合同
+            </summary>
+            <param name="contract_Baseinfo"></param>
+            <returns></returns>
         </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.FilesController">
             <summary>

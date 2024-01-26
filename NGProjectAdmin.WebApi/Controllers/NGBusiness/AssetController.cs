@@ -2,6 +2,7 @@
 using Consul;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NGProjectAdmin.Common.Utility;
 using NGProjectAdmin.Entity.BusinessDTO.NGBusiness;
 using NGProjectAdmin.Entity.BusinessDTO.SystemManagement;
@@ -13,6 +14,7 @@ using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Service.BusinessService.NGBusiness;
 using NGProjectAdmin.WebApi.AppCode.ActionFilters;
 using NGProjectAdmin.WebApi.AppCode.FrameworkBase;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -98,6 +100,16 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         {
             if (assets_info == null) { return ValidationProblem("资产信息不能为空"); }
             NGLoggerContext.Info(assets_info.ToJson());
+            foreach (var item in assets_info.contractinfoByGroup)
+            {
+                if (item.contractinfoGroups != null)
+                {
+                    foreach (var value in item.contractinfoGroups)
+                    {
+                        assets_info.contractinfo.Add(value);
+                    }
+                }
+            }
             Assetment_group assetment_Group = new Assetment_group() { BuildDate = assets_info.assetsMent.buildDate, AssetCode = assets_info.assetsMent.assetCode };
             Assetment_detail assetment_detail = new Assetment_detail();
             if (assets_info.assetDate != null)
@@ -180,12 +192,12 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                 foreach (var item in assets_info.assetsFileGroupFiles)
                 {
                     File_detail file_Detail = File_detailService.GetById(item.Id).Object as File_detail;
-                    if (file_Detail!=null)
+                    if (file_Detail != null)
                     {
                         file_Detail.FileId = assets_info.AssetsFileGroupId;
                         await File_detailService.UpdateAsync(file_Detail);
                     }
-                   
+
                 }
             }
 
@@ -225,16 +237,40 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
                 var querynResult2 = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = asset.propertyFileGroupId } } });
                 asset.propertyFileGroupFiles = querynResult2.List;
             }
-            if (asset.contractinfo.Count > 0 && asset.contractinfo[0].ContractPdfGroupId != null)
-            {
+            List<Assets_info_ContractDTOGroup> assetGroups = new List<Assets_info_ContractDTOGroup>();
+            if (asset.contractinfo.Count > 0)
+            {                              
                 foreach (var item in asset.contractinfo)
                 {
-                    var querynResult3 = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = item.ContractPdfGroupId } } });
-                    item.contractPdfGroupFiles = querynResult3.List;
-                }
-              
-                
+                    if (!string.IsNullOrWhiteSpace(item.ContractPdfGroupId))
+                    {
+                        var querynResult3 = await File_detailService.GetListAsync(new QueryCondition() { QueryItems = new List<QueryItem>() { new QueryItem() { DataType = NGProjectAdmin.Entity.CoreEnum.DataType.String, Field = "FileId", Value = item.ContractPdfGroupId } } });
+                        item.contractPdfGroupFiles = querynResult3.List;
+                    }
+                    // 按年度给合同分个组
+                    DateTime dateTime = Convert.ToDateTime(item.contractDate);
+                    Assets_info_ContractDTOGroup assets_Info_ContractDTOGroup = assetGroups.Find(x => x.year == dateTime.Year.ToString());
+                    if (assets_Info_ContractDTOGroup != null)
+                    {
+                        if (assets_Info_ContractDTOGroup.contractinfoGroups == null)
+                        {
+                            assets_Info_ContractDTOGroup.contractinfoGroups = new List<Assets_info_ContractDTO>() { item };
+                        }
+                        else
+                        {
+                            assets_Info_ContractDTOGroup.contractinfoGroups.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        assets_Info_ContractDTOGroup = new Assets_info_ContractDTOGroup();
+                        assets_Info_ContractDTOGroup.year = dateTime.Year.ToString();
+                        assets_Info_ContractDTOGroup.contractinfoGroups = new List<Assets_info_ContractDTO>() { item };
+                        assetGroups.Add(assets_Info_ContractDTOGroup);
+                    }
+                }                
             }
+            asset.contractinfoByGroup = assetGroups;
 
             return Ok(actionResult);
         }
@@ -246,24 +282,36 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         [HttpPut]
         [Log(OperationType.QueryEntity)]
         [Permission("asset:edit:entity")]
-        public async Task<IActionResult> UpdateById([FromBody] Assets_infoDTO assets_info)
+        public async Task<IActionResult> UpdateById([FromBody] Assets_infoDTO assets_info )
         {
             try
             {
-
+               
                 var actionResult = await this.Assets_infoService.UpdateAsync(assets_info);
+                foreach (var item in assets_info.contractinfoByGroup)
+                {
+                    if (item.contractinfoGroups != null)
+                    {
+                        foreach (var value in item.contractinfoGroups)
+                        {
+                            assets_info.contractinfo.Add(value);
+                        }
+                    }
+                }
+
+
                 foreach (Assets_info_ContractDTO item in assets_info.contractinfo)
                 {
                     var contact = mapper.Map<Contract_baseinfo>(item);
-                    if (contact != null&&!string.IsNullOrWhiteSpace(contact.Id))
+                    if (contact != null && !string.IsNullOrWhiteSpace(contact.Id))
                     {
                         await this.Contract_baseinfoService.UpdateAsync(contact);
                     }
                     else
                     {
-                        contact.contract_groupId= assets_info.contract_groupId;
+                        contact.contract_groupId = assets_info.contract_groupId;
                         contact.AssetsId = assets_info.Id;
-                        await this.Contract_baseinfoService.AddAsync(contact,true);
+                        await this.Contract_baseinfoService.AddAsync(contact, true);
                     }
 
                     if (contact.ContractPrice > 0)
@@ -358,7 +406,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         [Log(OperationType.QueryEntity)]
         public async Task<IActionResult> GetAssetsData()
         {
-            var actionResult = await this.Assets_infoService.GetAssetsData();          
+            var actionResult = await this.Assets_infoService.GetAssetsData();
             return Ok(actionResult);
         }
 
@@ -396,7 +444,7 @@ namespace NGProjectAdmin.WebApi.Controllers.NGBusiness
         /// </summary>
         /// <returns>ActionResult</returns>
         [HttpPost]
-        [AllowAnonymous]        
+        [AllowAnonymous]
         public async Task<IActionResult> GetFeeinfoData([FromBody] int count)
         {
             var actionResult = await this.Assets_infoService.GetFeeinfoData(count);

@@ -77,7 +77,7 @@ namespace NGProjectAdmin.Service.Base
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>实体</returns>
-        public ActionResult GetById(int id)
+        public ActionResult GetById(string id)
         {
             var actionResult = new ActionResult();
 

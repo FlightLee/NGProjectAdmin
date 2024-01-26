@@ -1,9 +1,15 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using NGProjectAdmin.Entity.BusinessDTO.NGBusiness;
 using NGProjectAdmin.Entity.BusinessEntity.BusinessModule;
 using NGProjectAdmin.Entity.BusinessEntity.NGBusiness;
 using NGProjectAdmin.Entity.CommonEnum;
+using NGProjectAdmin.Entity.CoreEntity;
 using NGProjectAdmin.Repository.Base;
+using SqlSugar;
+using SqlSugar.Extensions;
+using StackExchange.Redis;
+using System.Collections.Generic;
 
 namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
 {
@@ -47,7 +53,7 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                     for (int i = 0; i < kk2[0] * 2; i++)
                     {
                         Contract_feeinfo contract_Feeinfo1 = new Contract_feeinfo(this.context) { Amount = contract_Baseinfo.ContractPrice / 2, IsFee = 0, contractId = contract_Baseinfo.Id, contractBeginTime = contract_Baseinfo.ContracStartDate.AddMonths(i * 6), contractEndTime = contract_Baseinfo.ContracStartDate.AddMonths((i + 1) * 6) };
-                    
+
                         waiteFeeinfo.Add(contract_Feeinfo1);
                     }
                     if (kk2[1] != 0)
@@ -72,12 +78,12 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
                     //一年一交
                     for (int i = 0; i < kk2[0]; i++)
                     {
-                        Contract_feeinfo contract_Feeinfo1 = new Contract_feeinfo(this.context) { Amount = contract_Baseinfo.ContractPrice , IsFee = 0, contractId = contract_Baseinfo.Id, contractBeginTime = contract_Baseinfo.ContracStartDate.AddYears(i), contractEndTime = contract_Baseinfo.ContracStartDate.AddYears(i + 1) };
+                        Contract_feeinfo contract_Feeinfo1 = new Contract_feeinfo(this.context) { Amount = contract_Baseinfo.ContractPrice, IsFee = 0, contractId = contract_Baseinfo.Id, contractBeginTime = contract_Baseinfo.ContracStartDate.AddYears(i), contractEndTime = contract_Baseinfo.ContracStartDate.AddYears(i + 1) };
                         waiteFeeinfo.Add(contract_Feeinfo1);
                     }
                     if (kk2[1] != 0)
                     {
-                        Contract_feeinfo contract_Feeinfo1 = new Contract_feeinfo(this.context) { Amount = contract_Baseinfo.ContractPrice , IsFee = 0, contractId = contract_Baseinfo.Id, contractBeginTime = contract_Baseinfo.ContracStartDate.AddYears(kk2[0]).AddDays(1), contractEndTime = contract_Baseinfo.ContractEndDate };
+                        Contract_feeinfo contract_Feeinfo1 = new Contract_feeinfo(this.context) { Amount = contract_Baseinfo.ContractPrice, IsFee = 0, contractId = contract_Baseinfo.Id, contractBeginTime = contract_Baseinfo.ContracStartDate.AddYears(kk2[0]).AddDays(1), contractEndTime = contract_Baseinfo.ContractEndDate };
                         waiteFeeinfo.Add(contract_Feeinfo1);
                     }
                 }
@@ -161,5 +167,56 @@ namespace NGProjectAdmin.Repository.BusinessRepository.NGBusiness
             #endregion
         }
 
+        public async Task<List<Contract_baseinfo>> GetContracts(QueryCondition queryCondition, RefAsync<int> totalCount)
+        {
+            var where = QueryCondition.BuildExpression<Contract_baseinfo>(queryCondition.QueryItems);
+            List<Contract_baseinfo> list = await NGDbContext.Queryable<Contract_baseinfo>().WhereIF(true, where).Where(x => x.IsDel == 0).ToPageListAsync(queryCondition.PageIndex, queryCondition.PageSize, totalCount);
+            return list;
+        }
+
+        public async Task<Contract_baseinfoDTO> GetById(Contract_baseinfoDTO contract_Baseinfo)
+        {
+            var info = await NGDbContext.Queryable<Contract_baseinfo>()
+                .LeftJoin<Assets_info>((a,c)=>a.AssetsId==c.Id && a.IsDel == 0 && c.IsDel == 0)
+                .Where(a=>a.Id== contract_Baseinfo.Id)
+                .Select((a,c)=>new Contract_baseinfoDTO() { 
+                    Id=a.Id,
+                    AssetsAdress=c.AssetsAdress,
+                    ContractDate=a.ContractDate,
+                    ContractType=a.ContractType,
+                    ContracStartDate=a.ContracStartDate,
+                    ContractEndDate=a.ContractEndDate,
+                    ContractLife= a.ContractLife.ToString(),
+                    ContractPromiseMoney=a.ContractPromiseMoney.ToString(),
+                    ContractPrice=a.ContractPrice.ToString(),
+                    ContractMoney=a.ContractMoney.ToString(),
+                    ContractPayment=a.ContractPayment,
+                    ContractState=a.ContractState,
+                    Remark=a.Remark,
+                    Lessor = a.Lessor,
+                    lessee=a.lessee,
+                    lessorPhone = a.lessorPhone ,
+                    lesseePhone=a.lesseePhone,
+                    LessorAdress=a.LessorAdress,
+                    lesseeAdress=a.lesseeAdress,
+                    lessorId=a.lessorId,
+                    lesseeId = a.lesseeId,
+                    ContractPdfGroupId=a.ContractPdfGroupId,
+                    AssetsId=c.Id,
+                    assetsName=c.assetsName
+                })
+                .FirstAsync();
+
+            return info;
+
+
+        }
+
+        public async Task<List<AssetsSelect>> GetAllAssets()
+        {
+            var list = await NGDbContext.Queryable<Assets_info>().Where(x => x.IsDel == 0).Select((x)=>new AssetsSelect() {  AssetsCode= x.Id, AssetsName=x.assetsName }).ToListAsync();
+          
+            return list;
+        }
     }
 }

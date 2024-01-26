@@ -22,12 +22,12 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 合同签订日期
         /// </summary>
-        public DateTime? ContractDate { get; set; }
+        public DateTime ContractDate { get; set; }=new DateTime(DateTime.Now.Ticks);
 
         /// <summary>
         /// 合同类型 0公开租牌合同1协议租赁合同2出借协议
         /// </summary>
-        public int? ContractType { get; set; }
+        public int ContractType { get; set; }=0;
 
         /// <summary>
         /// 出租方（甲方）
@@ -89,7 +89,7 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 合同总租期（年）
         /// </summary>
-        public int? ContractLife { get; set; }
+        public int ContractLife { get; set; } = 0;
 
         /// <summary>
         /// 租期起始日期
@@ -109,23 +109,23 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 合同总金额
         /// </summary>
-        public double? ContractMoney { get; set; }
+        public double ContractMoney { get; set; } = 0;  
 
         /// <summary>
         /// 合同保证金
         /// </summary>
-        public double? ContractPromiseMoney { get; set; }
+        public double ContractPromiseMoney { get; set; }=0;
 
         /// <summary>
         /// 0半年一交1一年一交
         /// </summary>
-        public int? ContractPayment { get; set; }
+        public int ContractPayment { get; set; } = 0;
 
         /// <summary>
         /// 合同附件表Id
         /// </summary>
 
-        public string? ContractPdfGroupId { get; set; }
+        public string ContractPdfGroupId { get; set; } = "";
 
         /// <summary>
         /// 合同附件信息
@@ -197,11 +197,12 @@ namespace NGProjectAdmin.Entity.BusinessEntity.NGBusiness
         /// <summary>
         /// 0合同完结1合同逾期2不存在逾期
         /// </summary>
-        public int? ContractState { get; set; }
+        public int ContractState { get; set; }=0;
 
         /// <summary>
         /// 对应合同组
         /// </summary>
         public Guid? contract_groupId { get; set; }
+       
     }
 }

@@ -24,6 +24,7 @@ namespace NGProjectAdmin
             var host = CreateHostBuilder(args).Build();
 
             #region –ﬁ∏¥PostgreSQL DateTime–¥»Î¥ÌŒÛ
+          
 
             //Cannot write DateTime with Kind=Local to PostgreSQL type 'timestamp with time zone'
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
