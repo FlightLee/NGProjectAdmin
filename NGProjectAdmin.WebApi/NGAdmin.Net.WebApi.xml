@@ -858,6 +858,31 @@
             资产评估
             </summary>
         </member>
+        <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetsCheckController">
+            <summary>
+            巡检控制器
+            </summary>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetsCheckController.#ctor(NGProjectAdmin.Service.BusinessService.NGBusiness.IAssets_CheckService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="Assets_CheckService"></param>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetsCheckController.GetCheckList(NGProjectAdmin.Entity.CoreEntity.QueryCondition)">
+            <summary>
+            查询巡检列表
+            </summary>
+            <param name="queryCondition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NGProjectAdmin.WebApi.Controllers.NGBusiness.AssetsCheckController.DeleteById(NGProjectAdmin.Entity.BusinessDTO.NGBusiness.Assets_CheckDTO)">
+            <summary>
+            删除巡检
+            </summary>
+            <param name="assets_infoDTO">资产编号</param>
+            <returns>ActionResult</returns>
+        </member>
         <member name="T:NGProjectAdmin.WebApi.Controllers.NGBusiness.ContractController">
             <summary>
             合同相关

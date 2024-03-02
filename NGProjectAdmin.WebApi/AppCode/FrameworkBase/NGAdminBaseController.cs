@@ -116,7 +116,7 @@ namespace NGProjectAdmin.WebApi.AppCode.FrameworkBase
         /// </summary>
         /// <param name="id">编号</param>
         /// <returns>ActionResult</returns>
-        [HttpDelete("{id}")]
+        
         [Log(OperationType.DeleteEntity)]
         public async Task<IActionResult> DeleteEntityById(Guid id)
         {
